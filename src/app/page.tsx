@@ -1,94 +1,82 @@
-import Image from "next/image";
+"use client";
 
-import styles from "./page.module.css";
+import { Box, Button, Flex, Heading } from "@chakra-ui/react";
+
+import { Link } from "@/components/link";
+
+const SocialMediaLinks = [
+  {
+    url: "#",
+    name: "behance",
+  },
+  {
+    url: "#",
+    name: "instagram",
+  },
+  {
+    url: "#",
+    name: "facebook",
+  },
+];
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>Instantly deploy your Next.js site to a shareable URL with Vercel.</p>
-        </a>
-      </div>
-    </main>
+    <Box
+      bgColor="red"
+      bg="linear-gradient(rgba(26,26,26,0.25), rgba(26,26,26,0.25)), url(/images/bg-image.png) center center no-repeat"
+      bgSize="cover"
+      height="100vh"
+      minHeight="1000px"
+    >
+      <Flex flexDirection="column" justifyContent="flex-start" height="100%" px="120px" pb="40px">
+        <Flex minHeight="186px"></Flex>
+        <Flex flexDirection="column" height="100%" justifyContent="center">
+          <Heading fontSize="60px" fontWeight={400} color="textPrimaryWhite" maxWidth="600px">
+            Nowoczesne podejście do aranżacji wnętrz
+          </Heading>
+          <Link href="/contacts">
+            <Button
+              width="max-content"
+              height="60px"
+              px="70px"
+              background="linear-gradient(93.04deg, rgba(248, 248, 248, 0.1) -9.18%, rgba(255, 255, 255, 0.1) 111.7%)"
+              backdropFilter="blur(10px)"
+              color="textPrimaryWhite"
+              fontSize="24px"
+              lineHeight="36px"
+              borderRadius={0}
+              transition="backdrop-filter 0.2s"
+              _hover={{
+                backdropFilter: "blur(2px)",
+              }}
+              mt="120px"
+            >
+              Wycena Online
+            </Button>
+          </Link>
+        </Flex>
+        <Flex mr={-3} pt="100px">
+          <Flex width="100%" justifyContent="flex-end">
+            {SocialMediaLinks.map(({ url, name }) => (
+              <Link
+                key={name}
+                href={url}
+                px={3}
+                color="textPrimaryWhite"
+                fontSize="18px"
+                lineHeight="40px"
+                cursor="pointer"
+                fontWeight={600}
+                _hover={{
+                  color: "brand.blue",
+                }}
+              >
+                {name}
+              </Link>
+            ))}
+          </Flex>
+        </Flex>
+      </Flex>
+    </Box>
   );
 }
