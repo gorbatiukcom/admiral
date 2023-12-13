@@ -23,7 +23,7 @@ const colors = {
 const semanticTokens = {
   colors: {
     // bgPrimary: { _light: "white", _dark: "black" },
-    bgBase: { _light: "gray.50", _dark: "gray.900" },
+    bgBase: { _light: "white", _dark: "gray.900" },
     // bgSecondary: { _light: "gray.200", _dark: "gray.800" },
     // bgLine: { _light: "gray.300", _dark: "gray.700" },
     textPrimary: { _light: "black", _dark: "black" },
@@ -32,6 +32,8 @@ const semanticTokens = {
     // textDisabled: { _light: "gray.400", _dark: "whiteAlpha.500" },
 
     // "chakra-body-text": { _light: "gray.800", _dark: "whiteAlpha.900" },
+    "chakra-body-text": "textPrimary",
+    // "chakra-heading-text": "textPrimary",
     "chakra-body-bg": "bgBase",
     // "chakra-border-color": { _light: "gray.200", _dark: "whiteAlpha.300" },
     // "chakra-placeholder-color": { _light: "gray.500", _dark: "whiteAlpha.400" },

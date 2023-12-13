@@ -28,13 +28,13 @@ export default function Home() {
       height="100vh"
       minHeight="1000px"
     >
-      <Flex flexDirection="column" justifyContent="flex-start" height="100%" px="120px" pb="40px">
+      <Flex flexDirection="column" justifyContent="flex-start" height="100%" px="80px" pb="40px">
         <Flex minHeight="186px"></Flex>
         <Flex flexDirection="column" height="100%" justifyContent="center">
           <Heading fontSize="60px" fontWeight={400} color="textPrimaryWhite" maxWidth="600px">
             Nowoczesne podejście do aranżacji wnętrz
           </Heading>
-          <Link href="/contacts">
+          <Link href="/contacts" mt="120px" width="max-content">
             <Button
               width="max-content"
               height="60px"
@@ -49,7 +49,6 @@ export default function Home() {
               _hover={{
                 backdropFilter: "blur(2px)",
               }}
-              mt="120px"
             >
               Wycena Online
             </Button>

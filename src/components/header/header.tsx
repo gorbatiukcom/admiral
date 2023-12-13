@@ -38,7 +38,7 @@ const HeaderContent = ({
     <Flex
       width="100%"
       pt={0}
-      px="120px"
+      px="80px"
       justifyContent="space-between"
       alignItems="flex-start"
       // bg={isTransparent ? "green" : undefined}
@@ -111,14 +111,9 @@ const HeaderContent = ({
   );
 };
 
-const navItems = [
-  {
-    title: "lol",
-    element: <Flex>Lol</Flex>,
-  },
-];
 export const Header = ({ children }: { children: any }) => {
   const pathname = usePathname();
+  // const isTransparent = ["/", "/portfolio"].includes(pathname);
   const isTransparent = ["/"].includes(pathname);
 
   return (
