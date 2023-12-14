@@ -63,14 +63,20 @@ export default function Home({ params }: { params: { projectId: string } }) {
   }
 
   return (
-    <Flex flexDirection="column" alignItems="center" pt={10} bg="black">
-      <Heading px={10} mx="auto" mb={10}>
+    <Flex flexDirection="column" alignItems="center" pt={10}>
+      <Heading px={10} mx="auto" mb={10} fontWeight={400}>
         {projectData?.name}
       </Heading>
       {/* <Image src={projectData?.image} alt={projectData?.name} borderRadius="8px" /> */}
-      <Image src="/images/cc13-1.jpg" alt={projectData?.name} borderRadius="8px" width="100%" />
-      <Image src="/images/cc14-1.jpg" alt={projectData?.name} borderRadius="8px" width="100%" />
-      <Image src="/images/cc15-3.jpg" alt={projectData?.name} borderRadius="8px" width="100%" />
+
+      <Flex flexDirection="column" px={2} gap={2}>
+        {projectData?.images &&
+          projectData.images.map((url) => {
+            return (
+              <Image key={url} src={url} alt={projectData?.name} borderRadius="10px" width="100%" />
+            );
+          })}
+      </Flex>
 
       {/* {projectData.pdf ? (
         <PortfolioPDF pdf={projectData.pdf} />
