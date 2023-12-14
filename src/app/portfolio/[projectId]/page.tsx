@@ -22,6 +22,7 @@ const PDFDocumentWrapper = emotionStyled.div`
   canvas {
     width: 100% !important;
     height: auto !important;
+    max-width: 1800px;
   }
 `;
 
@@ -62,15 +63,20 @@ export default function Home({ params }: { params: { projectId: string } }) {
   }
 
   return (
-    <Flex flexDirection="column" pt={10}>
+    <Flex flexDirection="column" alignItems="center" pt={10} bg="black">
       <Heading px={10} mx="auto" mb={10}>
         {projectData?.name}
       </Heading>
-      {projectData.pdf ? (
+      {/* <Image src={projectData?.image} alt={projectData?.name} borderRadius="8px" /> */}
+      <Image src="/images/cc13-1.jpg" alt={projectData?.name} borderRadius="8px" width="100%" />
+      <Image src="/images/cc14-1.jpg" alt={projectData?.name} borderRadius="8px" width="100%" />
+      <Image src="/images/cc15-3.jpg" alt={projectData?.name} borderRadius="8px" width="100%" />
+
+      {/* {projectData.pdf ? (
         <PortfolioPDF pdf={projectData.pdf} />
       ) : (
         <Image src={projectData?.image} alt={projectData?.name} borderRadius="8px" />
-      )}
+      )} */}
     </Flex>
   );
 }
