@@ -130,7 +130,7 @@ export default function Home() {
           Kontakty
         </Text>
         <Text fontSize="16px" fontWeight={400}>
-          +48 730 205 952
+          +48 536 089 652
         </Text>
         <Text fontSize="16px" fontWeight={400}>
           admiralinterior.info@gmail.com
