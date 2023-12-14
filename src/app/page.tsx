@@ -46,6 +46,7 @@ export default function Home() {
               lineHeight="36px"
               borderRadius={0}
               transition="backdrop-filter 0.2s"
+              fontWeight={400}
               _hover={{
                 backdropFilter: "blur(2px)",
               }}
