@@ -16,6 +16,7 @@ export default function Home() {
               <Image
                 src={image}
                 alt={name}
+                width="100%"
                 borderRadius="8px"
                 _groupHover={{
                   filter: "auto",

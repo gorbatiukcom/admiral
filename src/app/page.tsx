@@ -26,7 +26,7 @@ export default function Home() {
       bg="linear-gradient(rgba(26,26,26,0.25), rgba(26,26,26,0.25)), url(/images/bg-image.png) center center no-repeat"
       bgSize="cover"
       height="100vh"
-      minHeight="1000px"
+      // minHeight="1000px"
     >
       <Flex flexDirection="column" justifyContent="flex-start" height="100%" px="80px" pb="40px">
         <Flex minHeight="186px"></Flex>
@@ -39,7 +39,7 @@ export default function Home() {
               width="max-content"
               height="60px"
               px="70px"
-              background="linear-gradient(93.04deg, rgba(248, 248, 248, 0.1) -9.18%, rgba(255, 255, 255, 0.1) 111.7%)"
+              background="linear-gradient(93.04deg, rgba(50, 50, 50, 0.4) -9.18%, rgba(0, 0, 0, 0.4) 111.7%)"
               backdropFilter="blur(10px)"
               color="textPrimaryWhite"
               fontSize="24px"
@@ -55,7 +55,7 @@ export default function Home() {
             </Button>
           </Link>
         </Flex>
-        <Flex mr={-3} pt="100px">
+        <Flex mr={-3}>
           <Flex width="100%" justifyContent="flex-end">
             {SocialMediaLinks.map(({ url, name }) => (
               <Link

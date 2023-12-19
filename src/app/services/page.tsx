@@ -191,18 +191,19 @@ export default function Home() {
         position="relative"
       >
         <Image
-          src="/images/services_dk_1.png"
+          src="/images/services_dk_1.svg"
           alt="logo"
-          width={1132}
+          minWidth={1500}
+          width={1500}
           height={1124}
           position="absolute"
           zIndex={-1}
           pointerEvents="none"
-          left="-300px"
+          left="-440px"
           top="-50px"
         />
         <Image
-          src="/images/services_dk_2.png"
+          src="/images/services_dk_2.svg"
           alt="logo"
           width={1090}
           height={1422}
