@@ -19,8 +19,7 @@ import { IoArrowBackCircle, IoArrowForwardCircle } from "react-icons/io5";
 
 import { InputStyle } from "@/components/InputStyle";
 import { Link } from "@/components/link";
-
-import { Project, Projects, ProjectsDetalis } from "../page";
+import { Project, Projects, ProjectsDetalis } from "@/constants/projects";
 
 type Inputs = {
   name: string;
@@ -31,7 +30,7 @@ type Inputs = {
   message: string;
 };
 
-export const ProjectsLinks: {
+const ProjectsLinks: {
   [index in Project]: { prev: Project; next: Project };
 } = {
   [Projects.basic]: {
