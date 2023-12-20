@@ -21,6 +21,8 @@ import { InputStyle } from "@/components/InputStyle";
 import { Link } from "@/components/link";
 import { Project, Projects, ProjectsDetalis } from "@/constants/projects";
 
+import { ProjectsLinks } from "../services";
+
 type Inputs = {
   name: string;
   email: string;
@@ -30,38 +32,12 @@ type Inputs = {
   message: string;
 };
 
-const ProjectsLinks: {
-  [index in Project]: { prev: Project; next: Project };
-} = {
-  [Projects.basic]: {
-    prev: "comprehensive",
-    next: "advanced",
-  },
-  [Projects.advanced]: {
-    prev: "basic",
-    next: "authorSupervision",
-  },
-  [Projects.authorSupervision]: {
-    prev: "advanced",
-    next: "comprehensive",
-  },
-  [Projects.comprehensive]: {
-    prev: "authorSupervision",
-    next: "basic",
-  },
-};
-
 export default function Home() {
   const router = useRouter();
-  const pathname = usePathname();
   const searchParams = useSearchParams();
   const activeProject = searchParams.get("project") as Project;
 
-  console.log("🚀 ~ Home ~ searchParams:", searchParams);
   const current = new URLSearchParams(Array.from(searchParams.entries())); // -> has to use this form
-  console.log("🚀 ~ Home ~ searchParams.entries():", searchParams.entries());
-  console.log("🚀 ~ Home ~ searchParams.get(a):", searchParams.get("a"));
-  console.log("🚀 ~ Home ~ current:", current);
 
   const {
     handleSubmit,
@@ -70,21 +46,74 @@ export default function Home() {
   } = useForm<Inputs>();
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
-    // axios.defaults.headers.post["Accept"] = "application/json";
-    // await axios
-    //   .post("https://getform.io/f/f4a8de8f-cb20-4317-b5d8-27c7ac9a37b7", data)
-    //   .catch((error) => {
-    //     console.log("🚀 ~ sendForm ~ error:", error);
-    //   });
+    axios.defaults.headers.post["Accept"] = "application/json";
+    await axios
+      .post("https://getform.io/f/f4a8de8f-cb20-4317-b5d8-27c7ac9a37b7", {
+        ...data,
+        project: activeProject,
+      })
+      .catch((error) => {
+        console.log("🚀 ~ sendForm ~ error:", error);
+      });
     router.push("/contacts/confirmation");
   };
 
   return (
-    <Flex p="40px" my="40px" mx="auto" width="100%" maxWidth="1000px" border="1px dashed">
-      <Flex flexDirection="column" borderRight="1px dashed" width="100%" pr="60px">
-        <Text fontSize="60px" lineHeight="60px" fontWeight={400} pb="40px">
+    <Flex
+      p={[4, 10]}
+      my={[4, 10]}
+      mb={[0, 10]}
+      flexDirection={["column", "row"]}
+      mx="auto"
+      width="100%"
+      maxWidth="1000px"
+      border={[null, "1px dashed"]}
+    >
+      <Flex
+        flexDirection="column"
+        borderRight={[null, "1px dashed"]}
+        width="100%"
+        pr={[0, "60px"]}
+        pb={[10, 0]}
+      >
+        <Text
+          fontSize={["32px", "60px"]}
+          lineHeight={["32px", "60px"]}
+          fontWeight={400}
+          pb={[10, 10]}
+          // textAlign={["center", "left"]}
+        >
           Witamy
         </Text>
+        {/* MOBILE */}
+        <Flex display={["flex", "none"]} width="100%" alignItems="center" pb={10}>
+          <Link
+            href={`/services/order?project=${ProjectsLinks[activeProject].prev}`}
+            scroll={false}
+            replace={true}
+          >
+            <Icon as={IoArrowBackCircle} boxSize="44px" />
+          </Link>
+          <Flex flexDirection="column" alignItems="center" width="100%">
+            <Text fontSize="20px" fontWeight={300}>
+              {ProjectsDetalis[activeProject].price}
+            </Text>
+            <Text fontSize="20px" fontWeight={400} mt={2}>
+              PROJEKT
+            </Text>
+            <Text fontSize="24px" fontWeight={400}>
+              {ProjectsDetalis[activeProject].name}
+            </Text>
+          </Flex>
+          <Link
+            href={`/services/order?project=${ProjectsLinks[activeProject].next}`}
+            scroll={false}
+            replace={true}
+          >
+            <Icon as={IoArrowForwardCircle} boxSize="44px" />
+          </Link>
+        </Flex>
+
         <form onSubmit={handleSubmit(onSubmit)}>
           <FormControl isInvalid={!!errors.name?.message}>
             <FormLabel htmlFor="name">Imię i nazwisko</FormLabel>
@@ -172,6 +201,7 @@ export default function Home() {
               fontSize="20px"
               px={7}
               height="44px"
+              width={["100%", null]}
               _hover={{
                 bg: "gray.800",
                 color: "brand.blue",
@@ -182,7 +212,9 @@ export default function Home() {
           </Flex>
         </form>
       </Flex>
+      {/* DESKTOP */}
       <Flex
+        display={["none", "flex"]}
         flexDirection="column"
         alignItems="center"
         justifyContent="center"
@@ -200,10 +232,18 @@ export default function Home() {
           {ProjectsDetalis[activeProject].name}
         </Text>
         <Flex justifyContent="space-between" width="200px" mt="28px">
-          <Link href={`/services/order?project=${ProjectsLinks[activeProject].prev}`}>
+          <Link
+            href={`/services/order?project=${ProjectsLinks[activeProject].prev}`}
+            scroll={false}
+            replace={true}
+          >
             <Icon as={IoArrowBackCircle} boxSize="44px" />
           </Link>
-          <Link href={`/services/order?project=${ProjectsLinks[activeProject].next}`}>
+          <Link
+            href={`/services/order?project=${ProjectsLinks[activeProject].next}`}
+            scroll={false}
+            replace={true}
+          >
             <Icon as={IoArrowForwardCircle} boxSize="44px" />
           </Link>
         </Flex>

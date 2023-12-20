@@ -32,12 +32,12 @@ export default function Home() {
   const router = useRouter();
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
-    // axios.defaults.headers.post["Accept"] = "application/json";
-    // await axios
-    //   .post("https://getform.io/f/f4a8de8f-cb20-4317-b5d8-27c7ac9a37b7", data)
-    //   .catch((error) => {
-    //     console.log("🚀 ~ sendForm ~ error:", error);
-    //   });
+    axios.defaults.headers.post["Accept"] = "application/json";
+    await axios
+      .post("https://getform.io/f/f4a8de8f-cb20-4317-b5d8-27c7ac9a37b7", data)
+      .catch((error) => {
+        console.log("🚀 ~ sendForm ~ error:", error);
+      });
     router.push("/contacts/confirmation");
   };
 
