@@ -49,4 +49,21 @@ const fonts = {
   body: "var(--font-oswald)",
 };
 
-export const theme = extendTheme({ fonts, colors, semanticTokens, config });
+export const theme = extendTheme({
+  fonts,
+  colors,
+  semanticTokens,
+  config,
+  components: {
+    Drawer: {
+      parts: ["dialog", "header", "body"],
+      variants: {
+        small: {
+          dialog: {
+            maxW: "220px",
+          },
+        },
+      },
+    },
+  },
+});

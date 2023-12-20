@@ -12,33 +12,33 @@ import {
 import { Image } from "@/components/image";
 import { Link } from "@/components/link";
 
-enum Projects {
+export enum Projects {
   basic = "basic",
   advanced = "advanced",
   authorSupervision = "authorSupervision",
   comprehensive = "comprehensive",
 }
 
-type Project = keyof typeof Projects;
+export type Project = keyof typeof Projects;
 
-const ProjectsDetalis: {
+export const ProjectsDetalis: {
   [index in Project]: { name: string; price: string; description?: string };
 } = {
   [Projects.basic]: {
     name: "PODSTAWOWY",
-    price: "150zł/m2",
+    price: "150zł / m2",
   },
   [Projects.advanced]: {
     name: "ZAAWANSOWANY",
-    price: "250zł/m2",
+    price: "250zł / m2",
   },
   [Projects.authorSupervision]: {
     name: "NADZÓR AUTORSKI",
-    price: "350zł/m2",
+    price: "350zł / m2",
   },
   [Projects.comprehensive]: {
     name: "KOMPLEKSOWY",
-    price: "1250zł/m2",
+    price: "1250zł / m2",
     description:
       "Cena może się różnić w zależności od materiałów wykońcenia oraz mebli do zabudowy",
   },
@@ -308,7 +308,7 @@ export default function Home() {
               justifyContent="center"
               alignItems="flex-start"
             >
-              <Link href="/contacts">
+              <Link href={`/services/order?project=${project}`}>
                 <Button
                   bg="black"
                   color="white"

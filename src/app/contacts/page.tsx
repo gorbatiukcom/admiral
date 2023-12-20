@@ -11,25 +11,16 @@ import {
   Textarea,
 } from "@chakra-ui/react";
 import axios from "axios";
+import { useRouter } from "next/navigation";
 import { SubmitHandler, useForm } from "react-hook-form";
 
+import { InputStyle } from "@/components/InputStyle";
 import { Link } from "@/components/link";
-
-import { SubmitConfirmation } from "./SubmitConfirmation";
 
 type Inputs = {
   email: string;
   phone: string;
   message: string;
-};
-
-const InputStyle = {
-  borderRadius: "0px",
-  borderColor: "black",
-  _focus: {
-    boxShadow: "0 0 0 1px var(--chakra-colors-brand-blue)",
-    borderColor: "brand.blue",
-  },
 };
 
 export default function Home() {
@@ -38,24 +29,23 @@ export default function Home() {
     register,
     formState: { errors, isSubmitting, isSubmitSuccessful },
   } = useForm<Inputs>();
+  const router = useRouter();
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
-    axios.defaults.headers.post["Content-Type"] = "application/json";
-    await axios
-      .post("https://formsubmit.co/ajax/09c987a40e8f6ede638acae3f760f547", data)
-      .catch((error) => {
-        console.log("🚀 ~ sendForm ~ error:", error);
-      });
+    // axios.defaults.headers.post["Accept"] = "application/json";
+    // await axios
+    //   .post("https://getform.io/f/f4a8de8f-cb20-4317-b5d8-27c7ac9a37b7", data)
+    //   .catch((error) => {
+    //     console.log("🚀 ~ sendForm ~ error:", error);
+    //   });
+    router.push("/contacts/confirmation");
   };
 
-  if (isSubmitSuccessful) {
-    return <SubmitConfirmation />;
-  }
   return (
     <Flex p="40px" my="40px" mx="auto" width="100%" maxWidth="1000px" border="1px dashed">
       <Flex flexDirection="column" borderRight="1px dashed" width="100%" pr="60px">
-        <Text fontSize="60px" lineHeight="60px" fontWeight={700} pb="40px">
-          Cześć
+        <Text fontSize="60px" lineHeight="60px" fontWeight={400} pb="40px">
+          Witamy
         </Text>
         <form onSubmit={handleSubmit(onSubmit)}>
           <FormControl isInvalid={!!errors.email?.message}>
@@ -104,7 +94,7 @@ export default function Home() {
               type="submit"
               bg="black"
               color="white"
-              borderRadius="0px"
+              borderRadius="8px"
               fontWeight={400}
               fontSize="20px"
               px={7}

@@ -1,47 +1,69 @@
 "use client";
 
-import { Box, Flex, VStack } from "@chakra-ui/react";
-import { usePathname } from "next/navigation";
+import {
+  Box,
+  Button,
+  Drawer,
+  DrawerBody,
+  DrawerCloseButton,
+  DrawerContent,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerOverlay,
+  Flex,
+  Icon,
+  IconButton,
+  Input,
+  useDisclosure,
+} from "@chakra-ui/react";
+import { useSelectedLayoutSegment } from "next/navigation";
+import { useRef } from "react";
+import { IoMenu, IoMenuSharp } from "react-icons/io5";
 
 import { Image } from "@/components/image";
 import { Link } from "@/components/link";
 
+import { SocialMediaLinks } from "../SocialMediaLinks";
+
 const NavigationLinks = [
   {
     url: "/",
+    segment: null,
     name: "Strona Główna",
   },
   {
     url: "/services",
+    segment: "services",
     name: "Usługi",
   },
   {
     url: "/portfolio",
+    segment: "portfolio",
     name: "Portfolio",
   },
   {
     url: "/contacts",
+    segment: "contacts",
     name: "Kontakty",
   },
 ];
 
-const HeaderContent = ({
+const DesktopHeader = ({
   isTransparent,
-  pathname,
+  segment: activeSegment,
 }: {
   isTransparent: boolean;
-  pathname: string;
+  segment: string | null;
 }) => {
-  console.log("🚀 ~ pathname:", pathname);
   const color = isTransparent ? "textPrimaryWhite" : "textPrimary";
   return (
     <Flex
+      display={["none", "flex"]}
       width="100%"
       pt={0}
       px="80px"
       justifyContent="space-between"
       alignItems="flex-start"
-      // bg={isTransparent ? "green" : undefined}
       position={isTransparent ? "relative" : undefined}
       marginBottom={isTransparent ? "-186px" : undefined}
     >
@@ -52,11 +74,10 @@ const HeaderContent = ({
           width={124}
           height={186}
           bg={isTransparent ? "white" : undefined}
-          // onClick={logoHandler}
         />
       </Link>
       <Flex pt="40px">
-        {NavigationLinks.map(({ url, name }) => (
+        {NavigationLinks.map(({ url, segment, name }) => (
           <Link
             key={name}
             href={url}
@@ -71,7 +92,7 @@ const HeaderContent = ({
             }}
             position="relative"
             _before={
-              pathname === url
+              activeSegment === segment
                 ? {
                     content: `""`,
                     position: "absolute",
@@ -111,10 +132,157 @@ const HeaderContent = ({
   );
 };
 
+const MobileHeader = ({
+  isTransparent,
+  segment: activeSegment,
+}: {
+  isTransparent: boolean;
+  segment: string | null;
+}) => {
+  const burgerColor = isTransparent ? "textPrimaryWhite" : "textPrimary";
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const btnRef = useRef(null as any);
+
+  return (
+    <Flex
+      display={["flex", "none"]}
+      width="100%"
+      pt={0}
+      pl={0}
+      pr={4}
+      position={isTransparent ? "relative" : undefined}
+      marginBottom={isTransparent ? "-152px" : undefined}
+      justifyContent="space-between"
+    >
+      <Link href="/">
+        <Image
+          src="/images/logo.png"
+          alt="logo"
+          minWidth={102}
+          width={102}
+          height={152}
+          bg={isTransparent ? "white" : undefined}
+        />
+      </Link>
+      <IconButton
+        mt={2}
+        mr="-6px"
+        ref={btnRef}
+        aria-label="menu"
+        color={burgerColor}
+        icon={<Icon as={IoMenuSharp} boxSize="36px" />}
+        background="transparent"
+        onClick={onOpen}
+      />
+      <Drawer
+        isOpen={isOpen}
+        placement="right"
+        onClose={onClose}
+        finalFocusRef={btnRef}
+        variant="small"
+      >
+        <DrawerOverlay />
+        <DrawerContent bg="black">
+          <DrawerCloseButton color="textPrimaryWhite" size="lg" />
+          <DrawerBody display="flex" flexDirection="column" justifyContent="center" px={5}>
+            {NavigationLinks.map(({ url, segment, name }) => (
+              <Link
+                key={name}
+                href={url}
+                py={2}
+                px={5}
+                color="textPrimaryWhite"
+                fontSize="20px"
+                lineHeight="40px"
+                cursor="pointer"
+                _hover={{
+                  color: "brand.blue",
+                }}
+                position="relative"
+                _before={
+                  activeSegment === segment
+                    ? {
+                        content: `""`,
+                        position: "absolute",
+                        display: "block",
+                        width: "6px",
+                        height: "6px",
+                        left: 0,
+                        bottom: "calc(50% - 3px)",
+                        background: "brand.blue",
+                        pointerEvents: "none",
+                        borderRadius: "full",
+                      }
+                    : undefined
+                }
+                onClick={onClose}
+              >
+                {name}
+              </Link>
+            ))}
+          </DrawerBody>
+
+          <DrawerFooter p={4}>
+            <Flex width="100%" justifyContent="flex-end" gap={[4, 6]}>
+              {SocialMediaLinks.map(({ url, name }) => (
+                <Link
+                  key={name}
+                  href={url}
+                  color="textPrimaryWhite"
+                  fontSize={["14px", "18px"]}
+                  lineHeight={["21px", "40px"]}
+                  cursor="pointer"
+                  fontWeight={600}
+                  _hover={{
+                    color: "brand.blue",
+                  }}
+                >
+                  {name}
+                </Link>
+              ))}
+            </Flex>
+          </DrawerFooter>
+        </DrawerContent>
+      </Drawer>
+      {/* <Link
+        href="tel:+48536089652"
+        py={2}
+        px={5}
+        pt="48px"
+        mr={-5}
+        color={color}
+        fontSize="20px"
+        lineHeight="40px"
+        cursor="pointer"
+        _hover={{
+          color: "brand.blue",
+        }}
+      >
+        +48 536 089 652
+      </Link> */}
+    </Flex>
+  );
+};
+
+const HeaderContent = ({
+  isTransparent,
+  segment: activeSegment,
+}: {
+  isTransparent: boolean;
+  segment: string | null;
+}) => {
+  return (
+    <>
+      <MobileHeader isTransparent={isTransparent} segment={activeSegment} />
+      <DesktopHeader isTransparent={isTransparent} segment={activeSegment} />
+    </>
+  );
+};
+
 export const Header = ({ children }: { children: any }) => {
-  const pathname = usePathname();
-  // const isTransparent = ["/", "/portfolio"].includes(pathname);
-  const isTransparent = ["/"].includes(pathname);
+  const segment = useSelectedLayoutSegment();
+
+  const isTransparent = segment === null;
 
   return (
     <Box
@@ -135,8 +303,7 @@ export const Header = ({ children }: { children: any }) => {
           : undefined
       }
     >
-      <HeaderContent isTransparent={isTransparent} pathname={pathname} />
-
+      <HeaderContent isTransparent={isTransparent} segment={segment} />
       {children}
     </Box>
   );
