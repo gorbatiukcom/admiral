@@ -52,6 +52,7 @@ export const PortfolioProjects: PortfolioProject[] = [
       "/images/pc18-5.jpg",
       "/images/pc19-6.jpg",
     ],
+    description: "Powierzchnia domu 102 m2",
   },
   {
     name: "Budynek w Łodżi2",

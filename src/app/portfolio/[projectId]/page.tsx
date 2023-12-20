@@ -17,17 +17,24 @@ export default function Home({ params }: { params: { projectId: string } }) {
   }
 
   return (
-    <Flex flexDirection="column" alignItems="center" pt={10}>
-      <Heading px={10} mx="auto" mb={10} fontWeight={400}>
+    <Flex flexDirection="column" alignItems="center" pt={[4, 10]} pb={10}>
+      <Heading px={[4, 10]} mx="auto" mb={[4, 10]} fontWeight={400} fontSize={["2xl", "3xl"]}>
         {projectData?.name}
       </Heading>
-      {/* <Image src={projectData?.image} alt={projectData?.name} borderRadius="8px" /> */}
 
-      <Flex flexDirection="column" px={2} gap={2}>
+      <Flex flexDirection="column" alignItems="center" justifyContent="center" px={2} gap={2}>
         {projectData?.images &&
           projectData.images.map((url) => {
             return (
-              <Image key={url} src={url} alt={projectData?.name} borderRadius="10px" width="100%" />
+              <Image
+                key={url}
+                src={url}
+                alt={projectData?.name}
+                borderRadius="10px"
+                width="max-content"
+                maxHeight="100dvh"
+                objectFit="contain"
+              />
             );
           })}
       </Flex>
