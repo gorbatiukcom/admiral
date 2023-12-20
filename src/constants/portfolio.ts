@@ -12,7 +12,6 @@ type PortfolioProject = {
   name: string;
   image: string;
   images?: string[];
-  pdf?: string;
   description?: string;
 };
 
@@ -21,7 +20,6 @@ export const PortfolioProjects: PortfolioProject[] = [
     projectId: "budynek-w-lodzi",
     name: "Budynek w Łodżi",
     image: "/images/portfolio_1.png",
-    pdf: "/pdfs/part1.pdf",
     images: [
       "/images/cc13-1.jpg",
       "/images/cc14-1.jpg",
@@ -59,7 +57,6 @@ export const PortfolioProjects: PortfolioProject[] = [
     name: "Budynek w Łodżi2",
     image: "/images/portfolio_1.png",
     projectId: "budynek-w-lodzi2",
-    pdf: "/pdfs/part2.pdf",
   },
   {
     name: "Budynek w Łodżi3",
