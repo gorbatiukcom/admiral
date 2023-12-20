@@ -42,9 +42,30 @@ export default function Home() {
   };
 
   return (
-    <Flex p="40px" my="40px" mx="auto" width="100%" maxWidth="1000px" border="1px dashed">
-      <Flex flexDirection="column" borderRight="1px dashed" width="100%" pr="60px">
-        <Text fontSize="60px" lineHeight="60px" fontWeight={400} pb="40px">
+    <Flex
+      p={[4, 10]}
+      mt={[4, 10]}
+      mb={[0, 10]}
+      mx="auto"
+      width="100%"
+      maxWidth="1000px"
+      border={[null, "1px dashed"]}
+      flexDirection={["column", "row"]}
+    >
+      <Flex
+        flexDirection="column"
+        borderRight={[null, "1px dashed"]}
+        width="100%"
+        pr={[0, "60px"]}
+        pb={[10, 0]}
+      >
+        <Text
+          fontSize={["32px", "60px"]}
+          lineHeight={["32px", "60px"]}
+          fontWeight={400}
+          pb={[4, 10]}
+          textAlign={["center", "left"]}
+        >
           Witamy
         </Text>
         <form onSubmit={handleSubmit(onSubmit)}>
@@ -99,6 +120,7 @@ export default function Home() {
               fontSize="20px"
               px={7}
               height="44px"
+              width={["100%", null]}
               _hover={{
                 bg: "gray.800",
                 color: "brand.blue",
@@ -111,34 +133,34 @@ export default function Home() {
       </Flex>
       <Flex
         flexDirection="column"
-        paddingLeft="36px"
+        paddingLeft={[0, 9]}
         maxWidth="360px"
         justifyContent="space-between"
       >
         <Flex flexDirection="column">
-          <Text fontSize="24px" fontWeight={600} pb="24px">
+          <Text fontSize={["20px", "24px"]} fontWeight={[500, 600]} pb={[2, 6]}>
             Nazwa firmy i adres do korespondencji
           </Text>
-          <Text fontSize="16px" fontWeight={300}>
+          <Text fontSize={["14px", "16px"]} fontWeight={300}>
             Volantes Sp z o.o.
           </Text>
-          <Text fontSize="16px" fontWeight={300}>
+          <Text fontSize={["14px", "16px"]} fontWeight={300}>
             NIP: 725 230 67 13
           </Text>
-          <Text fontSize="16px" fontWeight={300}>
+          <Text fontSize={["14px", "16px"]} fontWeight={300}>
             Aleja Tadeusza Kościuszki 80/82 lok.301
           </Text>
-          <Text fontSize="16px" fontWeight={300}>
+          <Text fontSize={["14px", "16px"]} fontWeight={300}>
             Łódż 90-437
           </Text>
         </Flex>
-        <Flex flexDirection="column">
-          <Text fontSize="24px" fontWeight={600} pb="24px">
+        <Flex flexDirection="column" mt={[4, 0]}>
+          <Text fontSize={["20px", "24px"]} fontWeight={[500, 600]} pb={[2, 6]}>
             Kontakty
           </Text>
           <Link
             href="tel:+48536089652"
-            fontSize="16px"
+            fontSize={["14px", "16px"]}
             fontWeight={400}
             cursor="pointer"
             _hover={{
@@ -149,7 +171,7 @@ export default function Home() {
           </Link>
           <Link
             href="mailto:admiralinterior.info@gmail.com"
-            fontSize="16px"
+            fontSize={["14px", "16px"]}
             fontWeight={400}
             cursor="pointer"
             _hover={{
