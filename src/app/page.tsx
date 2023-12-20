@@ -13,7 +13,7 @@ export default function Home() {
       bgRepeat="no-repeat"
       bgPosition={["25% 75%", "center, center"]}
       bgSize="cover"
-      height="100vh"
+      height="var(--chakra-vh)"
     >
       <Flex
         flexDirection="column"
