@@ -52,7 +52,7 @@ export default function Home() {
     await axios
       .post("https://getform.io/f/761a3fe2-3d7a-49fa-8e52-9831853d010e", {
         ...data,
-        project: activeProject,
+        project: ProjectsDetalis[activeProject].name,
       })
       .catch((error) => {
         console.log("🚀 ~ sendForm ~ error:", error);
