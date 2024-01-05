@@ -34,7 +34,7 @@ export default function Home() {
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     axios.defaults.headers.post["Accept"] = "application/json";
     await axios
-      .post("https://getform.io/f/f4a8de8f-cb20-4317-b5d8-27c7ac9a37b7", data)
+      .post("https://getform.io/f/761a3fe2-3d7a-49fa-8e52-9831853d010e", data)
       .catch((error) => {
         console.log("🚀 ~ sendForm ~ error:", error);
       });
