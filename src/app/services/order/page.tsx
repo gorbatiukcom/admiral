@@ -48,16 +48,17 @@ export default function Home() {
   } = useForm<Inputs>();
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
-    axios.defaults.headers.post["Accept"] = "application/json";
-    await axios
-      .post("https://getform.io/f/761a3fe2-3d7a-49fa-8e52-9831853d010e", {
-        ...data,
-        project: activeProject,
-      })
-      .catch((error) => {
-        console.log("🚀 ~ sendForm ~ error:", error);
-      });
-    router.push("/contacts/confirmation");
+    console.log("🚀 ~ constonSubmit:SubmitHandler<Inputs>= ~ data:", data);
+    // axios.defaults.headers.post["Accept"] = "application/json";
+    // await axios
+    //   .post("https://getform.io/f/761a3fe2-3d7a-49fa-8e52-9831853d010e", {
+    //     ...data,
+    //     project: activeProject,
+    //   })
+    //   .catch((error) => {
+    //     console.log("🚀 ~ sendForm ~ error:", error);
+    //   });
+    // router.push("/contacts/confirmation");
   };
 
   return (
@@ -217,6 +218,7 @@ export default function Home() {
                 id="message"
                 placeholder="Wpisz swoją wiadomosć tutaj..."
                 rows={4}
+                {...register("message")}
               />
               <FormErrorMessage>{errors.message && errors.message.message}</FormErrorMessage>
             </FormControl>
