@@ -286,6 +286,7 @@ export const Header = ({ children }: { children: any }) => {
 
   return (
     <Box
+      overflow="hidden"
       _before={
         isTransparent
           ? {

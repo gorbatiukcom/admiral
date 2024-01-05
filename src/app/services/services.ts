@@ -118,7 +118,7 @@ export const Services: Service[] = [
     projects: ["comprehensive"],
   },
   {
-    name: "Meble do zabudowy (сena może się różnić w zależności od materiałów)",
+    name: "Meble do zabudowy (cena może się różnić w zależności od materiałów)",
     projects: ["comprehensive"],
   },
 ];

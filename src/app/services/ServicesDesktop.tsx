@@ -1,6 +1,7 @@
 "use client";
 
 import { Button, Flex, Grid, GridItem, Icon, Text } from "@chakra-ui/react";
+import { Fragment } from "react";
 import { IoCheckmarkCircle } from "react-icons/io5";
 
 import { Image } from "@/components/image";
@@ -66,9 +67,8 @@ export default function ServicesDesktop() {
 
         {Services.map(({ name, projects }, index) => {
           return (
-            <>
+            <Fragment key={name}>
               <GridItem
-                key={name}
                 borderRight="1px dashed"
                 py={2}
                 pt={index === 0 ? 4 : undefined}
@@ -81,7 +81,7 @@ export default function ServicesDesktop() {
               {Object.values(Projects).map((project) => {
                 return (
                   <GridItem
-                    key={project}
+                    key={`${name}-${project}`}
                     display="flex"
                     justifyContent="center"
                     alignItems="center"
@@ -104,7 +104,7 @@ export default function ServicesDesktop() {
                   </GridItem>
                 );
               })}
-            </>
+            </Fragment>
           );
         })}
 

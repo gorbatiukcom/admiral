@@ -1,4 +1,4 @@
-import { ColorModeScript, Flex } from "@chakra-ui/react";
+import { ColorModeScript } from "@chakra-ui/react";
 import type { Metadata } from "next";
 import { Viewport } from "next";
 
@@ -21,8 +21,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={fonts.oswald.className}>
-      <body>
+    <html lang="en" suppressHydrationWarning={true} className={fonts.oswald.className}>
+      <body suppressHydrationWarning={true}>
         <Providers>
           <ColorModeScript initialColorMode={theme.config.initialColorMode} />
           <Header>{children}</Header>
