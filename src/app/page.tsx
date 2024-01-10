@@ -37,8 +37,7 @@ export default function Home() {
               width="max-content"
               height={["48px", "60px"]}
               px={["40px", "70px"]}
-              background="radial-gradient(#0000,rgba(0, 163, 255, 0.6))"
-              backdropFilter="blur(10px)"
+              background="black"
               color="textPrimaryWhite"
               fontSize={["20px", "24px"]}
               borderRadius={8}

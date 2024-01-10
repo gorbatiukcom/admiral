@@ -1,10 +1,10 @@
 "use client";
 
 export const SocialMediaLinks = [
-  {
-    url: "#",
-    name: "behance",
-  },
+  // {
+  //   url: "#",
+  //   name: "behance",
+  // },
   {
     url: "#",
     name: "instagram",
