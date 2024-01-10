@@ -53,7 +53,7 @@ export default function Home({ params }: { params: { projectId: string } }) {
         bottom={["16px", "40px"]}
         px={["16px", "40px"]}
       >
-        <Link href="/contacts" width="max-content">
+        <Link href="/services/order" width="max-content">
           <Button
             width="max-content"
             height={["40px", "60px"]}

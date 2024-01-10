@@ -72,14 +72,14 @@ export default function Home() {
         flexDirection={["column", "row"]}
         mx="auto"
         width="100%"
-        maxWidth="1000px"
+        maxWidth={activeProject ? "1000px" : "700px"}
         border={[null, "1px dashed"]}
       >
         <Flex
           flexDirection="column"
-          borderRight={[null, "1px dashed"]}
+          borderRight={activeProject ? [null, "1px dashed"] : undefined}
           width="100%"
-          pr={[0, "60px"]}
+          pr={activeProject ? [0, "60px"] : undefined}
           pb={[10, 0]}
         >
           <Text
@@ -92,56 +92,58 @@ export default function Home() {
             Witamy
           </Text>
           {/* MOBILE */}
-          <Flex
-            display={["flex", "none"]}
-            width="100%"
-            alignItems="center"
-            pb={10}
-            position="relative"
-          >
-            {Object.keys(Projects).map((project) => {
-              return (
-                <Image
-                  key={project}
-                  src={`/images/services_dk_${project}.svg`}
-                  alt="logo"
-                  minWidth="150%"
-                  width="150%"
-                  position="absolute"
-                  zIndex={-1}
-                  pointerEvents="none"
-                  display={activeProject === project ? undefined : "none"}
-                  left="-25%"
-                  top={-75}
-                />
-              );
-            })}
-            <Link
-              href={`/services/order?project=${ProjectsLinks[activeProject].prev}`}
-              scroll={false}
-              replace={true}
+          {activeProject ? (
+            <Flex
+              display={["flex", "none"]}
+              width="100%"
+              alignItems="center"
+              pb={10}
+              position="relative"
             >
-              <Icon as={IoArrowBackCircle} boxSize="44px" />
-            </Link>
-            <Flex flexDirection="column" alignItems="center" width="100%">
-              <Text fontSize="20px" fontWeight={300}>
-                {ProjectsDetalis[activeProject].price}
-              </Text>
-              <Text fontSize="20px" fontWeight={400} mt={2}>
-                PROJEKT
-              </Text>
-              <Text fontSize="24px" fontWeight={400}>
-                {ProjectsDetalis[activeProject].name}
-              </Text>
+              {Object.keys(Projects).map((project) => {
+                return (
+                  <Image
+                    key={project}
+                    src={`/images/services_dk_${project}.svg`}
+                    alt="logo"
+                    minWidth="150%"
+                    width="150%"
+                    position="absolute"
+                    zIndex={-1}
+                    pointerEvents="none"
+                    display={activeProject === project ? undefined : "none"}
+                    left="-25%"
+                    top={-75}
+                  />
+                );
+              })}
+              <Link
+                href={`/services/order?project=${ProjectsLinks[activeProject].prev}`}
+                scroll={false}
+                replace={true}
+              >
+                <Icon as={IoArrowBackCircle} boxSize="44px" />
+              </Link>
+              <Flex flexDirection="column" alignItems="center" width="100%">
+                <Text fontSize="20px" fontWeight={300}>
+                  {ProjectsDetalis[activeProject].price}
+                </Text>
+                <Text fontSize="20px" fontWeight={400} mt={2}>
+                  PROJEKT
+                </Text>
+                <Text fontSize="24px" fontWeight={400}>
+                  {ProjectsDetalis[activeProject].name}
+                </Text>
+              </Flex>
+              <Link
+                href={`/services/order?project=${ProjectsLinks[activeProject].next}`}
+                scroll={false}
+                replace={true}
+              >
+                <Icon as={IoArrowForwardCircle} boxSize="44px" />
+              </Link>
             </Flex>
-            <Link
-              href={`/services/order?project=${ProjectsLinks[activeProject].next}`}
-              scroll={false}
-              replace={true}
-            >
-              <Icon as={IoArrowForwardCircle} boxSize="44px" />
-            </Link>
-          </Flex>
+          ) : null}
 
           <form onSubmit={handleSubmit(onSubmit)}>
             <FormControl isInvalid={!!errors.name?.message}>
@@ -245,61 +247,63 @@ export default function Home() {
           </form>
         </Flex>
         {/* DESKTOP */}
-        <Flex
-          display={["none", "flex"]}
-          flexDirection="column"
-          alignItems="center"
-          justifyContent="center"
-          paddingLeft="36px"
-          maxWidth="330px"
-          width="100%"
-          position="relative"
-        >
-          {Object.keys(Projects).map((project) => {
-            return (
-              <NextImage
-                key={project}
-                src={`/images/services_dk_${project}.svg`}
-                alt="logo"
-                minWidth={754}
-                width={754}
-                height={1000}
-                position="absolute"
-                zIndex={-1}
-                pointerEvents="none"
-                display={activeProject === project ? undefined : "none"}
-                // left=""
-                // top=""
-              />
-            );
-          })}
+        {activeProject ? (
+          <Flex
+            display={["none", "flex"]}
+            flexDirection="column"
+            alignItems="center"
+            justifyContent="center"
+            paddingLeft="36px"
+            maxWidth="330px"
+            width="100%"
+            position="relative"
+          >
+            {Object.keys(Projects).map((project) => {
+              return (
+                <NextImage
+                  key={project}
+                  src={`/images/services_dk_${project}.svg`}
+                  alt="logo"
+                  minWidth={754}
+                  width={754}
+                  height={1000}
+                  position="absolute"
+                  zIndex={-1}
+                  pointerEvents="none"
+                  display={activeProject === project ? undefined : "none"}
+                  // left=""
+                  // top=""
+                />
+              );
+            })}
 
-          <Text fontSize="24px" fontWeight={300}>
-            {ProjectsDetalis[activeProject].price}
-          </Text>
-          <Text fontSize="24px" fontWeight={400} mt={2}>
-            PROJEKT
-          </Text>
-          <Text fontSize="36px" fontWeight={400}>
-            {ProjectsDetalis[activeProject].name}
-          </Text>
-          <Flex justifyContent="space-between" width="200px" mt="28px">
-            <Link
-              href={`/services/order?project=${ProjectsLinks[activeProject].prev}`}
-              scroll={false}
-              replace={true}
-            >
-              <Icon as={IoArrowBackCircle} boxSize="44px" />
-            </Link>
-            <Link
-              href={`/services/order?project=${ProjectsLinks[activeProject].next}`}
-              scroll={false}
-              replace={true}
-            >
-              <Icon as={IoArrowForwardCircle} boxSize="44px" />
-            </Link>
+            <Text fontSize="24px" fontWeight={300}>
+              {ProjectsDetalis[activeProject].price}
+            </Text>
+            <Text fontSize="24px" fontWeight={400} mt={2}>
+              PROJEKT
+            </Text>
+            <Text fontSize="36px" fontWeight={400}>
+              {ProjectsDetalis[activeProject].name}
+            </Text>
+            <Flex justifyContent="space-between" width="200px" mt="28px">
+              <Link
+                href={`/services/order?project=${ProjectsLinks[activeProject].prev}`}
+                scroll={false}
+                replace={true}
+              >
+                <Icon as={IoArrowBackCircle} boxSize="44px" />
+              </Link>
+              <Link
+                href={`/services/order?project=${ProjectsLinks[activeProject].next}`}
+                scroll={false}
+                replace={true}
+              >
+                <Icon as={IoArrowForwardCircle} boxSize="44px" />
+              </Link>
+            </Flex>
           </Flex>
-        </Flex>
+        ) : null}
       </Flex>
     </Flex>
   );

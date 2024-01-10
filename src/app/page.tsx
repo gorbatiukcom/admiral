@@ -32,7 +32,7 @@ export default function Home() {
           >
             Nowoczesne podejście do aranżacji wnętrz
           </Heading>
-          <Link href="/contacts" mt="120px" width="max-content">
+          <Link href="/services/order" mt="120px" width="max-content">
             <Button
               width="max-content"
               height={["48px", "60px"]}
