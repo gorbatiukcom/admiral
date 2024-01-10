@@ -42,20 +42,33 @@ export default function Home() {
                 </Text>
               ) : null}
 
-              <Text
-                display={["none", "block"]}
-                position="absolute"
-                bottom="48px"
-                left="48px"
-                color="transparent"
-                fontSize="40px"
-                _groupHover={{
-                  color: "white",
-                  transitionDuration: "0.2s",
-                }}
-              >
-                {name}
-              </Text>
+              <Flex flexDirection="column" position="absolute" bottom="48px" left="48px">
+                <Text
+                  display={["none", "block"]}
+                  color="transparent"
+                  fontSize="40px"
+                  _groupHover={{
+                    color: "white",
+                    transitionDuration: "0.2s",
+                  }}
+                >
+                  {name}
+                </Text>
+                {description ? (
+                  <Text
+                    display={["none", "block"]}
+                    color="transparent"
+                    fontSize="20px"
+                    _groupHover={{
+                      color: "white",
+                      transitionDuration: "0.2s",
+                    }}
+                    fontWeight={400}
+                  >
+                    {description}
+                  </Text>
+                ) : null}
+              </Flex>
             </Flex>
           </Link>
         );

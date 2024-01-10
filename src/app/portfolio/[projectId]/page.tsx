@@ -1,6 +1,7 @@
 "use client";
-import { Flex, Heading, Image } from "@chakra-ui/react";
+import { Button, Flex, Heading, Image, Text } from "@chakra-ui/react";
 
+import { Link } from "@/components/link";
 import { PortfolioProjects } from "@/constants/portfolio";
 
 export default function Home({ params }: { params: { projectId: string } }) {
@@ -18,9 +19,16 @@ export default function Home({ params }: { params: { projectId: string } }) {
 
   return (
     <Flex flexDirection="column" alignItems="center" pt={[4, 10]} pb={10}>
-      <Heading px={[4, 10]} mx="auto" mb={[4, 10]} fontWeight={400} fontSize={["2xl", "3xl"]}>
-        {projectData?.name}
-      </Heading>
+      <Flex flexDirection="column" px={[4, 10]} mx="auto" mb={[4, 10]}>
+        <Heading fontWeight={400} fontSize={["2xl", "3xl"]} textAlign="center">
+          {projectData?.name}
+        </Heading>
+        {projectData?.description ? (
+          <Text fontSize={["16px", "20px"]} fontWeight={400} textAlign="center" mt={[2, 4]}>
+            {projectData?.description}
+          </Text>
+        ) : null}
+      </Flex>
 
       <Flex flexDirection="column" alignItems="center" justifyContent="center" px={2} gap={2}>
         {projectData?.images &&
@@ -37,6 +45,33 @@ export default function Home({ params }: { params: { projectId: string } }) {
               />
             );
           })}
+      </Flex>
+      <Flex
+        justifyContent={["center", "flex-end"]}
+        position="fixed"
+        width="100%"
+        bottom={["16px", "40px"]}
+        px={["16px", "40px"]}
+      >
+        <Link href="/contacts" width="max-content">
+          <Button
+            width="max-content"
+            height={["40px", "60px"]}
+            px={["20px", "70px"]}
+            background="black"
+            color="textPrimaryWhite"
+            fontSize={["16px", "24px"]}
+            borderRadius={8}
+            transition="0.2s"
+            fontWeight={400}
+            border="2px solid white"
+            _hover={{
+              background: "brand.blue",
+            }}
+          >
+            Zamówić projekt
+          </Button>
+        </Link>
       </Flex>
     </Flex>
   );
