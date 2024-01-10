@@ -113,7 +113,7 @@ const DesktopHeader = ({
         ))}
       </Flex>
       <Link
-        href="tel:+48536089652"
+        href="tel:+48577125400"
         py={2}
         px={5}
         pt="48px"
@@ -126,7 +126,7 @@ const DesktopHeader = ({
           color: "brand.blue",
         }}
       >
-        +48 536 089 652
+        +48 577 125 400
       </Link>
     </Flex>
   );
@@ -223,43 +223,44 @@ const MobileHeader = ({
           </DrawerBody>
 
           <DrawerFooter p={4}>
-            <Flex width="100%" justifyContent="flex-end" gap={[4, 6]}>
-              {SocialMediaLinks.map(({ url, name }) => (
-                <Link
-                  key={name}
-                  href={url}
-                  color="textPrimaryWhite"
-                  fontSize={["14px", "18px"]}
-                  lineHeight={["21px", "40px"]}
-                  cursor="pointer"
-                  fontWeight={600}
-                  _hover={{
-                    color: "brand.blue",
-                  }}
-                >
-                  {name}
-                </Link>
-              ))}
+            <Flex flexDirection="column">
+              <Link
+                href="tel:+48577125400"
+                color="textPrimaryWhite"
+                fontSize={["14px", "18px"]}
+                lineHeight={["21px", "40px"]}
+                fontWeight={600}
+                cursor="pointer"
+                _hover={{
+                  color: "brand.blue",
+                }}
+                pb={2}
+              >
+                +48 577 125 400
+              </Link>
+
+              <Flex width="100%" justifyContent="flex-end" gap={[4, 6]}>
+                {SocialMediaLinks.map(({ url, name }) => (
+                  <Link
+                    key={name}
+                    href={url}
+                    color="textPrimaryWhite"
+                    fontSize={["14px", "18px"]}
+                    lineHeight={["21px", "40px"]}
+                    cursor="pointer"
+                    fontWeight={600}
+                    _hover={{
+                      color: "brand.blue",
+                    }}
+                  >
+                    {name}
+                  </Link>
+                ))}
+              </Flex>
             </Flex>
           </DrawerFooter>
         </DrawerContent>
       </Drawer>
-      {/* <Link
-        href="tel:+48536089652"
-        py={2}
-        px={5}
-        pt="48px"
-        mr={-5}
-        color={color}
-        fontSize="20px"
-        lineHeight="40px"
-        cursor="pointer"
-        _hover={{
-          color: "brand.blue",
-        }}
-      >
-        +48 536 089 652
-      </Link> */}
     </Flex>
   );
 };

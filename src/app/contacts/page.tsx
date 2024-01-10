@@ -159,7 +159,7 @@ export default function Home() {
             Kontakty
           </Text>
           <Link
-            href="tel:+48536089652"
+            href="tel:+48577125400"
             fontSize={["14px", "16px"]}
             fontWeight={400}
             cursor="pointer"
@@ -167,7 +167,7 @@ export default function Home() {
               color: "brand.blue",
             }}
           >
-            +48 536 089 652
+            +48 577 125 400
           </Link>
           <Link
             href="mailto:admiralinterior.info@gmail.com"
