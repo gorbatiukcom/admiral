@@ -74,7 +74,7 @@ export default function ServicesDesktop() {
                 pt={index === 0 ? 4 : undefined}
                 pb={index === Services.length - 1 ? 6 : undefined}
               >
-                <Text fontSize="16px" fontWeight={300}>
+                <Text fontSize="18px" fontWeight={300}>
                   {name}
                 </Text>
               </GridItem>
