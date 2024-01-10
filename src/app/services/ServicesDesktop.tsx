@@ -157,15 +157,18 @@ export default function ServicesDesktop() {
         })}
       </Grid>
 
+      <Text fontSize="24px" fontWeight={300} textAlign="center" mt="140px" pb={3}>
+        Algorytm współpracy i opłat
+      </Text>
       <Text
         fontSize="24px"
         fontWeight={300}
         textAlign="center"
-        mt="140px"
         borderBottom="0.5px solid"
         pb={3}
+        color="#C15D00"
       >
-        Algorytm współpracy i opłat
+        ( Nie dotyczy Projektu KOMPLEKSOWEGO )
       </Text>
       <Flex justifyContent="space-between" pt="48px">
         {Steps.map(({ description }, index) => {

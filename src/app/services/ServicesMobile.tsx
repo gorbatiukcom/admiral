@@ -33,51 +33,85 @@ export default function ServicesMobile() {
         );
       })}
 
-      <Flex width="100%" justifyContent="space-between" alignItems="center">
+      <Flex width="100%" justifyContent="space-between">
         <Flex flexDirection="column">
           <Box
             width="100%"
-            height="20px"
+            height="18px"
             bg="black"
-            borderRadius="4px 0px 0px 16px"
+            borderRadius="3px 0px 0px 12px"
             position="relative"
             _before={{
               content: `""`,
               position: "absolute",
               display: "block",
-              width: "60px",
-              height: "60px",
-              top: "500%",
-              right: -100,
+              width: "38px",
+              height: "38px",
+              top: "100%",
+              left: 0,
               background: "transparent",
               pointerEvents: "none",
-              // borderRadius
-              borderTopRightRadius: "100%",
-              boxShadow: "10px -10px 0 0 black" /* This is where the magic happens! */,
+              borderRadius: "0px 100% 100% 0px",
+              boxShadow: "22px 0px 0px 10px black",
             }}
           />
           <Icon
             as={IoArrowBackCircle}
-            boxSize="44px"
+            boxSize="38px"
             onClick={() => setProject(ProjectsLinks[activeProject].prev)}
+          />
+          <Box
+            width="100%"
+            height="18px"
+            bg="black"
+            borderRadius="12px 0px 0px 3px"
+            position="relative"
           />
         </Flex>
         <Text
           fontSize="26px"
+          lineHeight="30px"
           fontWeight={400}
           bg="black"
           color="textPrimaryWhite"
           width="100%"
           textAlign="center"
-          py={5}
+          py="22px"
         >
           {ProjectsDetalis[activeProject].name}
         </Text>
-        <Icon
-          as={IoArrowForwardCircle}
-          boxSize="44px"
-          onClick={() => setProject(ProjectsLinks[activeProject].next)}
-        />
+        <Flex flexDirection="column">
+          <Box
+            width="100%"
+            height="18px"
+            bg="black"
+            borderRadius="0px 3px 12px 0px"
+            position="relative"
+            _before={{
+              content: `""`,
+              position: "absolute",
+              display: "block",
+              width: "38px",
+              height: "38px",
+              top: "100%",
+              pointerEvents: "none",
+              borderRadius: "100% 0px 0px 100%",
+              boxShadow: "-22px 0px 0px 10px black",
+            }}
+          />
+          <Icon
+            as={IoArrowForwardCircle}
+            boxSize="38px"
+            onClick={() => setProject(ProjectsLinks[activeProject].next)}
+          />
+          <Box
+            width="100%"
+            height="18px"
+            bg="black"
+            borderRadius="0px 12px 3px 0px"
+            position="relative"
+          />
+        </Flex>
       </Flex>
 
       <Flex flexDirection="column" gap={4} mt={10}>
@@ -132,34 +166,37 @@ export default function ServicesMobile() {
           ZAMÓWICZ
         </Button>
       </Link>
-
-      <Text
-        fontSize="24px"
-        fontWeight={300}
-        textAlign="center"
-        borderBottom="0.5px solid"
-        pb={3}
-        mb={5}
-        mt={10}
-      >
-        Algorytm współpracy i opłat
-      </Text>
-      {Steps.map(({ description }, index) => {
-        return (
-          <Flex
-            key={description}
-            justifyContent="space-around"
-            alignItems="center"
-            width="100%"
-            mb={3}
+      {activeProject !== "comprehensive" ? (
+        <>
+          <Text
+            fontSize="24px"
+            fontWeight={300}
+            textAlign="center"
+            borderBottom="0.5px solid"
+            pb={3}
+            mb={5}
+            mt={10}
           >
-            <Text fontSize="72px">{index + 1}</Text>
-            <Text fontSize="16px" fontWeight={300} px={2} maxWidth="180px">
-              {description}
-            </Text>
-          </Flex>
-        );
-      })}
+            Algorytm współpracy i opłat
+          </Text>
+          {Steps.map(({ description }, index) => {
+            return (
+              <Flex
+                key={description}
+                justifyContent="space-around"
+                alignItems="center"
+                width="100%"
+                mb={3}
+              >
+                <Text fontSize="72px">{index + 1}</Text>
+                <Text fontSize="16px" fontWeight={300} px={2} maxWidth="180px">
+                  {description}
+                </Text>
+              </Flex>
+            );
+          })}
+        </>
+      ) : null}
       <Text fontSize={["22px", "24px"]} fontWeight={300} textAlign="center" mt="60px" pb={5}>
         Jest możliwość wziąć na raty wszystkie rodzaje usług RRSO 0%
       </Text>
