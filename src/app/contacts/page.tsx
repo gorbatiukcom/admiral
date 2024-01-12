@@ -151,7 +151,7 @@ export default function Home() {
             Aleja Tadeusza Kościuszki 80/82 lok.301
           </Text>
           <Text fontSize={["14px", "16px"]} fontWeight={300}>
-            Łódż 90-437
+            Łódź 90-437
           </Text>
         </Flex>
         <Flex flexDirection="column" mt={[4, 0]}>
