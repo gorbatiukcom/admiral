@@ -252,6 +252,8 @@ const MobileHeader = ({
                     _hover={{
                       color: "brand.blue",
                     }}
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
                     {name}
                   </Link>

@@ -17,7 +17,14 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: "Admiral Interior",
-  description: "Admiral Interior",
+  description: "Admiral Interior — Nowoczesne podejście do aranżacji wnętrz",
+  openGraph: {
+    description: "Admiral Interior — Nowoczesne podejście do aranżacji wnętrz",
+    images: ["https://admiralinterior.com/images/bg-image.png"],
+  },
+  twitter: {
+    images: ["https://admiralinterior.com/images/bg-image.png"],
+  },
 };
 
 const isProd = process.env.NODE_ENV === "production";

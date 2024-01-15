@@ -64,6 +64,8 @@ export default function Home() {
               _hover={{
                 color: "brand.blue",
               }}
+              target="_blank"
+              rel="noopener noreferrer"
             >
               {name}
             </Link>
