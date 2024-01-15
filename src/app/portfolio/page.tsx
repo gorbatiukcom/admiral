@@ -28,9 +28,11 @@ export default function Home() {
                 width="100%"
                 borderRadius={["8px 8px 0px 0px", "8px"]}
                 _groupHover={{
-                  filter: "auto",
-                  brightness: "50%",
-                  transitionDuration: "0.2s",
+                  lg: {
+                    filter: "auto",
+                    brightness: "50%",
+                    transitionDuration: "0.2s",
+                  },
                 }}
               />
               <Text display={["block", "none"]} fontSize="18px" px={4} pt={2}>
