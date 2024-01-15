@@ -55,8 +55,9 @@ export const PortfolioProjects: PortfolioProject[] = [
   {
     projectId: "budynek-w-katarze-1",
     name: "Budynek w Katarze",
-    image: "/images/qatar1/A. Jufairi - master updated-3.jpg",
+    image: "/images/qatar1/A. Jufairi - master updated-17.jpg",
     images: [
+      "/images/qatar1/A. Jufairi - master updated-17.jpg",
       "/images/qatar1/A. Jufairi - master updated-3.jpg",
       "/images/qatar1/A. Jufairi - master updated-4.jpg",
       "/images/qatar1/A. Jufairi - master updated-5.jpg",
@@ -66,7 +67,6 @@ export const PortfolioProjects: PortfolioProject[] = [
       "/images/qatar1/A. Jufairi - master updated-13.jpg",
       "/images/qatar1/A. Jufairi - master updated-15.jpg",
       "/images/qatar1/A. Jufairi - master updated-16.jpg",
-      "/images/qatar1/A. Jufairi - master updated-17.jpg",
       "/images/qatar1/A. Jufairi - master updated-18.jpg",
       "/images/qatar1/A. Jufairi - master updated-19.jpg",
       "/images/qatar1/A. Jufairi - master updated-21.jpg",
