@@ -53,8 +53,8 @@ export const PortfolioProjects: PortfolioProject[] = [
     description: "Powierzchnia domu 298 m2",
   },
   {
-    projectId: "jufairi",
-    name: "A. Jufairi",
+    projectId: "budynek-w-katarze-1",
+    name: "Budynek w Katarze",
     image: "/images/qatar1/A. Jufairi - master updated-3.jpg",
     images: [
       "/images/qatar1/A. Jufairi - master updated-3.jpg",
@@ -77,8 +77,8 @@ export const PortfolioProjects: PortfolioProject[] = [
     description: "Powierzchnia domu 350 m2",
   },
   {
-    projectId: "kuwari-villa",
-    name: "A. Kuwari Villa & Majlis Design",
+    projectId: "budynek-w-katarze-2",
+    name: "Budynek w Katarze",
     image: "/images/qatar2/A. Kuwari Villa & Majlis Design updated-2.jpg",
     images: [
       "/images/qatar2/A. Kuwari Villa & Majlis Design updated-2.jpg",
