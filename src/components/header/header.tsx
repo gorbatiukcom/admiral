@@ -222,7 +222,7 @@ const MobileHeader = ({
             ))}
           </DrawerBody>
 
-          <DrawerFooter p={4}>
+          <DrawerFooter justifyContent="flex-start" p={4} pl={10}>
             <Flex flexDirection="column">
               <Link
                 href="tel:+48577125400"

@@ -8,7 +8,7 @@ import { Link } from "@/components/link";
 import { Project } from "@/constants/portfolio";
 import { Projects, ProjectsDetalis } from "@/constants/projects";
 
-import { ProjectsLinks, Services, Steps } from "./services";
+import { ProjectsLinks, Services, Steps } from "./services-data";
 
 export default function ServicesMobile() {
   const [activeProject, setProject] = useState(Projects.basic as Project);

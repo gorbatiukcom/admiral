@@ -8,7 +8,7 @@ import { Image } from "@/components/image";
 import { Link } from "@/components/link";
 import { Projects, ProjectsDetalis } from "@/constants/projects";
 
-import { Services, Steps } from "./services";
+import { Services, Steps } from "./services-data";
 
 export default function ServicesDesktop() {
   return (

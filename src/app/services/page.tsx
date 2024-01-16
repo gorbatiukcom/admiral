@@ -1,13 +1,9 @@
-"use client";
+import { Metadata } from "next";
 
-import ServicesDesktop from "./ServicesDesktop";
-import ServicesMobile from "./ServicesMobile";
+import { Services } from "./services";
 
-export default function Services() {
-  return (
-    <>
-      <ServicesDesktop />
-      <ServicesMobile />
-    </>
-  );
-}
+export const metadata: Metadata = {
+  title: "Admiral Interior | Usługi",
+};
+
+export default Services;

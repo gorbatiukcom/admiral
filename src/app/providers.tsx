@@ -4,7 +4,7 @@ import { ChakraProvider } from "@chakra-ui/react";
 import { usePathname, useSearchParams } from "next/navigation";
 import { useEffect, useRef } from "react";
 
-import { trackPageview } from "./contacts/mixpanel";
+import { trackPageview } from "../constants/mixpanel";
 import { theme } from "./theme";
 
 export function Providers({ children }: { children: React.ReactNode }) {
