@@ -69,10 +69,11 @@ const DesktopHeader = ({
     >
       <Link href="/">
         <Image
-          src="/images/logo.png"
+          src="/images/logo.svg"
           alt="logo"
           width={124}
           height={186}
+          p={3}
           bg={isTransparent ? "white" : undefined}
         />
       </Link>
@@ -156,11 +157,12 @@ const MobileHeader = ({
     >
       <Link href="/">
         <Image
-          src="/images/logo.png"
+          src="/images/logo.svg"
           alt="logo"
           minWidth={102}
           width={102}
           height={152}
+          p={2}
           bg={isTransparent ? "white" : undefined}
         />
       </Link>
