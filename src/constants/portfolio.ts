@@ -103,4 +103,30 @@ export const PortfolioProjects: PortfolioProject[] = [
     ],
     description: "Powierzchnia domu 600 m2",
   },
+  {
+    projectId: "silownia-w-katarze",
+    name: "Siłownia w budynku",
+    image: "/images/qatar3/1.jpg",
+    images: [
+      "/images/qatar3/1.jpg",
+      "/images/qatar3/2.jpg",
+      "/images/qatar3/3.jpg",
+      "/images/qatar3/4.jpg",
+    ],
+    description: "Katar",
+  },
+  {
+    projectId: "mieszkanie-w-katarze",
+    name: "Mieszkanie w Katarze",
+    image: "/images/qatar4/living.jpg",
+    images: [
+      "/images/qatar4/living.jpg",
+      "/images/qatar4/living 3.jpg",
+      "/images/qatar4/living 2.jpg",
+      "/images/qatar4/living 4.jpg",
+      "/images/qatar4/BED 2.jpg",
+      "/images/qatar4/hallway v2.jpg",
+    ],
+    description: "Powierzchnia mieszkania 117 m2",
+  },
 ];
