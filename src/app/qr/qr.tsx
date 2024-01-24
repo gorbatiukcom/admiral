@@ -1,15 +1,23 @@
 "use client";
 
 import { Box, Flex, Input, Switch } from "@chakra-ui/react";
+import styled from "@emotion/styled";
 import QRCodeStyling from "qr-code-styling";
 import { useEffect, useRef, useState } from "react";
+
+const StyledContainer = styled(Flex)`
+  canvas {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+`;
 
 export const QR = () => {
   const ref = useRef(null as any);
   const [link, setLink] = useState("https://admiralinterior.com");
   const [logoUrl, setLogoUrl] = useState("https://admiralinterior.com/images/logo_sm.svg");
-  const [size, setSize] = useState(400);
-  const [qrSize, setQrSize] = useState(400);
+  const [size, setSize] = useState(1600);
+  const [qrSize, setQrSize] = useState(1600);
   const [withLogo, setWithLogo] = useState(false);
   const changeSize = (newSize: number) => {
     if (typeof newSize === "number") {
@@ -40,7 +48,7 @@ export const QR = () => {
   }, [link, withLogo, qrSize, logoUrl]);
 
   return (
-    <Flex
+    <StyledContainer
       flexDirection="column"
       justifyContent="flex-start"
       px={5}
@@ -79,7 +87,7 @@ export const QR = () => {
         />
       ) : null}
       <Box id="test" ref={ref} />
-    </Flex>
+    </StyledContainer>
   );
 };
 
