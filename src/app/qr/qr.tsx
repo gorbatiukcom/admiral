@@ -82,3 +82,5 @@ export const QR = () => {
     </Flex>
   );
 };
+
+export default QR;
