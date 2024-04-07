@@ -26,6 +26,7 @@ export const metadata: Metadata = {
   twitter: {
     images: ["https://admiralinterior.com/images/bg-image.png"],
   },
+  robots: "all",
 };
 
 const isProd = process.env.NODE_ENV === "production";
