@@ -35,6 +35,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" suppressHydrationWarning={true} className={fonts.oswald.className}>
       <head>
+        <meta name="googlebot" content="all" />
+
         {/* typeof window != "undefined" && !(window as any).mixpanel  */}
         {isProd ? (
           <Script
