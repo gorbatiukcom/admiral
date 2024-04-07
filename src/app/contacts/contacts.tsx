@@ -74,7 +74,7 @@ export default function Contacts() {
             <Input
               {...InputStyle}
               id="email"
-              placeholder="Wpisz swój e-mail tutaj..."
+              placeholder="Wpisz swój e-mail tutaj"
               {...register("email", {
                 required: "To pole jest wymagane",
                 pattern: {
@@ -90,7 +90,7 @@ export default function Contacts() {
             <Input
               {...InputStyle}
               id="phone"
-              placeholder="Wpisz swój telefon tutaj..."
+              placeholder="Wpisz swój telefon tutaj"
               {...register("phone")}
             />
             <FormErrorMessage>{errors.phone && errors.phone.message}</FormErrorMessage>
@@ -100,7 +100,7 @@ export default function Contacts() {
             <Textarea
               {...InputStyle}
               id="message"
-              placeholder="Wpisz swoją wiadomosć tutaj..."
+              placeholder="Wpisz swoją wiadomosć tutaj"
               rows={4}
               {...register("message", {
                 required: "To pole jest wymagane",
