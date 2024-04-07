@@ -12,4 +12,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
+export async function generateStaticParams() {
+  return PortfolioProjects.map((project) => ({ projectId: project.projectId }));
+}
+
 export default Project;
