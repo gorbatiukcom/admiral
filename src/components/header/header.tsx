@@ -55,26 +55,25 @@ const DesktopHeader = ({
   isTransparent: boolean;
   segment: string | null;
 }) => {
-  const color = isTransparent ? "textPrimaryWhite" : "textPrimary";
   return (
     <Flex
       display={["none", "flex"]}
       width="100%"
       pt={0}
-      px="80px"
+      px="72px"
       justifyContent="space-between"
       alignItems="flex-start"
-      position={isTransparent ? "relative" : undefined}
-      marginBottom={isTransparent ? "-186px" : undefined}
+      // position={isTransparent ? "relative" : undefined}
+      // marginBottom={isTransparent ? "-186px" : undefined}
     >
-      <Link href="/">
+      <Link href="/" py={3}>
         <Image
-          src="/images/logo.svg"
+          src="/images/logo-x2.png"
           alt="logo"
-          width={124}
-          height={186}
-          p={3}
-          bg={isTransparent ? "white" : undefined}
+          // bg={isTransparent ? "white" : undefined}
+          width={100}
+          height={164}
+          objectFit="contain"
         />
       </Link>
       <Flex pt="40px">
@@ -82,29 +81,31 @@ const DesktopHeader = ({
           <Link
             key={name}
             href={url}
-            py={2}
             px={5}
-            color={color}
+            color={activeSegment === segment ? "textPrimaryWhite" : "textPrimary"}
             fontSize="24px"
-            lineHeight="40px"
+            lineHeight="48px"
+            fontWeight={600}
             cursor="pointer"
             _hover={{
-              color: "brand.blue",
+              color: activeSegment === segment ? undefined : "brand.blue",
             }}
             position="relative"
+            zIndex={0}
             _before={
               activeSegment === segment
                 ? {
                     content: `""`,
                     position: "absolute",
                     display: "block",
-                    width: "40%",
-                    height: "2px",
+                    width: "100%",
+                    height: "100%",
                     bottom: 0,
-                    left: "calc(50% - 20%)",
-                    background: "brand.blue",
+                    left: 0,
+                    background: "black",
                     pointerEvents: "none",
-                    borderRadius: "2px",
+                    borderRadius: "full",
+                    zIndex: -1,
                   }
                 : undefined
             }
@@ -119,8 +120,9 @@ const DesktopHeader = ({
         px={5}
         pt="48px"
         mr={-5}
-        color={color}
+        color="textPrimary"
         fontSize="24px"
+        fontWeight={600}
         lineHeight="40px"
         cursor="pointer"
         _hover={{
@@ -155,16 +157,8 @@ const MobileHeader = ({
       marginBottom={isTransparent ? "-152px" : undefined}
       justifyContent="space-between"
     >
-      <Link href="/">
-        <Image
-          src="/images/logo.svg"
-          alt="logo"
-          minWidth={102}
-          width={102}
-          height={152}
-          p={2}
-          bg={isTransparent ? "white" : undefined}
-        />
+      <Link href="/" py={2}>
+        <Image src="/images/logo.svg" alt="logo" width={100} height={164} objectFit="contain" />
       </Link>
       <IconButton
         mt={2}
@@ -269,48 +263,15 @@ const MobileHeader = ({
   );
 };
 
-const HeaderContent = ({
-  isTransparent,
-  segment: activeSegment,
-}: {
-  isTransparent: boolean;
-  segment: string | null;
-}) => {
-  return (
-    <>
-      <MobileHeader isTransparent={isTransparent} segment={activeSegment} />
-      <DesktopHeader isTransparent={isTransparent} segment={activeSegment} />
-    </>
-  );
-};
-
-export const Header = ({ children }: { children: any }) => {
+export const Header = () => {
   const segment = useSelectedLayoutSegment();
 
   const isTransparent = segment === null;
 
   return (
-    <Box
-      overflow="hidden"
-      _before={
-        isTransparent
-          ? {
-              content: `""`,
-              position: "absolute",
-              display: "block",
-              width: "100%",
-              height: "186px",
-              top: 0,
-              left: 0,
-              background:
-                "linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(255, 255, 255, 0) 80%)",
-              pointerEvents: "none",
-            }
-          : undefined
-      }
-    >
-      <HeaderContent isTransparent={isTransparent} segment={segment} />
-      {children}
-    </Box>
+    <>
+      <MobileHeader isTransparent={isTransparent} segment={segment} />
+      <DesktopHeader isTransparent={isTransparent} segment={segment} />
+    </>
   );
 };

@@ -45,8 +45,8 @@ const config = {
 };
 
 const fonts = {
-  heading: "var(--font-oswald)",
-  body: "var(--font-oswald)",
+  heading: "var(--font-inter)",
+  body: "var(--font-inter)",
 };
 
 export const theme = extendTheme({
