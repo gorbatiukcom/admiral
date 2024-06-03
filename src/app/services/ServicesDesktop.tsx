@@ -149,7 +149,7 @@ export default function ServicesDesktop() {
                     color: "brand.blue",
                   }}
                 >
-                  ZAMÓWICZ
+                  ZAMÓWIĆ
                 </Button>
               </Link>
             </GridItem>

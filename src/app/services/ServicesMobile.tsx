@@ -163,7 +163,7 @@ export default function ServicesMobile() {
             color: "brand.blue",
           }}
         >
-          ZAMÓWICZ
+          ZAMÓWIĆ
         </Button>
       </Link>
       {activeProject !== "comprehensive" ? (
