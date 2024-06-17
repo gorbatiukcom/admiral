@@ -55,80 +55,78 @@ const DesktopHeader = ({
   isTransparent: boolean;
   segment: string | null;
 }) => {
-  const color = isTransparent ? "textPrimaryWhite" : "textPrimary";
+  const color = isTransparent ? "textPrimaryWhite" : "textPrimaryWhite";
   return (
-    <Flex
-      display={["none", "flex"]}
-      width="100%"
-      pt={0}
-      px="80px"
-      justifyContent="space-between"
-      alignItems="flex-start"
-      position={isTransparent ? "relative" : undefined}
-      marginBottom={isTransparent ? "-186px" : undefined}
-    >
-      <Link href="/">
-        <Image
-          src="/images/logo.svg"
-          alt="logo"
-          width={124}
-          height={186}
-          p={3}
-          bg={isTransparent ? "white" : undefined}
-        />
-      </Link>
-      <Flex pt="40px">
-        {NavigationLinks.map(({ url, segment, name }) => (
-          <Link
-            key={name}
-            href={url}
-            py={2}
-            px={5}
-            color={color}
-            fontSize="24px"
-            lineHeight="40px"
-            cursor="pointer"
-            _hover={{
-              color: "brand.blue",
-            }}
-            position="relative"
-            _before={
-              activeSegment === segment
-                ? {
-                    content: `""`,
-                    position: "absolute",
-                    display: "block",
-                    width: "40%",
-                    height: "2px",
-                    bottom: 0,
-                    left: "calc(50% - 20%)",
-                    background: "brand.blue",
-                    pointerEvents: "none",
-                    borderRadius: "2px",
-                  }
-                : undefined
-            }
-          >
-            {name}
-          </Link>
-        ))}
-      </Flex>
-      <Link
-        href="tel:+48577125400"
-        py={2}
-        px={5}
-        pt="48px"
-        mr={-5}
-        color={color}
-        fontSize="24px"
-        lineHeight="40px"
-        cursor="pointer"
-        _hover={{
-          color: "brand.blue",
-        }}
+    <Flex px={10}>
+      <Flex
+        display={["none", "flex"]}
+        width="100%"
+        justifyContent="space-between"
+        alignItems="flex-start"
+        position={isTransparent ? "relative" : undefined}
+        marginBottom={isTransparent ? "-188px" : undefined}
+        maxWidth="container.max"
+        mx="auto"
       >
-        +48 577 125 400
-      </Link>
+        <Link href="/" pt={3} pb={3} px={3} bg="white" borderRadius="0px 0px 12px 12px">
+          <Image src="/images/logo.svg" alt="logo" width={100} height={164} objectFit="contain" />
+        </Link>
+        <Flex pt="40px">
+          {NavigationLinks.map(({ url, segment, name }) => (
+            <Link
+              key={name}
+              href={url}
+              px={5}
+              color={activeSegment === segment ? "textPrimary" : color}
+              fontSize="24px"
+              lineHeight="48px"
+              fontWeight={600}
+              cursor="pointer"
+              _hover={{
+                color: activeSegment === segment ? undefined : "brand.blue",
+              }}
+              position="relative"
+              zIndex={0}
+              _before={
+                activeSegment === segment
+                  ? {
+                      content: `""`,
+                      position: "absolute",
+                      display: "block",
+                      width: "100%",
+                      height: "100%",
+                      bottom: 0,
+                      left: 0,
+                      background: "white",
+                      pointerEvents: "none",
+                      borderRadius: "full",
+                      zIndex: -1,
+                    }
+                  : undefined
+              }
+            >
+              {name}
+            </Link>
+          ))}
+        </Flex>
+        <Link
+          href="tel:+48577125400"
+          py={2}
+          px={5}
+          pt="48px"
+          mr={-5}
+          color={color}
+          fontSize="24px"
+          fontWeight={600}
+          lineHeight="40px"
+          cursor="pointer"
+          _hover={{
+            color: "brand.blue",
+          }}
+        >
+          +48 577 125 400
+        </Link>
+      </Flex>
     </Flex>
   );
 };
@@ -140,7 +138,7 @@ const MobileHeader = ({
   isTransparent: boolean;
   segment: string | null;
 }) => {
-  const burgerColor = isTransparent ? "textPrimaryWhite" : "textPrimary";
+  const burgerColor = "textPrimaryWhite";
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = useRef(null as any);
 
@@ -152,18 +150,19 @@ const MobileHeader = ({
       pl={0}
       pr={4}
       position={isTransparent ? "relative" : undefined}
-      marginBottom={isTransparent ? "-152px" : undefined}
+      marginBottom={isTransparent ? "-164px" : undefined}
       justifyContent="space-between"
     >
       <Link href="/">
         <Image
           src="/images/logo.svg"
           alt="logo"
-          minWidth={102}
-          width={102}
-          height={152}
+          width={100}
+          height={164}
+          objectFit="contain"
           p={2}
-          bg={isTransparent ? "white" : undefined}
+          bg="white"
+          borderRadius="0px 0px 8px 0px"
         />
       </Link>
       <IconButton
@@ -193,7 +192,7 @@ const MobileHeader = ({
                 href={url}
                 py={2}
                 px={5}
-                color="textPrimaryWhite"
+                fontWeight={600}
                 fontSize="20px"
                 lineHeight="40px"
                 cursor="pointer"
@@ -201,22 +200,11 @@ const MobileHeader = ({
                   color: "brand.blue",
                 }}
                 position="relative"
-                _before={
-                  activeSegment === segment
-                    ? {
-                        content: `""`,
-                        position: "absolute",
-                        display: "block",
-                        width: "6px",
-                        height: "6px",
-                        left: 0,
-                        bottom: "calc(50% - 3px)",
-                        background: "brand.blue",
-                        pointerEvents: "none",
-                        borderRadius: "full",
-                      }
-                    : undefined
-                }
+                bg={activeSegment === segment ? "white" : "black"}
+                // color="textPrimaryWhite"
+                color={activeSegment === segment ? "textPrimary" : "textPrimaryWhite"}
+                borderRadius={activeSegment === segment ? "100px" : undefined}
+                textAlign={activeSegment === segment ? "center" : undefined}
                 onClick={onClose}
               >
                 {name}
@@ -269,48 +257,15 @@ const MobileHeader = ({
   );
 };
 
-const HeaderContent = ({
-  isTransparent,
-  segment: activeSegment,
-}: {
-  isTransparent: boolean;
-  segment: string | null;
-}) => {
-  return (
-    <>
-      <MobileHeader isTransparent={isTransparent} segment={activeSegment} />
-      <DesktopHeader isTransparent={isTransparent} segment={activeSegment} />
-    </>
-  );
-};
-
-export const Header = ({ children }: { children: any }) => {
+export const Header = () => {
   const segment = useSelectedLayoutSegment();
 
   const isTransparent = segment === null;
 
   return (
-    <Box
-      overflow="hidden"
-      _before={
-        isTransparent
-          ? {
-              content: `""`,
-              position: "absolute",
-              display: "block",
-              width: "100%",
-              height: "186px",
-              top: 0,
-              left: 0,
-              background:
-                "linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(255, 255, 255, 0) 80%)",
-              pointerEvents: "none",
-            }
-          : undefined
-      }
-    >
-      <HeaderContent isTransparent={isTransparent} segment={segment} />
-      {children}
-    </Box>
+    <>
+      <MobileHeader isTransparent={isTransparent} segment={segment} />
+      <DesktopHeader isTransparent={isTransparent} segment={segment} />
+    </>
   );
 };

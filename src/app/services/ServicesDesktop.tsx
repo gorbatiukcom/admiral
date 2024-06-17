@@ -26,39 +26,15 @@ export default function ServicesDesktop() {
         gap="0.5"
         position="relative"
       >
-        <Image
-          src="/images/services_dk_1.svg"
-          alt="logo"
-          minWidth={1500}
-          width={1500}
-          height={1124}
-          position="absolute"
-          zIndex={-1}
-          pointerEvents="none"
-          left="-440px"
-          top="-50px"
-        />
-        <Image
-          src="/images/services_dk_2.svg"
-          alt="logo"
-          width={1090}
-          height={1422}
-          position="absolute"
-          zIndex={-1}
-          pointerEvents="none"
-          right="-16%"
-          bottom="-900px"
-        />
-
         <GridItem borderRight="1px dashed" borderBottom="1px dashed" pb={3}>
-          <Text fontSize="26px" fontWeight={300} textTransform="uppercase">
+          <Text fontSize="lg" fontWeight={600} textTransform="uppercase">
             Project
           </Text>
         </GridItem>
         {Object.values(Projects).map((project) => {
           return (
             <GridItem key={project} borderBottom="1px dashed" pb={3}>
-              <Text fontSize="26px" fontWeight={400} textAlign="center" textTransform="uppercase">
+              <Text fontSize="lg" fontWeight={600} textAlign="center" textTransform="uppercase">
                 {ProjectsDetalis[project].name}
               </Text>
             </GridItem>
@@ -109,14 +85,14 @@ export default function ServicesDesktop() {
         })}
 
         <GridItem borderRight="1px dashed" borderTop="1px dashed" pt={4}>
-          <Text fontSize="24px" fontWeight={300} textAlign="center" textTransform="uppercase">
+          <Text fontSize="20px" fontWeight={600} textAlign="center">
             Cena
           </Text>
         </GridItem>
         {Object.values(Projects).map((project) => {
           return (
             <GridItem key={project} borderTop="1px dashed" pt={4}>
-              <Text fontSize="20px" fontWeight={300} textAlign="center">
+              <Text fontSize="20px" fontWeight={600} textAlign="center">
                 {ProjectsDetalis[project].price}
               </Text>
               <Text fontSize="16px" lineHeight="24px" fontWeight={300} textAlign="center">
@@ -137,19 +113,17 @@ export default function ServicesDesktop() {
             >
               <Link href={`/services/order?project=${project}`}>
                 <Button
-                  bg="black"
-                  color="white"
+                  bg="white"
+                  color="black"
                   borderRadius="10px"
-                  fontWeight={400}
                   fontSize="20px"
                   px={7}
                   height="44px"
                   _hover={{
-                    bg: "gray.800",
                     color: "brand.blue",
                   }}
                 >
-                  ZAMÓWIĆ
+                  Zamówić
                 </Button>
               </Link>
             </GridItem>
@@ -193,12 +167,12 @@ export default function ServicesDesktop() {
                         height: "1px",
                         top: "8px",
                         left: "calc(50% + 24px)",
-                        bgColor: "black",
+                        bgColor: "white",
                         pointerEvents: "none",
                       }
                 }
               >
-                <Flex width="16px" height="16px" borderRadius="full" bgColor="black" />
+                <Flex width="16px" height="16px" borderRadius="full" bgColor="white" />
               </Flex>
               <Text fontSize="16px" fontWeight={300} px={2} maxWidth="180px">
                 {description}

@@ -48,9 +48,10 @@ export default function Contacts() {
       mb={[0, 10]}
       mx="auto"
       width="100%"
-      maxWidth="1000px"
-      border={[null, "1px dashed"]}
+      maxWidth="container.max"
+      borderRadius="20px"
       flexDirection={["column", "row"]}
+      bg="bgPrimary"
     >
       <Flex
         flexDirection="column"
@@ -113,16 +114,15 @@ export default function Contacts() {
               mt={4}
               isLoading={isSubmitting}
               type="submit"
-              bg="black"
-              color="white"
+              bg="textPrimaryWhite"
+              color="textPrimary"
               borderRadius="8px"
-              fontWeight={400}
+              fontWeight={600}
               fontSize="20px"
               px={7}
               height="44px"
               width={["100%", null]}
               _hover={{
-                bg: "gray.800",
                 color: "brand.blue",
               }}
             >
