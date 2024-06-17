@@ -9,7 +9,11 @@
     "int:dev": "yarn workspace @admiral/interior next dev",
     "int:build": "yarn workspace @admiral/interior next build",
     "int:start": "yarn workspace @admiral/interior next start",
-    "int:lint": "yarn workspace @admiral/interior next lint"
+    "int:lint": "yarn workspace @admiral/interior next lint",
+    "bud:dev": "yarn workspace @admiral/bud next dev",
+    "bud:build": "yarn workspace @admiral/bud next build",
+    "bud:start": "yarn workspace @admiral/bud next start",
+    "bud:lint": "yarn workspace @admiral/bud next lint"
   },
   "devDependencies": {
     "@types/node": "^20",
