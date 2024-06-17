@@ -1,26 +1,15 @@
 {
-  "name": "aiinterior",
+  "name": "admiral",
   "version": "0.1.0",
   "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "@chakra-ui/next-js": "^2.2.0",
-    "@chakra-ui/react": "^2.8.2",
-    "@emotion/react": "^11.11.1",
-    "@emotion/styled": "^11.11.0",
-    "axios": "^1.6.2",
-    "framer-motion": "^10.16.14",
-    "next": "14.0.3",
-    "qr-code-styling": "^1.6.0-rc.1",
-    "react": "^18",
-    "react-dom": "^18",
-    "react-hook-form": "^7.48.2",
-    "react-icons": "^4.12.0"
+    "int:dev": "yarn workspace @admiral/interior next dev",
+    "int:build": "yarn workspace @admiral/interior next build",
+    "int:start": "yarn workspace @admiral/interior next start",
+    "int:lint": "yarn workspace @admiral/interior next lint"
   },
   "devDependencies": {
     "@types/node": "^20",
