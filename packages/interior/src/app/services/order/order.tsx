@@ -22,7 +22,6 @@ import { Image as NextImage } from "../../../components/image";
 import { InputStyle } from "../../../components/InputStyle";
 import { Link } from "../../../components/link";
 import { Project, Projects, ProjectsDetalis } from "../../../constants/projects";
-
 import { ProjectsLinks } from "../services-data";
 
 type Inputs = {

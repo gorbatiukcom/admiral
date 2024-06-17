@@ -1,7 +1,6 @@
 import { Metadata } from "next";
 
 import { PortfolioProjects } from "../../../constants/portfolio";
-
 import Project, { Props } from "./project";
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
