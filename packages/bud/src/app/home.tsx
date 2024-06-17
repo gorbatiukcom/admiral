@@ -8,7 +8,7 @@ import { SocialMediaLinks } from "../components/SocialMediaLinks";
 const HeroBlock = () => {
   return (
     <Box
-      bg="linear-gradient(rgba(26,26,26,0.35), rgba(26,26,26,0.35)), url(/images/bg-image.png)"
+      bg="linear-gradient(rgba(26,26,26,0.20), rgba(26,26,26,0.20)), url(/images/bg-image-2.png)"
       bgRepeat="no-repeat"
       bgPosition={["25% 75%", "center, center"]}
       bgSize="cover"
