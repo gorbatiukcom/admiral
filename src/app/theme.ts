@@ -4,9 +4,6 @@ import { extendTheme } from "@chakra-ui/react";
 const colors = {
   black: "#000000",
   white: "#FFFFFF",
-  brand: {
-    blue: "#00A3FF",
-  },
   gray: {
     50: "#FAFAFA",
     100: "#F2F2F2",
@@ -19,48 +16,56 @@ const colors = {
     800: "#242424",
     900: "#1C1C1C",
   },
-};
-const semanticTokens = {
-  colors: {
-    // bgPrimary: { _light: "white", _dark: "black" },
-    bgBase: { _light: "white", _dark: "gray.900" },
-    // bgSecondary: { _light: "gray.200", _dark: "gray.800" },
-    // bgLine: { _light: "gray.300", _dark: "gray.700" },
-    textPrimary: { _light: "black", _dark: "black" },
-    textPrimaryWhite: { _light: "white", _dark: "white" },
-    // textSecondary: { _light: "gray.500", _dark: "whiteAlpha.600" },
-    // textDisabled: { _light: "gray.400", _dark: "whiteAlpha.500" },
-
-    // "chakra-body-text": { _light: "gray.800", _dark: "whiteAlpha.900" },
-    "chakra-body-text": "textPrimary",
-    // "chakra-heading-text": "textPrimary",
-    "chakra-body-bg": "bgBase",
-    // "chakra-border-color": { _light: "gray.200", _dark: "whiteAlpha.300" },
-    // "chakra-placeholder-color": { _light: "gray.500", _dark: "whiteAlpha.400" },
+  brand: {
+    blue: "#00A3FF",
   },
+  bgBase: "#161617",
+  bgPrimary: "#000000",
+  textPrimary: "black",
+  textPrimaryWhite: "white",
+  textSecondary: "#86868B",
 };
+
+// semanticTokens
+// bgBase: { _light: "bgBase", _dark: "bgBase" },
+
 const config = {
-  initialColorMode: "light",
-  useSystemColorMode: true,
+  initialColorMode: "dark",
+  useSystemColorMode: false,
 };
 
 const fonts = {
-  heading: "var(--font-oswald)",
-  body: "var(--font-oswald)",
+  heading: "var(--font-inter)",
+  body: "var(--font-inter)",
+};
+const sizes = {
+  container: {
+    max: "1260px",
+  },
 };
 
 export const theme = extendTheme({
   fonts,
   colors,
-  semanticTokens,
+  // semanticTokens,
   config,
+  sizes,
+  styles: {
+    global: {
+      // styles for the `body`
+      body: {
+        bg: "bgBase",
+        color: "textPrimaryWhite",
+      },
+    },
+  },
   components: {
     Drawer: {
       parts: ["dialog", "header", "body"],
       variants: {
         small: {
           dialog: {
-            maxW: "220px",
+            maxW: "300px",
           },
         },
       },

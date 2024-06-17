@@ -9,9 +9,9 @@ export const SubmitConfirmation = () => {
       my={[4, 10]}
       mx="auto"
       width="100%"
-      height={["calc(100vh - 152px - 32px)", "calc(100vh - 186px - 80px)"]}
+      height={["calc(100vh - 152px - 32px)", "calc(100vh - 188px - 80px)"]}
       maxHeight="600px"
-      maxWidth="1000px"
+      maxWidth="container.max"
       border={[null, "1px dashed"]}
       flexDirection="column"
       alignItems="center"

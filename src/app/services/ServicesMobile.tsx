@@ -1,6 +1,6 @@
 "use client";
 
-import { Box, Button, Flex, Grid, GridItem, Icon, Image, Text } from "@chakra-ui/react";
+import { Box, Button, Flex, Icon, Text } from "@chakra-ui/react";
 import { useState } from "react";
 import { IoArrowBackCircle, IoArrowForwardCircle, IoCheckmarkCircle } from "react-icons/io5";
 
@@ -15,30 +15,12 @@ export default function ServicesMobile() {
 
   return (
     <Flex display={["flex", "none"]} flexDirection="column" p={4} pb={10} position="relative">
-      {Object.keys(Projects).map((project) => {
-        return (
-          <Image
-            key={project}
-            src={`/images/services_dk_${project}.svg`}
-            alt="logo"
-            minWidth="150%"
-            width="150%"
-            position="absolute"
-            zIndex={-1}
-            pointerEvents="none"
-            display={activeProject === project ? undefined : "none"}
-            left="-25%"
-            top={-75}
-          />
-        );
-      })}
-
       <Flex width="100%" justifyContent="space-between">
         <Flex flexDirection="column">
           <Box
             width="100%"
             height="18px"
-            bg="black"
+            bg="white"
             borderRadius="3px 0px 0px 12px"
             position="relative"
             _before={{
@@ -52,7 +34,7 @@ export default function ServicesMobile() {
               background: "transparent",
               pointerEvents: "none",
               borderRadius: "0px 100% 100% 0px",
-              boxShadow: "22px 0px 0px 10px black",
+              boxShadow: "22px 0px 0px 10px white",
             }}
           />
           <Icon
@@ -63,17 +45,17 @@ export default function ServicesMobile() {
           <Box
             width="100%"
             height="18px"
-            bg="black"
+            bg="white"
             borderRadius="12px 0px 0px 3px"
             position="relative"
           />
         </Flex>
         <Text
-          fontSize="26px"
+          fontSize="xl"
           lineHeight="30px"
-          fontWeight={400}
-          bg="black"
-          color="textPrimaryWhite"
+          fontWeight={600}
+          bg="white"
+          color="textPrimary"
           width="100%"
           textAlign="center"
           py="22px"
@@ -84,7 +66,7 @@ export default function ServicesMobile() {
           <Box
             width="100%"
             height="18px"
-            bg="black"
+            bg="white"
             borderRadius="0px 3px 12px 0px"
             position="relative"
             _before={{
@@ -96,7 +78,7 @@ export default function ServicesMobile() {
               top: "100%",
               pointerEvents: "none",
               borderRadius: "100% 0px 0px 100%",
-              boxShadow: "-22px 0px 0px 10px black",
+              boxShadow: "-22px 0px 0px 10px white",
             }}
           />
           <Icon
@@ -107,7 +89,7 @@ export default function ServicesMobile() {
           <Box
             width="100%"
             height="18px"
-            bg="black"
+            bg="white"
             borderRadius="0px 12px 3px 0px"
             position="relative"
           />
@@ -116,9 +98,9 @@ export default function ServicesMobile() {
 
       <Flex flexDirection="column" gap={4} mt={10}>
         {Services.map(({ name, projects }, index) => {
-          if (!projects.includes(activeProject)) return null;
+          // if (!projects.includes(activeProject)) return null;
           return (
-            <Flex key={name} width="100%" justifyContent="space-between">
+            <Flex key={name} width="100%" justifyContent="space-between" gap={2}>
               <Text fontSize="16px" fontWeight={300}>
                 {name}
               </Text>
@@ -150,20 +132,19 @@ export default function ServicesMobile() {
 
       <Link href={`/services/order?project=${activeProject}`} mt={4}>
         <Button
-          bg="black"
-          color="white"
+          bg="white"
+          color="black"
           borderRadius="10px"
-          fontWeight={400}
+          fontWeight={600}
           fontSize="20px"
           px={7}
           width="100%"
           height="44px"
           _hover={{
-            bg: "gray.800",
             color: "brand.blue",
           }}
         >
-          ZAMÓWICZ
+          Zamówić
         </Button>
       </Link>
       {activeProject !== "comprehensive" ? (

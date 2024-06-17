@@ -1,8 +1,9 @@
-import { ColorModeScript } from "@chakra-ui/react";
+import { Box, ColorModeScript } from "@chakra-ui/react";
 import type { Metadata } from "next";
 import { Viewport } from "next";
 import Script from "next/script";
 
+import { Footer } from "@/components/footer/footer";
 import { Header } from "@/components/header/header";
 
 import { fonts } from "./fonts";
@@ -17,10 +18,10 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: "Admiral Interior",
-  description: "Admiral Interior — Nowoczesne podejście do aranżacji wnętrz",
+  description: "Admiral Interior — Tworzymy komfort dla naszych klientów",
   metadataBase: new URL("https://admiralinterior.com"),
   openGraph: {
-    description: "Admiral Interior — Nowoczesne podejście do aranżacji wnętrz",
+    description: "Admiral Interior — Tworzymy komfort dla naszych klientów",
     images: ["https://admiralinterior.com/images/bg-image.png"],
   },
   twitter: {
@@ -29,11 +30,17 @@ export const metadata: Metadata = {
   robots: "all",
 };
 
+export { fonts };
+
 const isProd = process.env.NODE_ENV === "production";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning={true} className={fonts.oswald.className}>
+    <html
+      lang="en"
+      suppressHydrationWarning={true}
+      className={`${fonts.inter.className} ${fonts.inter.variable} ${fonts.oswald.variable}`}
+    >
       <head>
         <meta name="googlebot" content="all" />
 
@@ -58,7 +65,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body suppressHydrationWarning={true}>
         <Providers>
           <ColorModeScript initialColorMode={theme.config.initialColorMode} />
-          <Header>{children}</Header>
+          <Box>
+            <Header />
+            {children}
+            <Footer />
+          </Box>
           <NavigationEvents />
         </Providers>
       </body>

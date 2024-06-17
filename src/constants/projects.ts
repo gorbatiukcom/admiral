@@ -16,15 +16,15 @@ export const ProjectsDetalis: {
   },
   [Projects.advanced]: {
     name: "ZAAWANSOWANY",
-    price: "250zł / m2",
+    price: "275zł / m2",
   },
   [Projects.authorSupervision]: {
     name: "NADZÓR AUTORSKI",
-    price: "350zł / m2",
+    price: "450zł / m2",
   },
   [Projects.comprehensive]: {
     name: "KOMPLEKSOWY",
-    price: "1250zł / m2",
+    price: "2100zł / m2",
     description:
       "Cena może się różnić w zależności od materiałów wykońcenia oraz mebli do zabudowy",
   },

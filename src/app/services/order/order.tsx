@@ -67,12 +67,13 @@ export default function Order() {
         flexDirection={["column", "row"]}
         mx="auto"
         width="100%"
-        maxWidth={activeProject ? "1000px" : "700px"}
-        border={[null, "1px dashed"]}
+        maxWidth={activeProject ? "container.max" : "700px"}
+        borderRadius="20px"
+        bg="bgPrimary"
       >
         <Flex
           flexDirection="column"
-          borderRight={activeProject ? [null, "1px dashed"] : undefined}
+          borderRight={activeProject ? [null, "1px solid"] : undefined}
           width="100%"
           pr={activeProject ? [0, "60px"] : undefined}
           pb={[10, 0]}
@@ -141,7 +142,7 @@ export default function Order() {
           ) : null}
 
           <form onSubmit={handleSubmit(onSubmit)}>
-            <FormControl isInvalid={!!errors.name?.message}>
+            <FormControl isInvalid={!!errors.name?.message} zIndex={1}>
               <FormLabel htmlFor="name">Imię i nazwisko</FormLabel>
               <Input
                 {...InputStyle}
@@ -153,7 +154,7 @@ export default function Order() {
               />
               <FormErrorMessage>{errors.name && errors.name.message}</FormErrorMessage>
             </FormControl>
-            <FormControl isInvalid={!!errors.email?.message} mt={4}>
+            <FormControl isInvalid={!!errors.email?.message} mt={4} zIndex={1}>
               <FormLabel htmlFor="email">E-mail</FormLabel>
               <Input
                 {...InputStyle}
@@ -169,7 +170,7 @@ export default function Order() {
               />
               <FormErrorMessage>{errors.email && errors.email.message}</FormErrorMessage>
             </FormControl>
-            <FormControl isInvalid={!!errors.phone?.message} mt={4}>
+            <FormControl isInvalid={!!errors.phone?.message} mt={4} zIndex={1}>
               <FormLabel htmlFor="phone">Telefon</FormLabel>
               <Input
                 {...InputStyle}
@@ -181,7 +182,7 @@ export default function Order() {
               />
               <FormErrorMessage>{errors.phone && errors.phone.message}</FormErrorMessage>
             </FormControl>
-            <FormControl isInvalid={!!errors.city?.message} mt={4}>
+            <FormControl isInvalid={!!errors.city?.message} mt={4} zIndex={1}>
               <FormLabel htmlFor="city">Miasto w którym znajduje się obiekt</FormLabel>
               <Input
                 {...InputStyle}
@@ -193,7 +194,7 @@ export default function Order() {
               />
               <FormErrorMessage>{errors.city && errors.city.message}</FormErrorMessage>
             </FormControl>
-            <FormControl isInvalid={!!errors.projectSize?.message} mt={4}>
+            <FormControl isInvalid={!!errors.projectSize?.message} mt={4} zIndex={1}>
               <FormLabel htmlFor="projectSize">Rozmiar obiektu w metrach kwadratowych</FormLabel>
               <Input
                 {...InputStyle}
@@ -207,7 +208,7 @@ export default function Order() {
                 {errors.projectSize && errors.projectSize.message}
               </FormErrorMessage>
             </FormControl>
-            <FormControl isInvalid={!!errors.message?.message} mt={4}>
+            <FormControl isInvalid={!!errors.message?.message} mt={4} zIndex={1}>
               <FormLabel htmlFor="name">Wiadomosć</FormLabel>
               <Textarea
                 {...InputStyle}
@@ -223,18 +224,18 @@ export default function Order() {
                 mt={4}
                 isLoading={isSubmitting}
                 type="submit"
-                bg="black"
-                color="white"
+                bg="textPrimaryWhite"
+                color="textPrimary"
                 borderRadius="8px"
-                fontWeight={400}
+                fontWeight={600}
                 fontSize="20px"
                 px={7}
                 height="44px"
                 width={["100%", null]}
                 _hover={{
-                  bg: "gray.800",
                   color: "brand.blue",
                 }}
+                zIndex={1}
               >
                 Wysłać
               </Button>
@@ -253,35 +254,16 @@ export default function Order() {
             width="100%"
             position="relative"
           >
-            {Object.keys(Projects).map((project) => {
-              return (
-                <NextImage
-                  key={project}
-                  src={`/images/services_dk_${project}.svg`}
-                  alt="logo"
-                  minWidth={754}
-                  width={754}
-                  height={1000}
-                  position="absolute"
-                  zIndex={-1}
-                  pointerEvents="none"
-                  display={activeProject === project ? undefined : "none"}
-                  // left=""
-                  // top=""
-                />
-              );
-            })}
-
-            <Text fontSize="24px" fontWeight={300}>
+            <Text fontSize="24px" fontWeight={400} zIndex={1}>
               {ProjectsDetalis[activeProject].price}
             </Text>
-            <Text fontSize="24px" fontWeight={400} mt={2}>
+            <Text fontSize="24px" fontWeight={600} mt={2} zIndex={1}>
               PROJEKT
             </Text>
-            <Text fontSize="36px" fontWeight={400}>
+            <Text fontSize="24px" fontWeight={600} zIndex={1}>
               {ProjectsDetalis[activeProject].name}
             </Text>
-            <Flex justifyContent="space-between" width="200px" mt="28px">
+            <Flex justifyContent="space-between" width="200px" mt="28px" zIndex={1}>
               <Link
                 href={`/services/order?project=${ProjectsLinks[activeProject].prev}`}
                 scroll={false}
