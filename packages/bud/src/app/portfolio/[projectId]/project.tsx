@@ -70,7 +70,7 @@ export default function Project({ params }: Props) {
             fontWeight={400}
             border="2px solid white"
             _hover={{
-              background: "brand.blue",
+              background: "brand.orange",
             }}
           >
             Zamówić projekt

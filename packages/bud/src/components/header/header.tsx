@@ -82,7 +82,7 @@ const DesktopHeader = ({
               fontWeight={600}
               cursor="pointer"
               _hover={{
-                color: activeSegment === segment ? undefined : "brand.blue",
+                color: activeSegment === segment ? undefined : "brand.orange",
               }}
               position="relative"
               zIndex={0}
@@ -120,7 +120,7 @@ const DesktopHeader = ({
           lineHeight="40px"
           cursor="pointer"
           _hover={{
-            color: "brand.blue",
+            color: "brand.orange",
           }}
         >
           +48 577 125 400
@@ -196,7 +196,7 @@ const MobileHeader = ({
                 lineHeight="40px"
                 cursor="pointer"
                 _hover={{
-                  color: "brand.blue",
+                  color: "brand.orange",
                 }}
                 position="relative"
                 bg={activeSegment === segment ? "white" : "black"}
@@ -221,7 +221,7 @@ const MobileHeader = ({
                 fontWeight={600}
                 cursor="pointer"
                 _hover={{
-                  color: "brand.blue",
+                  color: "brand.orange",
                 }}
                 pb={2}
               >
@@ -239,7 +239,7 @@ const MobileHeader = ({
                     cursor="pointer"
                     fontWeight={600}
                     _hover={{
-                      color: "brand.blue",
+                      color: "brand.orange",
                     }}
                     target="_blank"
                     rel="noopener noreferrer"

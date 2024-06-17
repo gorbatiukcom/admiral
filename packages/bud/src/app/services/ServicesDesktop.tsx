@@ -65,14 +65,14 @@ export default function ServicesDesktop() {
                       <Icon
                         as={IoCheckmarkCircle}
                         boxSize="20px"
-                        color={projects.includes(project) ? "brand.blue" : "transparent"}
+                        color={projects.includes(project) ? "brand.orange" : "transparent"}
                       />
                     ) : (
                       <Flex
                         width="16px"
                         height="16px"
                         border="1px solid"
-                        borderColor="brand.blue"
+                        borderColor="brand.orange"
                         borderRadius="full"
                       ></Flex>
                     )}
@@ -119,7 +119,7 @@ export default function ServicesDesktop() {
                   px={7}
                   height="44px"
                   _hover={{
-                    color: "brand.blue",
+                    color: "brand.orange",
                   }}
                 >
                   Zamówić
@@ -183,7 +183,7 @@ export default function ServicesDesktop() {
       <Text fontSize="24px" fontWeight={300} textAlign="center" mt="60px" pb={5}>
         Jest możliwość wziąć na raty wszystkie rodzaje usług RRSO 0%
       </Text>
-      <Flex width="260px" height="4px" bg="brand.blue" mx="auto" borderRadius="2px" />
+      <Flex width="260px" height="4px" bg="brand.orange" mx="auto" borderRadius="2px" />
     </Flex>
   );
 }

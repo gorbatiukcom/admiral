@@ -13,64 +13,53 @@ const HeroBlock = () => {
       bgPosition={["25% 75%", "center, center"]}
       bgSize="cover"
       height="var(--chakra-vh)"
+      p={[4, 10]}
     >
       <Flex
         flexDirection="column"
-        justifyContent="flex-start"
+        justifyContent="flex-end"
         height="100%"
-        px={["16px", "80px"]}
-        pb={[4, 10]}
         maxWidth="container.max"
         mx="auto"
       >
-        <Flex minHeight={["152px", "188px"]}></Flex>
-        <Flex flexDirection="column" height="100%" justifyContent="center">
-          <Heading
-            fontSize={["26px", "36px"]}
-            fontWeight={500}
-            color="textPrimaryWhite"
-            maxWidth={["240px", "400px"]}
-          >
-            Tworzymy komfort dla naszych klientów
-          </Heading>
-          <Link href="/services/order" mt="120px" width="max-content">
+        <Flex alignItems="center" justifyContent="space-between">
+          <Link href="/services/order" width="max-content">
             <Button
               width="max-content"
               height={["48px", "60px"]}
               px={["40px", "40px"]}
-              background="black"
-              color="textPrimaryWhite"
+              bg="white"
+              color="textPrimary"
               fontSize={["20px", "24px"]}
               borderRadius="full"
               transition="0.2s"
               fontWeight={600}
               _hover={{
-                color: "brand.blue",
+                color: "brand.orange",
               }}
             >
-              Wycena Online
+              Zamówić remont
             </Button>
           </Link>
-        </Flex>
-        <Flex width="100%" justifyContent="flex-end" gap={[4, 6]}>
-          {SocialMediaLinks.map(({ url, name }) => (
-            <Link
-              key={name}
-              href={url}
-              color="textPrimaryWhite"
-              fontSize={["14px", "18px"]}
-              lineHeight={["21px", "40px"]}
-              cursor="pointer"
+
+          <Link href="/services/order" width="max-content">
+            <Button
+              width="max-content"
+              height={["48px", "60px"]}
+              px={["40px", "40px"]}
+              bg="white"
+              color="textPrimary"
+              fontSize={["20px", "24px"]}
+              borderRadius="full"
+              transition="0.2s"
               fontWeight={600}
               _hover={{
-                color: "brand.blue",
+                color: "brand.orange",
               }}
-              target="_blank"
-              rel="noopener noreferrer"
             >
-              {name}
-            </Link>
-          ))}
+              Zamów rozmowę telefoniczną
+            </Button>
+          </Link>
         </Flex>
       </Flex>
     </Box>
