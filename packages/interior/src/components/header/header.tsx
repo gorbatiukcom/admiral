@@ -77,9 +77,9 @@ const DesktopHeader = ({
               href={url}
               px={5}
               color={activeSegment === segment ? "textPrimary" : color}
-              fontSize="24px"
+              fontSize="20px"
               lineHeight="48px"
-              fontWeight={600}
+              fontWeight={500}
               cursor="pointer"
               _hover={{
                 color: activeSegment === segment ? undefined : "brand.blue",
@@ -115,8 +115,8 @@ const DesktopHeader = ({
           pt="48px"
           mr={-5}
           color={color}
-          fontSize="24px"
-          fontWeight={600}
+          fontSize="20px"
+          fontWeight={500}
           lineHeight="40px"
           cursor="pointer"
           _hover={{

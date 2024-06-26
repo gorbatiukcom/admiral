@@ -67,8 +67,8 @@ const DesktopHeader = ({
         maxWidth="container.max"
         mx="auto"
       >
-        <Link href="/" pt={3} pb={3} px={3} bg="white" borderRadius="0px 0px 12px 12px">
-          <Image src="/images/logo.svg" alt="logo" width={100} height={164} objectFit="contain" />
+        <Link href="/" pt={0} pb={1} px={0} bg="white" borderRadius="0px 0px 12px 12px">
+          <Image src="/images/logo.svg" alt="logo" width={124} height={184} objectFit="contain" />
         </Link>
         <Flex pt="40px">
           {NavigationLinks.map(({ url, segment, name }) => (
@@ -77,9 +77,9 @@ const DesktopHeader = ({
               href={url}
               px={5}
               color={activeSegment === segment ? "textPrimary" : color}
-              fontSize="24px"
+              fontSize="20px"
               lineHeight="48px"
-              fontWeight={600}
+              fontWeight={500}
               cursor="pointer"
               _hover={{
                 color: activeSegment === segment ? undefined : "brand.orange",
@@ -115,8 +115,8 @@ const DesktopHeader = ({
           pt="48px"
           mr={-5}
           color={color}
-          fontSize="24px"
-          fontWeight={600}
+          fontSize="20px"
+          fontWeight={500}
           lineHeight="40px"
           cursor="pointer"
           _hover={{

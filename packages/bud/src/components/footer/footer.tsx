@@ -53,14 +53,15 @@ export const Footer = () => {
           <Link
             href="/"
             color="black"
-            p={2}
+            p={0}
+            py={1}
             borderRadius="12px"
             transitionDuration="200ms"
             _hover={{ color: "brand.orange" }}
             width="max-content"
             bg="white"
           >
-            <Icon as={LogoSm} width={85.3} height={135} />
+            <Icon as={LogoSm} width={101} height={150} />
           </Link>
 
           <Box mt={[4, 10]}>
