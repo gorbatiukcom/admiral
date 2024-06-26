@@ -159,7 +159,8 @@ const MobileHeader = ({
           width={100}
           height={164}
           objectFit="contain"
-          p={2}
+          p={0}
+          pb={0}
           bg="white"
           borderRadius="0px 0px 8px 0px"
         />

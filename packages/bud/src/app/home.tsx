@@ -1,6 +1,22 @@
 "use client";
 
-import { Box, Button, Flex, Heading, Image, Text } from "@chakra-ui/react";
+import "swiper/css";
+
+// import "swiper/css/navigation";
+import { Box, Button, Flex, Heading, Icon, IconButton, Image, Text } from "@chakra-ui/react";
+import { useState } from "react";
+import {
+  IoCalendarNumberOutline,
+  IoCashOutline,
+  IoChevronBack,
+  IoChevronForward,
+  IoEyeOffOutline,
+  IoPerson,
+  IoPersonOutline,
+  IoPhonePortraitOutline,
+} from "react-icons/io5";
+import { Navigation } from "swiper/modules";
+import { Swiper, SwiperSlide, useSwiper, useSwiperSlide } from "swiper/react";
 
 import { Link } from "../components/link";
 import { SocialMediaLinks } from "../components/SocialMediaLinks";
@@ -10,7 +26,7 @@ const HeroBlock = () => {
     <Box
       bg="linear-gradient(rgba(26,26,26,0.20), rgba(26,26,26,0.20)), url(/images/bg-image-2.png)"
       bgRepeat="no-repeat"
-      bgPosition={["25% 75%", "center, center"]}
+      bgPosition={["center, center"]}
       bgSize="cover"
       height="var(--chakra-vh)"
       p={[4, 10]}
@@ -22,7 +38,7 @@ const HeroBlock = () => {
         maxWidth="container.max"
         mx="auto"
       >
-        <Flex alignItems="center" justifyContent="space-between">
+        <Flex alignItems="center" justifyContent={["center", "space-between"]}>
           <Link href="/services/order" width="max-content">
             <Button
               width="max-content"
@@ -42,7 +58,7 @@ const HeroBlock = () => {
             </Button>
           </Link>
 
-          <Link href="/services/order" width="max-content">
+          <Link href="/services/order" width="max-content" display={["none", "block"]}>
             <Button
               width="max-content"
               height={["48px", "60px"]}
@@ -66,63 +82,168 @@ const HeroBlock = () => {
   );
 };
 
-const FastBlock = () => {
+const AdvantageItem = ({
+  icon,
+  title,
+  description,
+  notes,
+}: {
+  icon: any;
+  title: string;
+  description: string;
+  notes?: string;
+}) => (
+  <Flex
+    flexDirection="column"
+    justifyContent="space-between"
+    bg="bgPrimary"
+    p={[5, 8]}
+    borderRadius={["20px"]}
+    width="100%"
+    maxWidth="420px"
+    // border="1px solid red"
+    height={["320px", "368px"]}
+  >
+    <Box>
+      <Icon as={icon} boxSize={[8, 10]}></Icon>
+      <Text fontSize={["xl", "2xl"]} my={[2, 4]}>
+        {title}
+      </Text>
+    </Box>
+    <Box>
+      <Text fontSize={["sm", "md"]} color="textSecondary">
+        {description}
+      </Text>
+      {notes && (
+        <Text fontSize={["sm", "md"]} color="#FF791B" textAlign="center" mt={3}>
+          {notes}
+        </Text>
+      )}
+    </Box>
+  </Flex>
+);
+
+const SlidePrevButton = ({ disabled }: { disabled: boolean }) => {
+  const swiper = useSwiper();
+  console.log("🚀 ~ SlidePrevButton ~ swiper:", swiper);
   return (
-    <Flex px={[4, 10]} mt={[5, 10]} justifyContent="center">
-      <Flex bg="bgPrimary" borderRadius="20px">
-        <Flex
-          flexDirection="column"
-          px={[4, 10]}
-          py={[5, 10]}
-          // mt={-5}
-          color="textPrimaryWhite"
-          gap={[4, 10]}
-          maxWidth="container.max"
-          mx="auto"
-        >
-          <Heading
-            fontSize={["26px", "36px"]}
-            fontWeight={500}
-            textAlign="center"
-            bg="linear-gradient(0deg, #00A3FF 23.08%, rgba(0, 102, 204, 0.76) 74.04%)"
-            bgClip="text"
-          >
-            Nie trać swojego czasu
-          </Heading>
-          <Flex
-            gap={[4, 10]}
-            justifyContent="space-between"
-            alignItems="center"
-            flexDirection={["column", "row"]}
-          >
-            <Text
-              fontSize={["md", "xl"]}
-              fontWeight={400}
-              width="100%"
-              color="textSecondary"
-              order={[1, 0]}
-            >
-              Jesteśmy zadowoleni, że możemy zaoferować Państwu wygodę i elastyczność: przyjedziemy
-              w dowolne miejsce, które dla Państwa dogodne. Nasz zespół pracowni projektowej wnętrz
-              jest gotowy omówić. Państwa preferencje i zrealizować je w rzeczywistości,
-              gdziekolwiek by się Pan/i nie znajdowali/a. Cenimy Państwa czas i komfort, dlatego
-              jesteśmy gotowi dostosować się do Państwa harmonogramu i lokalizacji, aby proces
-              realizacji Państwa pomysłów był jak najbardziej wygodny.
-              <br></br>
-              Ta usługa jest dostępna w miastach: Warszawa, Łódź, Lublin
-            </Text>
-            <Image
-              order={[0, 1]}
-              src="/images/landing2.png"
-              alt="landing2"
-              height={["", 284]}
-              objectFit="contain"
-              borderRadius="16px"
-            />
-          </Flex>
-        </Flex>
+    <IconButton
+      aria-label="prev"
+      icon={<Icon as={IoChevronBack} boxSize={6} color={disabled ? "gray.500" : undefined} />}
+      isRound={true}
+      colorScheme="blackAlpha"
+      onClick={() => swiper.slidePrev()}
+      disabled={disabled}
+    />
+  );
+};
+const SlideNextButton = ({ disabled }: { disabled: boolean }) => {
+  const swiper = useSwiper();
+
+  return (
+    <IconButton
+      aria-label="prev"
+      icon={<Icon as={IoChevronForward} boxSize={6} color={disabled ? "gray.500" : undefined} />}
+      isRound={true}
+      colorScheme="blackAlpha"
+      onClick={() => swiper.slideNext()}
+      disabled={disabled}
+    />
+  );
+};
+const AdvantagesBlock = () => {
+  const [isBeginning, setIsBeginning] = useState(true);
+  const [isEnd, setIsEnd] = useState(false);
+  return (
+    <Swiper
+      slidesOffsetBefore={20}
+      slidesOffsetAfter={20}
+      onReachBeginning={() => {
+        console.log("🚀 ~ AdvantagesBlock ~ START:");
+        setIsBeginning(true);
+      }}
+      onFromEdge={() => {
+        console.log("🚀 ~ AdvantagesBlock ~ MIDDLE:");
+        setIsEnd(false);
+        setIsBeginning(false);
+      }}
+      onReachEnd={() => {
+        setIsEnd(true);
+        console.log("🚀 ~ AdvantagesBlock ~ END:");
+      }}
+      breakpoints={{
+        // when window width is >= 320px
+        320: {
+          slidesPerView: 1.3,
+          spaceBetween: 8,
+        },
+        640: {
+          slidesPerView: 1.4,
+          spaceBetween: 20,
+        },
+        800: {
+          slidesPerView: 2,
+          spaceBetween: 20,
+        },
+        1000: {
+          slidesPerView: 2.5,
+          spaceBetween: 20,
+        },
+        1200: {
+          slidesPerView: 3,
+          spaceBetween: 20,
+        },
+        1550: {
+          slidesPerView: 4,
+          spaceBetween: 20,
+        },
+        1900: {
+          slidesPerView: 5.5,
+          spaceBetween: 20,
+        },
+      }}
+    >
+      <SwiperSlide>
+        <AdvantageItem
+          icon={IoPersonOutline}
+          title="Indywidualne podejście"
+          description="Uwzględniamy wszystkie życzenia i wymagania naszych klientów, proponując indywidualne rozwiązania dla każdego projektu. Nasi architekci pracują w ścisłej współpracy z klientem, aby stworzyć unikalne i funkcjonalne obiekty."
+        />
+      </SwiperSlide>
+      <SwiperSlide>
+        <AdvantageItem
+          icon={IoCalendarNumberOutline}
+          title="Dotrzymujemy terminów"
+          description="Doceniamy czas naszych klientów i ściśle przestrzegamy terminów realizacji prac. Precyzyjne planowanie i efektywna organizacja procesów pozwalają nam dostarczać obiekty punktualnie."
+          notes="W przypadku nieterminowego wykonania, zwracamy 20% wartości remontu."
+        />
+      </SwiperSlide>
+      <SwiperSlide>
+        <AdvantageItem
+          icon={IoPhonePortraitOutline}
+          title="Całość w Twoim telefonie!"
+          description="Uwzględniamy wszystkie życzenia i wymagania naszych klientów, proponując indywidualne rozwiązania dla każdego projektu. Nasi architekci pracują w ścisłej współpracy z klientem, aby stworzyć unikalne i funkcjonalne obiekty."
+        />
+      </SwiperSlide>
+      <SwiperSlide>
+        <AdvantageItem
+          icon={IoEyeOffOutline}
+          title="Przejrzyste rozliczanie kosztów"
+          description="Każdy ruch środków na Twoim koncie przeznaczonym na remont będzie potwierdzony raportem! Tylko Ty potwierdzasz wszystkie wydatki, niezależnie od tego, czy chodzi o zakup materiałów, czy o opłatę za pracę fachowców."
+        />
+      </SwiperSlide>
+      <SwiperSlide>
+        <AdvantageItem
+          icon={IoPersonOutline}
+          title="Fotograficzna i wideo rejestracja"
+          description="Nie muszą Państwo przyjeżdżać co dwa dni na miejsce, aby monitorować postęp prac. Robimy zdjęcia i filmy każdego etapu, a Państwo mogą śledzić wszystko na swoim telefonie."
+        />
+      </SwiperSlide>
+      <Flex width="100%" justifyContent="center" gap={[5]} p={5}>
+        <SlidePrevButton disabled={isBeginning} />
+        <SlideNextButton disabled={isEnd} />
       </Flex>
-    </Flex>
+    </Swiper>
   );
 };
 const AboutBlock = () => {
@@ -140,40 +261,19 @@ const AboutBlock = () => {
       </Heading>
       <Text
         width="100%"
-        fontSize={["md", "xl"]}
+        fontSize={["sm", "xl"]}
         fontWeight={400}
         color="textSecondary"
         textAlign="center"
       >
-        Witajcie, w naszym studiu projektowania wnętrz, zlokalizowanym w{" "}
-        <Text as="span" color="textPrimaryWhite">
-          Warszawie
-        </Text>
-        , gdzie doświadczenie i kreatywność są kluczem do tworzenia doskonałych przestrzeni.
-        Jesteśmy zespołem profesjonalistów, zjednoczonych wspólną pasją do designu, gotowych
-        realizować wasze marzenia. Nasze doświadczenie pozwala nam zrozumieć wasze potrzeby i
-        preferencje. Pracujemy z każdym klientem indywidualnie, uwzględniając ich styl życia, gust i
-        ograniczenia budżetowe, aby stworzyć unikalną przestrzeń, odzwierciedlającą ich osobowość. W
-        naszym studiu znajdziesz nie tylko doświadczonych profesjonalistów, ale także inspirującą
-        atmosferę, gdzie każdy pomysł jest omawiany i przekształcany w koncepcję, a każdy detal
-        projektowany jest z miłością i uwagą. Specjalizujemy się w tworzeniu wnętrz, które łączą w
-        sobie funkcjonalność, komfort i estetykę. Bez względu na to, czy potrzebujesz designu dla
-        mieszkania, domu, biura czy restauracji, jesteśmy gotowi zrealizować wasze pomysły, tworząc
-        przestrzeń, która będzie was codziennie cieszyć. Powierzcie nam swoje zaufanie, a wasze
-        mieszkanie, dom, biuro i restauracja staną się miejscem, do którego będziecie chcieli wracać
-        z przyjemnością i dumą. Dodatkowo, choć nasze studio znajduje się w{" "}
-        <Text as="span" color="textPrimaryWhite">
-          Warszawie
-        </Text>
-        , to świadczymy usługi projektowe także w innych miastach, takich jak{" "}
-        <Text as="span" color="textPrimaryWhite">
-          Łódź
-        </Text>
-        ,{" "}
-        <Text as="span" color="textPrimaryWhite">
-          Lublin
-        </Text>{" "}
-        i wiele innych, dostosowując się do potrzeb naszych klientów.
+        Jesteśmy firmą remontowo-budowlaną z Warszawy, specjalizującą się w kompleksowych remontach
+        mieszkań i domów. Nasz zespół tworzą doświadczeni specjaliści, którzy z pasją podchodzą do
+        każdego projektu. Stawiamy na profesjonalizm, jakość oraz indywidualne podejście do każdego
+        klienta. Nasze prace charakteryzują się dbałością o detale oraz terminowością, co sprawia,
+        że cieszymy się zaufaniem i uznaniem na rynku. Posiadamy wieloletnie doświadczenie, które
+        pozwala nam realizować nawet najbardziej wymagające projekty. Naszym celem jest
+        przekształcanie przestrzeni w miejsca, w których nasi klienci będą czuć się komfortowo i
+        szczęśliwie.
       </Text>
     </Flex>
   );
@@ -183,7 +283,19 @@ export const Home = () => {
   return (
     <Box width="100%">
       <HeroBlock />
-      <FastBlock />
+      <Text
+        textAlign="center"
+        fontSize={["sm", "2xl"]}
+        maxWidth="780px"
+        mx="auto"
+        py={[10, "80px"]}
+        px={[4]}
+      >
+        Oferujemy wysokiej jakości rozwiązania budowlane, oparte na przejrzystości,
+        odpowiedzialności i zaufaniu. Takie relacje z klientami pomagają poprawić reputację firmy i
+        przyciągaćnowych klientów, poszukujących niezawodnych wykonawców do swoich projektów.
+      </Text>
+      <AdvantagesBlock />
       <AboutBlock />
     </Box>
   );
