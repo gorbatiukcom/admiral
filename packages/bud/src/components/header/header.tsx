@@ -18,7 +18,7 @@ import {
 } from "@chakra-ui/react";
 import { useSelectedLayoutSegment } from "next/navigation";
 import { useRef } from "react";
-import { IoMenu, IoMenuSharp } from "react-icons/io5";
+import { IoArrowForward, IoMenu, IoMenuSharp } from "react-icons/io5";
 
 import { Image } from "../image";
 import { Link } from "../link";
@@ -35,11 +35,11 @@ const NavigationLinks = [
     segment: "services",
     name: "Usługi",
   },
-  {
-    url: "/portfolio",
-    segment: "portfolio",
-    name: "Portfolio",
-  },
+  // {
+  //   url: "/portfolio",
+  //   segment: "portfolio",
+  //   name: "Portfolio",
+  // },
   {
     url: "/contacts",
     segment: "contacts",
@@ -107,9 +107,39 @@ const DesktopHeader = ({
               {name}
             </Link>
           ))}
+          <Link
+            href="https://admiralinterior.com/"
+            px={5}
+            bg="brand.blue"
+            fontSize="20px"
+            lineHeight="48px"
+            fontWeight={500}
+            cursor="pointer"
+            _hover={{
+              color: "black",
+            }}
+            position="relative"
+            zIndex={0}
+            borderRadius="100px"
+          >
+            <Flex alignItems="center" justifyContent="space-between" gap={2}>
+              Admiral Interior
+              <Flex
+                bg="white"
+                color="black"
+                p={1}
+                borderRadius="100%"
+                justifyContent="center"
+                alignItems="center"
+                transform="rotate(-45deg)"
+              >
+                <Icon as={IoArrowForward} />
+              </Flex>
+            </Flex>
+          </Link>
         </Flex>
         <Link
-          href="tel:+48577125400"
+          href="tel:+48536089652"
           py={2}
           px={5}
           pt="48px"
@@ -123,7 +153,7 @@ const DesktopHeader = ({
             color: "brand.orange",
           }}
         >
-          +48 577 125 400
+          +48 536 089 652
         </Link>
       </Flex>
     </Flex>
@@ -190,9 +220,9 @@ const MobileHeader = ({
               <Link
                 key={name}
                 href={url}
-                py={2}
+                py={1}
                 px={5}
-                fontWeight={600}
+                fontWeight={500}
                 fontSize="20px"
                 lineHeight="40px"
                 cursor="pointer"
@@ -212,10 +242,10 @@ const MobileHeader = ({
             ))}
           </DrawerBody>
 
-          <DrawerFooter justifyContent="flex-start" p={4} pl={10}>
-            <Flex flexDirection="column">
+          <DrawerFooter justifyContent="flex-start" p={5}>
+            <Flex flexDirection="column" gap={2} width="100%">
               <Link
-                href="tel:+48577125400"
+                href="tel:+48536089652"
                 color="textPrimaryWhite"
                 fontSize={["14px", "18px"]}
                 lineHeight={["21px", "40px"]}
@@ -224,12 +254,11 @@ const MobileHeader = ({
                 _hover={{
                   color: "brand.orange",
                 }}
-                pb={2}
               >
-                +48 577 125 400
+                +48 536 089 652
               </Link>
 
-              <Flex width="100%" justifyContent="flex-end" gap={[4, 6]}>
+              <Flex width="100%" justifyContent="flex-start" gap={[4, 6]}>
                 {SocialMediaLinks.map(({ url, name }) => (
                   <Link
                     key={name}
@@ -249,6 +278,61 @@ const MobileHeader = ({
                   </Link>
                 ))}
               </Flex>
+              <Link href="/contacts" mt={2} onClick={onClose}>
+                <Button
+                  width="100%"
+                  height={["48px", "60px"]}
+                  px={["16px", "32px"]}
+                  bg="white"
+                  color="textPrimary"
+                  fontSize={["md", "24px"]}
+                  borderRadius="full"
+                  transition="0.2s"
+                  fontWeight={500}
+                  _hover={{
+                    color: "brand.orange",
+                  }}
+                >
+                  Zamów rozmowę telefoniczną
+                </Button>
+              </Link>
+
+              <Link
+                mt={2}
+                href="https://admiralinterior.com/"
+                py={1}
+                pl={5}
+                pr={2}
+                fontWeight={500}
+                fontSize="20px"
+                lineHeight="40px"
+                cursor="pointer"
+                _hover={{
+                  color: "brand.orange",
+                }}
+                position="relative"
+                bg="brand.blue"
+                // color="textPrimaryWhite"
+                color="textPrimaryWhite"
+                borderRadius="100px"
+                // textAlign={activeSegment === segment ? "center" : undefined}
+                onClick={onClose}
+              >
+                <Flex alignItems="center" justifyContent="space-between">
+                  Admiral Interior
+                  <Flex
+                    bg="white"
+                    color="black"
+                    p={1}
+                    borderRadius="100%"
+                    justifyContent="center"
+                    alignItems="center"
+                    transform="rotate(-45deg)"
+                  >
+                    <Icon as={IoArrowForward} boxSize={6} />
+                  </Flex>
+                </Flex>
+              </Link>
             </Flex>
           </DrawerFooter>
         </DrawerContent>

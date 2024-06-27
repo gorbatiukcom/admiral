@@ -17,11 +17,11 @@ const NavigationLinks = [
     segment: "services",
     name: "Usługi",
   },
-  {
-    url: "/portfolio",
-    segment: "portfolio",
-    name: "Portfolio",
-  },
+  // {
+  //   url: "/portfolio",
+  //   segment: "portfolio",
+  //   name: "Portfolio",
+  // },
   {
     url: "/contacts",
     segment: "contacts",
@@ -65,7 +65,7 @@ export const Footer = () => {
           </Link>
 
           <Box mt={[4, 10]}>
-            <Text color="textSecondary">©️ 2024 Admiral Interior</Text>
+            <Text color="textSecondary">©️ 2024 Admiral Bud</Text>
           </Box>
         </Flex>
         <Flex flexDirection="column" width={["100%", "20%"]}>
@@ -96,12 +96,12 @@ export const Footer = () => {
           <Flex flexDirection="column" gap={1}>
             {[
               {
-                url: "mailto:admiralinterior.info@gmail.com",
-                name: "admiralinterior.info@gmail.com",
+                url: "mailto:admiralbud.info@gmail.com",
+                name: "admiralbud.info@gmail.com",
               },
               {
-                url: "tel:+48577125400",
-                name: "tel: +48 577 125 400",
+                url: "tel:+48536089652",
+                name: "tel: +48 536 089 652",
               },
             ].map(({ url, name }) => (
               <Link
@@ -124,15 +124,15 @@ export const Footer = () => {
             {[
               {
                 url: "/services",
-                name: "Projektowanie wnętrz Warszawa",
+                name: "Remont mieszkań",
               },
               {
                 url: "/services",
-                name: "Projektowanie wnętrz Łódż",
+                name: 'Remont mieszkania "pod klucz"',
               },
               {
                 url: "/services",
-                name: "Projektowanie wnętrz Lublin",
+                name: "Projektowanie wnętrz",
               },
             ].map(({ url, name }) => (
               <Link

@@ -6,6 +6,7 @@ import "swiper/css";
 import { Box, Button, Flex, Heading, Icon, IconButton, Image, Text } from "@chakra-ui/react";
 import { useState } from "react";
 import {
+  IoAdd,
   IoCalendarNumberOutline,
   IoCashOutline,
   IoChevronBack,
@@ -43,7 +44,8 @@ const HeroBlock = () => {
             <Button
               width="max-content"
               height={["48px", "60px"]}
-              px={["40px", "40px"]}
+              pl={["32px", "32px"]}
+              pr={["16px", "16px"]}
               bg="white"
               color="textPrimary"
               fontSize={["20px", "24px"]}
@@ -54,15 +56,20 @@ const HeroBlock = () => {
                 color: "brand.orange",
               }}
             >
-              Zamówić remont
+              <Flex justifyContent="space-between" alignItems="center" width="100%" gap={10}>
+                Zamówić remont
+                <Flex bg="brand.orange" borderRadius="100%" p={1}>
+                  <Icon as={IoAdd} color="white" boxSize={[6, 8]} />
+                </Flex>
+              </Flex>
             </Button>
           </Link>
 
-          <Link href="/services/order" width="max-content" display={["none", "block"]}>
+          <Link href="/contacts" width="max-content" display={["none", "block"]}>
             <Button
               width="max-content"
               height={["48px", "60px"]}
-              px={["40px", "40px"]}
+              px={["32px", "32px"]}
               bg="white"
               color="textPrimary"
               fontSize={["20px", "24px"]}
