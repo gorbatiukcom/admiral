@@ -109,7 +109,8 @@ const DesktopHeader = ({
           ))}
           <Link
             href="https://admiralinterior.com/"
-            px={5}
+            pl={5}
+            pr={3}
             bg="brand.blue"
             fontSize="20px"
             lineHeight="48px"
@@ -122,7 +123,7 @@ const DesktopHeader = ({
             zIndex={0}
             borderRadius="100px"
           >
-            <Flex alignItems="center" justifyContent="space-between" gap={2}>
+            <Flex alignItems="center" justifyContent="space-between" gap={4}>
               Admiral Interior
               <Flex
                 bg="white"
@@ -312,10 +313,8 @@ const MobileHeader = ({
                 }}
                 position="relative"
                 bg="brand.blue"
-                // color="textPrimaryWhite"
                 color="textPrimaryWhite"
                 borderRadius="100px"
-                // textAlign={activeSegment === segment ? "center" : undefined}
                 onClick={onClose}
               >
                 <Flex alignItems="center" justifyContent="space-between">

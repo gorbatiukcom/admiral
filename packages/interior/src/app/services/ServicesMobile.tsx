@@ -14,85 +14,29 @@ export default function ServicesMobile() {
 
   return (
     <Flex display={["flex", "none"]} flexDirection="column" p={4} pb={10} position="relative">
-      <Flex width="100%" justifyContent="space-between">
-        <Flex flexDirection="column">
-          <Box
-            width="100%"
-            height="18px"
-            bg="white"
-            borderRadius="3px 0px 0px 12px"
-            position="relative"
-            _before={{
-              content: `""`,
-              position: "absolute",
-              display: "block",
-              width: "38px",
-              height: "38px",
-              top: "100%",
-              left: 0,
-              background: "transparent",
-              pointerEvents: "none",
-              borderRadius: "0px 100% 100% 0px",
-              boxShadow: "22px 0px 0px 10px white",
-            }}
-          />
-          <Icon
-            as={IoArrowBackCircle}
-            boxSize="38px"
-            onClick={() => setProject(ProjectsLinks[activeProject].prev)}
-          />
-          <Box
-            width="100%"
-            height="18px"
-            bg="white"
-            borderRadius="12px 0px 0px 3px"
-            position="relative"
-          />
-        </Flex>
+      <Flex width="100%" alignItems="center" justifyContent="space-between">
+        <Icon
+          as={IoArrowBackCircle}
+          boxSize="38px"
+          onClick={() => setProject(ProjectsLinks[activeProject].prev)}
+        />
         <Text
-          fontSize="xl"
+          fontSize="2xl"
           lineHeight="30px"
-          fontWeight={600}
-          bg="white"
-          color="textPrimary"
+          fontWeight={500}
+          // bg="white"
+          color="textPrimaryWhite"
           width="100%"
           textAlign="center"
           py="22px"
         >
           {ProjectsDetalis[activeProject].name}
         </Text>
-        <Flex flexDirection="column">
-          <Box
-            width="100%"
-            height="18px"
-            bg="white"
-            borderRadius="0px 3px 12px 0px"
-            position="relative"
-            _before={{
-              content: `""`,
-              position: "absolute",
-              display: "block",
-              width: "38px",
-              height: "38px",
-              top: "100%",
-              pointerEvents: "none",
-              borderRadius: "100% 0px 0px 100%",
-              boxShadow: "-22px 0px 0px 10px white",
-            }}
-          />
-          <Icon
-            as={IoArrowForwardCircle}
-            boxSize="38px"
-            onClick={() => setProject(ProjectsLinks[activeProject].next)}
-          />
-          <Box
-            width="100%"
-            height="18px"
-            bg="white"
-            borderRadius="0px 12px 3px 0px"
-            position="relative"
-          />
-        </Flex>
+        <Icon
+          as={IoArrowForwardCircle}
+          boxSize="38px"
+          onClick={() => setProject(ProjectsLinks[activeProject].next)}
+        />
       </Flex>
 
       <Flex flexDirection="column" gap={4} mt={10}>

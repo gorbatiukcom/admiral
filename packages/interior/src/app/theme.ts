@@ -18,6 +18,7 @@ const colors = {
   },
   brand: {
     blue: "#00A3FF",
+    orange: "#FF791B",
   },
   bgBase: "#161617",
   bgPrimary: "#000000",

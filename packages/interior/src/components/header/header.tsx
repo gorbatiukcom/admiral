@@ -18,7 +18,7 @@ import {
 } from "@chakra-ui/react";
 import { useSelectedLayoutSegment } from "next/navigation";
 import { useRef } from "react";
-import { IoMenu, IoMenuSharp } from "react-icons/io5";
+import { IoArrowForward, IoMenu, IoMenuSharp } from "react-icons/io5";
 
 import { Image } from "../image";
 import { Link } from "../link";
@@ -107,6 +107,37 @@ const DesktopHeader = ({
               {name}
             </Link>
           ))}
+          <Link
+            href="https://admiralbud.com/"
+            pl={5}
+            pr={3}
+            bg="brand.orange"
+            fontSize="20px"
+            lineHeight="48px"
+            fontWeight={500}
+            cursor="pointer"
+            _hover={{
+              color: "black",
+            }}
+            position="relative"
+            zIndex={0}
+            borderRadius="100px"
+          >
+            <Flex alignItems="center" justifyContent="space-between" gap={4}>
+              Admiral Bud
+              <Flex
+                bg="white"
+                color="black"
+                p={1}
+                borderRadius="100%"
+                justifyContent="center"
+                alignItems="center"
+                transform="rotate(-45deg)"
+              >
+                <Icon as={IoArrowForward} />
+              </Flex>
+            </Flex>
+          </Link>
         </Flex>
         <Link
           href="tel:+48577125400"
@@ -189,9 +220,9 @@ const MobileHeader = ({
               <Link
                 key={name}
                 href={url}
-                py={2}
+                py={1}
                 px={5}
-                fontWeight={600}
+                fontWeight={500}
                 fontSize="20px"
                 lineHeight="40px"
                 cursor="pointer"
@@ -211,8 +242,8 @@ const MobileHeader = ({
             ))}
           </DrawerBody>
 
-          <DrawerFooter justifyContent="flex-start" p={4} pl={10}>
-            <Flex flexDirection="column">
+          <DrawerFooter justifyContent="flex-start" p={5}>
+            <Flex flexDirection="column" gap={2} width="100%">
               <Link
                 href="tel:+48577125400"
                 color="textPrimaryWhite"
@@ -223,12 +254,11 @@ const MobileHeader = ({
                 _hover={{
                   color: "brand.blue",
                 }}
-                pb={2}
               >
                 +48 577 125 400
               </Link>
 
-              <Flex width="100%" justifyContent="flex-end" gap={[4, 6]}>
+              <Flex width="100%" justifyContent="flex-start" gap={[4, 6]}>
                 {SocialMediaLinks.map(({ url, name }) => (
                   <Link
                     key={name}
@@ -248,6 +278,40 @@ const MobileHeader = ({
                   </Link>
                 ))}
               </Flex>
+              <Link
+                mt={2}
+                href="https://admiralbud.com/"
+                py={1}
+                pl={5}
+                pr={2}
+                fontWeight={500}
+                fontSize="20px"
+                lineHeight="40px"
+                cursor="pointer"
+                _hover={{
+                  color: "dark",
+                }}
+                position="relative"
+                bg="brand.orange"
+                color="textPrimaryWhite"
+                borderRadius="100px"
+                onClick={onClose}
+              >
+                <Flex alignItems="center" justifyContent="space-between">
+                  Admiral Bud
+                  <Flex
+                    bg="white"
+                    color="black"
+                    p={1}
+                    borderRadius="100%"
+                    justifyContent="center"
+                    alignItems="center"
+                    transform="rotate(-45deg)"
+                  >
+                    <Icon as={IoArrowForward} boxSize={6} />
+                  </Flex>
+                </Flex>
+              </Link>
             </Flex>
           </DrawerFooter>
         </DrawerContent>
