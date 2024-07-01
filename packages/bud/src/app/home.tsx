@@ -2,25 +2,20 @@
 
 import "swiper/css";
 
-// import "swiper/css/navigation";
-import { Box, Button, Flex, Heading, Icon, IconButton, Image, Text } from "@chakra-ui/react";
+import { Box, Button, Flex, Heading, Icon, IconButton, Text } from "@chakra-ui/react";
 import { useState } from "react";
 import {
   IoAdd,
   IoCalendarNumberOutline,
-  IoCashOutline,
   IoChevronBack,
   IoChevronForward,
   IoEyeOffOutline,
-  IoPerson,
   IoPersonOutline,
   IoPhonePortraitOutline,
 } from "react-icons/io5";
-import { Navigation } from "swiper/modules";
-import { Swiper, SwiperSlide, useSwiper, useSwiperSlide } from "swiper/react";
+import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 
 import { Link } from "../components/link";
-import { SocialMediaLinks } from "../components/SocialMediaLinks";
 
 const HeroBlock = () => {
   return (
@@ -108,7 +103,6 @@ const AdvantageItem = ({
     borderRadius={["20px"]}
     width="100%"
     maxWidth="420px"
-    // border="1px solid red"
     height={["320px", "368px"]}
   >
     <Box>
@@ -132,30 +126,42 @@ const AdvantageItem = ({
 
 const SlidePrevButton = ({ disabled }: { disabled: boolean }) => {
   const swiper = useSwiper();
-  console.log("🚀 ~ SlidePrevButton ~ swiper:", swiper);
+
   return (
-    <IconButton
-      aria-label="prev"
-      icon={<Icon as={IoChevronBack} boxSize={6} color={disabled ? "gray.500" : undefined} />}
-      isRound={true}
-      colorScheme="blackAlpha"
+    <Flex
+      as="button"
       onClick={() => swiper.slidePrev()}
+      bg={disabled ? "gray.800" : "black"}
+      borderRadius="100%"
+      width="40px"
+      height="40px"
+      justifyContent="center"
+      alignItems="center"
       disabled={disabled}
-    />
+      cursor={disabled ? "default" : undefined}
+    >
+      <Icon as={IoChevronBack} boxSize={6} color={disabled ? "gray.400" : "white"} />
+    </Flex>
   );
 };
 const SlideNextButton = ({ disabled }: { disabled: boolean }) => {
   const swiper = useSwiper();
 
   return (
-    <IconButton
-      aria-label="prev"
-      icon={<Icon as={IoChevronForward} boxSize={6} color={disabled ? "gray.500" : undefined} />}
-      isRound={true}
-      colorScheme="blackAlpha"
+    <Flex
+      as="button"
       onClick={() => swiper.slideNext()}
+      bg={disabled ? "gray.800" : "black"}
+      borderRadius="100%"
+      width="40px"
+      height="40px"
+      justifyContent="center"
+      alignItems="center"
       disabled={disabled}
-    />
+      cursor={disabled ? "default" : undefined}
+    >
+      <Icon as={IoChevronForward} boxSize={6} color={disabled ? "gray.400" : "white"} />
+    </Flex>
   );
 };
 const AdvantagesBlock = () => {
@@ -166,17 +172,14 @@ const AdvantagesBlock = () => {
       slidesOffsetBefore={20}
       slidesOffsetAfter={20}
       onReachBeginning={() => {
-        console.log("🚀 ~ AdvantagesBlock ~ START:");
         setIsBeginning(true);
       }}
       onFromEdge={() => {
-        console.log("🚀 ~ AdvantagesBlock ~ MIDDLE:");
         setIsEnd(false);
         setIsBeginning(false);
       }}
       onReachEnd={() => {
         setIsEnd(true);
-        console.log("🚀 ~ AdvantagesBlock ~ END:");
       }}
       breakpoints={{
         // when window width is >= 320px
@@ -197,7 +200,7 @@ const AdvantagesBlock = () => {
           spaceBetween: 20,
         },
         1200: {
-          slidesPerView: 3,
+          slidesPerView: 2.5,
           spaceBetween: 20,
         },
         1550: {
@@ -205,19 +208,33 @@ const AdvantagesBlock = () => {
           spaceBetween: 20,
         },
         1900: {
-          slidesPerView: 5.5,
+          slidesPerView: 4.2,
+          spaceBetween: 20,
+        },
+        2000: {
+          slidesPerView: 5,
           spaceBetween: 20,
         },
       }}
     >
-      <SwiperSlide>
+      <SwiperSlide
+        style={{
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
         <AdvantageItem
           icon={IoPersonOutline}
           title="Indywidualne podejście"
           description="Uwzględniamy wszystkie życzenia i wymagania naszych klientów, proponując indywidualne rozwiązania dla każdego projektu. Nasi architekci pracują w ścisłej współpracy z klientem, aby stworzyć unikalne i funkcjonalne obiekty."
         />
       </SwiperSlide>
-      <SwiperSlide>
+      <SwiperSlide
+        style={{
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
         <AdvantageItem
           icon={IoCalendarNumberOutline}
           title="Dotrzymujemy terminów"
@@ -225,21 +242,36 @@ const AdvantagesBlock = () => {
           notes="W przypadku nieterminowego wykonania, zwracamy 20% wartości remontu."
         />
       </SwiperSlide>
-      <SwiperSlide>
+      <SwiperSlide
+        style={{
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
         <AdvantageItem
           icon={IoPhonePortraitOutline}
           title="Całość w Twoim telefonie!"
           description="Uwzględniamy wszystkie życzenia i wymagania naszych klientów, proponując indywidualne rozwiązania dla każdego projektu. Nasi architekci pracują w ścisłej współpracy z klientem, aby stworzyć unikalne i funkcjonalne obiekty."
         />
       </SwiperSlide>
-      <SwiperSlide>
+      <SwiperSlide
+        style={{
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
         <AdvantageItem
           icon={IoEyeOffOutline}
           title="Przejrzyste rozliczanie kosztów"
           description="Każdy ruch środków na Twoim koncie przeznaczonym na remont będzie potwierdzony raportem! Tylko Ty potwierdzasz wszystkie wydatki, niezależnie od tego, czy chodzi o zakup materiałów, czy o opłatę za pracę fachowców."
         />
       </SwiperSlide>
-      <SwiperSlide>
+      <SwiperSlide
+        style={{
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
         <AdvantageItem
           icon={IoPersonOutline}
           title="Fotograficzna i wideo rejestracja"

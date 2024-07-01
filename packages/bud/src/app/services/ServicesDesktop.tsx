@@ -3,6 +3,7 @@
 import { Box, Button, Flex, Heading, Icon, Text } from "@chakra-ui/react";
 import { IoAdd } from "react-icons/io5";
 
+import { Link } from "../../components/link";
 import { ServicesBud } from "./services-data";
 
 export default function ServicesDesktop() {
@@ -46,28 +47,29 @@ export default function ServicesDesktop() {
               </Text>
             )}
 
-            <Button
-              size={["xl"]}
-              width="max-content"
-              mx="auto"
-              borderRadius="100px"
-              bg="rgba(114, 114, 114, 0.5)"
-              color="textPrimaryWhite"
-              py={[2]}
-              pl={[4]}
-              pr={[2]}
-              _hover={{
-                color: "textPrimary",
-                bg: "white",
-              }}
-            >
-              <Flex justifyContent="space-between" alignItems="center" width="100%" gap={10}>
-                Zamówić
-                <Flex bg="brand.orange" borderRadius="100%" p={1}>
-                  <Icon as={IoAdd} boxSize={6} />
+            <Link href={`/services/order?project=${id}`} mx="auto">
+              <Button
+                size={["xl"]}
+                width="max-content"
+                borderRadius="100px"
+                bg="rgba(114, 114, 114, 0.5)"
+                color="textPrimaryWhite"
+                py={[2]}
+                pl={[4]}
+                pr={[2]}
+                _hover={{
+                  color: "textPrimary",
+                  bg: "white",
+                }}
+              >
+                <Flex justifyContent="space-between" alignItems="center" width="100%" gap={10}>
+                  Zamówić
+                  <Flex bg="brand.orange" borderRadius="100%" p={1}>
+                    <Icon as={IoAdd} boxSize={6} />
+                  </Flex>
                 </Flex>
-              </Flex>
-            </Button>
+              </Button>
+            </Link>
             <Text textAlign="center" color="brand.orange" fontSize={["lg"]} mt={[4, 8]}>
               Każdy rodzaj remontu może obejmować dodatkowe usługi i prace, w zależności od
               specyfiki i wymagań klienta.

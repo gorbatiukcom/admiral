@@ -215,7 +215,7 @@ const MobileHeader = ({
         <DrawerOverlay />
         <DrawerContent bg="black">
           <DrawerCloseButton color="textPrimaryWhite" size="lg" />
-          <DrawerBody display="flex" flexDirection="column" justifyContent="center" px={5}>
+          <DrawerBody display="flex" flexDirection="column" justifyContent="center" px={5} gap={4}>
             {NavigationLinks.map(({ url, segment, name }) => (
               <Link
                 key={name}
@@ -240,6 +240,39 @@ const MobileHeader = ({
                 {name}
               </Link>
             ))}
+            <Link
+              href="https://admiralbud.com/"
+              py={1}
+              pl={5}
+              pr={2}
+              fontWeight={500}
+              fontSize="20px"
+              lineHeight="40px"
+              cursor="pointer"
+              _hover={{
+                color: "dark",
+              }}
+              position="relative"
+              bg="brand.orange"
+              color="textPrimaryWhite"
+              borderRadius="100px"
+              onClick={onClose}
+            >
+              <Flex alignItems="center" justifyContent="space-between">
+                Admiral Bud
+                <Flex
+                  bg="white"
+                  color="black"
+                  p={1}
+                  borderRadius="100%"
+                  justifyContent="center"
+                  alignItems="center"
+                  transform="rotate(-45deg)"
+                >
+                  <Icon as={IoArrowForward} boxSize={6} />
+                </Flex>
+              </Flex>
+            </Link>
           </DrawerBody>
 
           <DrawerFooter justifyContent="flex-start" p={5}>
@@ -278,40 +311,6 @@ const MobileHeader = ({
                   </Link>
                 ))}
               </Flex>
-              <Link
-                mt={2}
-                href="https://admiralbud.com/"
-                py={1}
-                pl={5}
-                pr={2}
-                fontWeight={500}
-                fontSize="20px"
-                lineHeight="40px"
-                cursor="pointer"
-                _hover={{
-                  color: "dark",
-                }}
-                position="relative"
-                bg="brand.orange"
-                color="textPrimaryWhite"
-                borderRadius="100px"
-                onClick={onClose}
-              >
-                <Flex alignItems="center" justifyContent="space-between">
-                  Admiral Bud
-                  <Flex
-                    bg="white"
-                    color="black"
-                    p={1}
-                    borderRadius="100%"
-                    justifyContent="center"
-                    alignItems="center"
-                    transform="rotate(-45deg)"
-                  >
-                    <Icon as={IoArrowForward} boxSize={6} />
-                  </Flex>
-                </Flex>
-              </Link>
             </Flex>
           </DrawerFooter>
         </DrawerContent>
