@@ -16,11 +16,11 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "Admiral Interior",
-  description: "Admiral Interior — Tworzymy komfort dla naszych klientów",
+  title: "Admiral Bud",
+  description: "Admiral Bud — Tworzymy komfort dla naszych klientów",
   metadataBase: new URL("https://admiralinterior.com"),
   openGraph: {
-    description: "Admiral Interior — Tworzymy komfort dla naszych klientów",
+    description: "Admiral Bud — Tworzymy komfort dla naszych klientów",
     images: ["https://admiralinterior.com/images/bg-image.png"],
   },
   twitter: {

@@ -3,7 +3,7 @@ import { Metadata } from "next";
 import Order from "./order";
 
 export const metadata: Metadata = {
-  title: "Admiral Interior | Wycena",
+  title: "Admiral Bud | Wycena",
 };
 
 export default Order;

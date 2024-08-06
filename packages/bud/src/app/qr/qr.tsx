@@ -14,8 +14,8 @@ const StyledContainer = styled(Flex)`
 
 export const QR = () => {
   const ref = useRef(null as any);
-  const [link, setLink] = useState("https://admiralinterior.com");
-  const [logoUrl, setLogoUrl] = useState("https://admiralinterior.com/images/logo_sm.svg");
+  const [link, setLink] = useState("https://admiralbud.com");
+  const [logoUrl, setLogoUrl] = useState("https://admiralbud.com/images/logo.svg");
   const [size, setSize] = useState(1600);
   const [qrSize, setQrSize] = useState(1600);
   const [withLogo, setWithLogo] = useState(false);
