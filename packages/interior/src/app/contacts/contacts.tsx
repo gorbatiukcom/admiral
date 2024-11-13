@@ -123,7 +123,7 @@ export default function Contacts() {
               height="44px"
               width={["100%", null]}
               _hover={{
-                color: "brand.blue",
+                color: "brand.orange",
               }}
             >
               Wysłać
@@ -164,7 +164,7 @@ export default function Contacts() {
             fontWeight={400}
             cursor="pointer"
             _hover={{
-              color: "brand.blue",
+              color: "brand.orange",
             }}
           >
             +48 577 125 400
@@ -175,7 +175,7 @@ export default function Contacts() {
             fontWeight={400}
             cursor="pointer"
             _hover={{
-              color: "brand.blue",
+              color: "brand.orange",
             }}
           >
             admiralinterior.info@gmail.com

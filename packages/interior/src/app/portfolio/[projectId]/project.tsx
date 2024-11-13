@@ -44,7 +44,7 @@ export default function Project({ params }: Props) {
                 alt={projectData?.name}
                 borderRadius="10px"
                 width="max-content"
-                maxHeight="100dvh"
+                maxHeight="100svh"
                 objectFit="contain"
               />
             );
@@ -70,7 +70,7 @@ export default function Project({ params }: Props) {
             fontWeight={400}
             border="2px solid white"
             _hover={{
-              background: "brand.blue",
+              background: "brand.orange",
             }}
           >
             Zamówić projekt

@@ -82,7 +82,7 @@ const DesktopHeader = ({
               fontWeight={500}
               cursor="pointer"
               _hover={{
-                color: activeSegment === segment ? undefined : "brand.blue",
+                color: activeSegment === segment ? undefined : "brand.orange",
               }}
               position="relative"
               zIndex={0}
@@ -111,7 +111,7 @@ const DesktopHeader = ({
             href="https://admiralbud.com/"
             pl={5}
             pr={3}
-            bg="brand.orange"
+            bg="brand.blue"
             fontSize="20px"
             lineHeight="48px"
             fontWeight={500}
@@ -151,7 +151,7 @@ const DesktopHeader = ({
           lineHeight="40px"
           cursor="pointer"
           _hover={{
-            color: "brand.blue",
+            color: "brand.orange",
           }}
         >
           +48 577 125 400
@@ -227,7 +227,7 @@ const MobileHeader = ({
                 lineHeight="40px"
                 cursor="pointer"
                 _hover={{
-                  color: "brand.blue",
+                  color: "brand.orange",
                 }}
                 position="relative"
                 bg={activeSegment === segment ? "white" : "black"}
@@ -253,7 +253,7 @@ const MobileHeader = ({
                 color: "dark",
               }}
               position="relative"
-              bg="brand.orange"
+              bg="brand.blue"
               color="textPrimaryWhite"
               borderRadius="100px"
               onClick={onClose}
@@ -285,7 +285,7 @@ const MobileHeader = ({
                 fontWeight={600}
                 cursor="pointer"
                 _hover={{
-                  color: "brand.blue",
+                  color: "brand.orange",
                 }}
               >
                 +48 577 125 400
@@ -302,7 +302,7 @@ const MobileHeader = ({
                     cursor="pointer"
                     fontWeight={600}
                     _hover={{
-                      color: "brand.blue",
+                      color: "brand.orange",
                     }}
                     target="_blank"
                     rel="noopener noreferrer"

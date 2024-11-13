@@ -12,7 +12,7 @@ const HeroBlock = () => {
       bgRepeat="no-repeat"
       bgPosition={["25% 75%", "center, center"]}
       bgSize="cover"
-      height="var(--chakra-vh)"
+      height="100svh"
     >
       <Flex
         flexDirection="column"
@@ -45,7 +45,7 @@ const HeroBlock = () => {
               transition="0.2s"
               fontWeight={600}
               _hover={{
-                color: "brand.blue",
+                color: "brand.orange",
               }}
             >
               Wycena Online
@@ -63,7 +63,7 @@ const HeroBlock = () => {
               cursor="pointer"
               fontWeight={600}
               _hover={{
-                color: "brand.blue",
+                color: "brand.orange",
               }}
               target="_blank"
               rel="noopener noreferrer"
@@ -95,7 +95,7 @@ const FastBlock = () => {
             fontSize={["26px", "36px"]}
             fontWeight={500}
             textAlign="center"
-            bg="linear-gradient(0deg, #00A3FF 23.08%, rgba(0, 102, 204, 0.76) 74.04%)"
+            bg="linear-gradient(0deg, #FF791B 25%, rgb(255 121 27 / 25%) 70%)"
             bgClip="text"
           >
             Nie trać swojego czasu

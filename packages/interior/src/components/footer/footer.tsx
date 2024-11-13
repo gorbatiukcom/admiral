@@ -56,7 +56,7 @@ export const Footer = () => {
             p={2}
             borderRadius="12px"
             transitionDuration="200ms"
-            _hover={{ color: "brand.blue" }}
+            _hover={{ color: "brand.orange" }}
             width="max-content"
             bg="white"
           >
@@ -76,11 +76,11 @@ export const Footer = () => {
               <Link
                 key={name}
                 href={url}
-                color={activeSegment === segment ? "brand.blue" : ""}
+                color={activeSegment === segment ? "brand.orange" : ""}
                 fontSize="md"
                 cursor="pointer"
                 _hover={{
-                  color: activeSegment === segment ? undefined : "brand.blue",
+                  color: activeSegment === segment ? undefined : "brand.orange",
                 }}
               >
                 {name}
@@ -109,7 +109,7 @@ export const Footer = () => {
                 fontSize="md"
                 cursor="pointer"
                 _hover={{
-                  color: "brand.blue",
+                  color: "brand.orange",
                 }}
               >
                 {name}
@@ -140,7 +140,7 @@ export const Footer = () => {
                 fontSize="md"
                 cursor="pointer"
                 _hover={{
-                  color: "brand.blue",
+                  color: "brand.orange",
                 }}
               >
                 {name}
