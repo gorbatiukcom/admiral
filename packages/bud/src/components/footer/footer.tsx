@@ -40,7 +40,7 @@ export const Footer = () => {
         width="100%"
         mx="auto"
         px={[4, 10]}
-        py={[10]}
+        py={[10, 16]}
         gap={[10, 16]}
       >
         <Flex
@@ -52,20 +52,17 @@ export const Footer = () => {
         >
           <Link
             href="/"
-            color="black"
-            p={0}
-            py={1}
+            color="brand.blue"
             borderRadius="12px"
             transitionDuration="200ms"
-            _hover={{ color: "brand.orange" }}
+            _hover={{ color: "white" }}
             width="max-content"
-            bg="white"
           >
-            <Icon as={LogoSm} width={101} height={150} />
+            <Icon as={LogoSm} width="100px" height="22px" />
           </Link>
 
           <Box mt={[4, 10]}>
-            <Text color="textSecondary">©️ 2024 Admiral Bud</Text>
+            <Text color="textSecondary">©️ 2024 Budcor</Text>
           </Box>
         </Flex>
         <Flex flexDirection="column" width={["100%", "20%"]}>
@@ -77,11 +74,11 @@ export const Footer = () => {
               <Link
                 key={name}
                 href={url}
-                color={activeSegment === segment ? "brand.orange" : ""}
+                color={activeSegment === segment ? "brand.blue" : ""}
                 fontSize="md"
                 cursor="pointer"
                 _hover={{
-                  color: activeSegment === segment ? undefined : "brand.orange",
+                  color: activeSegment === segment ? undefined : "brand.blue",
                 }}
               >
                 {name}
@@ -96,8 +93,8 @@ export const Footer = () => {
           <Flex flexDirection="column" gap={1}>
             {[
               {
-                url: "mailto:admiralbud.info@gmail.com",
-                name: "admiralbud.info@gmail.com",
+                url: "mailto:budcor.info@gmail.com",
+                name: "budcor.info@gmail.com",
               },
               {
                 url: "tel:+48536089652",
@@ -110,7 +107,7 @@ export const Footer = () => {
                 fontSize="md"
                 cursor="pointer"
                 _hover={{
-                  color: "brand.orange",
+                  color: "brand.blue",
                 }}
               >
                 {name}
@@ -141,7 +138,7 @@ export const Footer = () => {
                 fontSize="md"
                 cursor="pointer"
                 _hover={{
-                  color: "brand.orange",
+                  color: "brand.blue",
                 }}
               >
                 {name}

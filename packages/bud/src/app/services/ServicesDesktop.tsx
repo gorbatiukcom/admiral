@@ -64,13 +64,13 @@ export default function ServicesDesktop() {
               >
                 <Flex justifyContent="space-between" alignItems="center" width="100%" gap={10}>
                   Zamówić
-                  <Flex bg="brand.orange" borderRadius="100%" p={1}>
+                  <Flex bg="brand.blue" borderRadius="100%" p={1}>
                     <Icon as={IoAdd} boxSize={6} />
                   </Flex>
                 </Flex>
               </Button>
             </Link>
-            <Text textAlign="center" color="brand.orange" fontSize={["lg"]} mt={[4, 8]}>
+            <Text textAlign="center" color="brand.blue" fontSize={["lg"]} mt={[4, 8]}>
               Każdy rodzaj remontu może obejmować dodatkowe usługi i prace, w zależności od
               specyfiki i wymagań klienta.
             </Text>

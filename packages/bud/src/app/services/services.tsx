@@ -36,13 +36,13 @@ export const Services = () => {
           przejrzystość rozliczeń sprawiają, że nasze usługi są dostępne dla szerokiego grona
           klientów.
         </Text>
-        <Text color="brand.orange" fontSize={["md", "2xl"]} textAlign="center" mt={[10, "80px"]}>
+        <Text color="brand.blue" fontSize={["md", "2xl"]} textAlign="center" mt={[10, "80px"]}>
           Rabat w zależności od metrażu projektu:
         </Text>
         <Flex
           flexDirection={["column", "row"]}
           justifyContent={["flex-start", "space-between"]}
-          color="brand.orange"
+          color="brand.blue"
           fontSize={["md", "2xl"]}
           gap={[2, 4]}
           opacity={0.8}

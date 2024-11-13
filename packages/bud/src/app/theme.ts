@@ -17,7 +17,7 @@ const colors = {
     900: "#1C1C1C",
   },
   brand: {
-    blue: "#00A3FF",
+    blue: "#0070F8",
     orange: "#FF791B",
   },
   bgBase: "#161617",

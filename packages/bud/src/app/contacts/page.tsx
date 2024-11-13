@@ -3,7 +3,7 @@ import { Metadata } from "next";
 import Contacts from "./contacts";
 
 export const metadata: Metadata = {
-  title: "Admiral Bud | Kontakty",
+  title: "Budcor | Kontakty",
 };
 
 export default Contacts;

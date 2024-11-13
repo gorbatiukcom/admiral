@@ -224,7 +224,7 @@ export default function Order() {
                 height="44px"
                 width={["100%", null]}
                 _hover={{
-                  color: "brand.orange",
+                  color: "brand.blue",
                 }}
                 zIndex={1}
               >

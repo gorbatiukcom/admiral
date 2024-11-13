@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { get } from "lodash";
 import React from "react";
 
-const primaryColor = "brand.orange";
+const primaryColor = "brand.blue";
 const MotionBox = motion.div;
 
 export const Menu = (props: any) => (

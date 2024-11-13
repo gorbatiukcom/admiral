@@ -125,7 +125,7 @@ export default function Contacts() {
                 height="44px"
                 width={["100%", null]}
                 _hover={{
-                  color: "brand.orange",
+                  color: "brand.blue",
                 }}
               >
                 Wysłać
@@ -167,7 +167,7 @@ export default function Contacts() {
               fontWeight={400}
               cursor="pointer"
               _hover={{
-                color: "brand.orange",
+                color: "brand.blue",
               }}
             >
               +48 536 089 652
@@ -179,7 +179,7 @@ export default function Contacts() {
               fontWeight={400}
               cursor="pointer"
               _hover={{
-                color: "brand.orange",
+                color: "brand.blue",
               }}
             >
               admiralbud.info@gmail.com

@@ -2,11 +2,11 @@ import { Metadata } from "next";
 import dynamic from "next/dynamic";
 
 export const metadata: Metadata = {
-  title: "Budcor | QR",
+  title: "Budcor | Pricing",
 };
 
-const QrCode: any = dynamic(() => import("./qr"), {
+const PricingPage: any = dynamic(() => import("./pricing"), {
   ssr: false,
 });
 
-export default QrCode;
+export default PricingPage;

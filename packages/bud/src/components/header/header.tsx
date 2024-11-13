@@ -20,7 +20,7 @@ import { useSelectedLayoutSegment } from "next/navigation";
 import { useRef } from "react";
 import { IoArrowForward, IoMenu, IoMenuSharp } from "react-icons/io5";
 
-import { Image } from "../image";
+import { LogoSm } from "../icons/logo_sm";
 import { Link } from "../link";
 import { SocialMediaLinks } from "../SocialMediaLinks";
 
@@ -61,16 +61,28 @@ const DesktopHeader = ({
         display={["none", "flex"]}
         width="100%"
         justifyContent="space-between"
-        alignItems="flex-start"
+        alignItems="center"
         position={isTransparent ? "relative" : undefined}
-        marginBottom={isTransparent ? "-188px" : undefined}
+        marginBottom={isTransparent ? "-96px" : undefined}
         maxWidth="container.max"
         mx="auto"
+        py="20px"
+        zIndex={10}
       >
-        <Link href="/" pt={0} pb={1} px={0} bg="white" borderRadius="0px 0px 12px 12px">
-          <Image src="/images/logo.svg" alt="logo" width={124} height={184} objectFit="contain" />
+        <Link
+          href="/"
+          color="brand.blue"
+          borderRadius="8px"
+          transitionDuration="200ms"
+          _hover={{ color: "white" }}
+          width="max-content"
+          h={"48px"}
+          display="flex"
+          alignItems="center"
+        >
+          <Icon as={LogoSm} width="120px" height="27px" />
         </Link>
-        <Flex pt="40px">
+        <Flex>
           {NavigationLinks.map(({ url, segment, name }) => (
             <Link
               key={name}
@@ -82,7 +94,7 @@ const DesktopHeader = ({
               fontWeight={500}
               cursor="pointer"
               _hover={{
-                color: activeSegment === segment ? undefined : "brand.orange",
+                color: activeSegment === segment ? undefined : "brand.blue",
               }}
               position="relative"
               zIndex={0}
@@ -111,7 +123,7 @@ const DesktopHeader = ({
             href="https://admiralinterior.com/"
             pl={5}
             pr={3}
-            bg="brand.blue"
+            bg="brand.orange"
             fontSize="20px"
             lineHeight="48px"
             fontWeight={500}
@@ -143,7 +155,6 @@ const DesktopHeader = ({
           href="tel:+48536089652"
           py={2}
           px={5}
-          pt="48px"
           mr={-5}
           color={color}
           fontSize="20px"
@@ -151,7 +162,7 @@ const DesktopHeader = ({
           lineHeight="40px"
           cursor="pointer"
           _hover={{
-            color: "brand.orange",
+            color: "brand.blue",
           }}
         >
           +48 536 089 652
@@ -176,26 +187,29 @@ const MobileHeader = ({
     <Flex
       display={["flex", "none"]}
       width="100%"
-      pt={0}
-      pl={0}
-      pr={4}
+      py={3}
+      px={4}
       position={isTransparent ? "relative" : undefined}
-      marginBottom={isTransparent ? "-164px" : undefined}
+      marginBottom={isTransparent ? "-72px" : undefined}
       justifyContent="space-between"
+      alignItems="center"
+      zIndex={10}
     >
-      <Link href="/">
-        <Image
-          src="/images/logo.svg"
-          alt="logo"
-          width={100}
-          height={164}
-          objectFit="contain"
-          p={0}
-          pb={0}
-          bg="white"
-          borderRadius="0px 0px 8px 0px"
-        />
+      <Link
+        href="/"
+        color="brand.blue"
+        borderRadius="8px"
+        transitionDuration="200ms"
+        _hover={{ color: "white" }}
+        width="max-content"
+        h={"48px"}
+        display="flex"
+        alignItems="center"
+        // pt={3}
+      >
+        <Icon as={LogoSm} width="100px" height="22px" />
       </Link>
+
       <IconButton
         mt={2}
         mr="-6px"
@@ -228,7 +242,7 @@ const MobileHeader = ({
                 lineHeight="40px"
                 cursor="pointer"
                 _hover={{
-                  color: "brand.orange",
+                  color: "brand.blue",
                 }}
                 position="relative"
                 bg={activeSegment === segment ? "white" : "black"}
@@ -251,10 +265,10 @@ const MobileHeader = ({
               lineHeight="40px"
               cursor="pointer"
               _hover={{
-                color: "brand.orange",
+                color: "brand.blue",
               }}
               position="relative"
-              bg="brand.blue"
+              bg="brand.orange"
               color="textPrimaryWhite"
               borderRadius="100px"
               onClick={onClose}
@@ -286,7 +300,7 @@ const MobileHeader = ({
                 fontWeight={600}
                 cursor="pointer"
                 _hover={{
-                  color: "brand.orange",
+                  color: "brand.blue",
                 }}
               >
                 +48 536 089 652
@@ -303,7 +317,7 @@ const MobileHeader = ({
                     cursor="pointer"
                     fontWeight={600}
                     _hover={{
-                      color: "brand.orange",
+                      color: "brand.blue",
                     }}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -324,7 +338,7 @@ const MobileHeader = ({
                   transition="0.2s"
                   fontWeight={500}
                   _hover={{
-                    color: "brand.orange",
+                    color: "brand.blue",
                   }}
                 >
                   Zamów rozmowę telefoniczną

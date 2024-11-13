@@ -19,68 +19,81 @@ import { Link } from "../components/link";
 
 const HeroBlock = () => {
   return (
-    <Box
-      bg="linear-gradient(rgba(26,26,26,0.20), rgba(26,26,26,0.20)), url(/images/bg-image-2.png)"
-      bgRepeat="no-repeat"
-      bgPosition={["center, center"]}
-      bgSize="cover"
-      height="var(--chakra-vh)"
-      p={[4, 10]}
-    >
-      <Flex
-        flexDirection="column"
-        justifyContent="flex-end"
-        height="100%"
-        maxWidth="container.max"
-        mx="auto"
-      >
-        <Flex alignItems="center" justifyContent={["center", "space-between"]}>
-          <Link href="/services/order" width="max-content">
-            <Button
-              width="max-content"
-              height={["48px", "60px"]}
-              pl={["32px", "32px"]}
-              pr={["16px", "16px"]}
-              bg="white"
-              color="textPrimary"
-              fontSize={["20px", "24px"]}
-              borderRadius="full"
-              transition="0.2s"
-              fontWeight={600}
-              _hover={{
-                color: "brand.orange",
-              }}
-            >
-              <Flex justifyContent="space-between" alignItems="center" width="100%" gap={10}>
-                Zamówić remont
-                <Flex bg="brand.orange" borderRadius="100%" p={1}>
-                  <Icon as={IoAdd} color="white" boxSize={[6, 8]} />
-                </Flex>
-              </Flex>
-            </Button>
-          </Link>
-
-          <Link href="/contacts" width="max-content" display={["none", "block"]}>
-            <Button
-              width="max-content"
-              height={["48px", "60px"]}
-              px={["32px", "32px"]}
-              bg="white"
-              color="textPrimary"
-              fontSize={["20px", "24px"]}
-              borderRadius="full"
-              transition="0.2s"
-              fontWeight={600}
-              _hover={{
-                color: "brand.orange",
-              }}
-            >
-              Zamów rozmowę telefoniczną
-            </Button>
-          </Link>
-        </Flex>
+    <>
+      <Flex position="relative">
+        <Flex
+          position="absolute"
+          left={0}
+          right={0}
+          top={0}
+          h={["200px", "240px"]}
+          bg="linear-gradient(180deg, rgba(0,0,0,0.9) 0%, rgba(26,26,26,0.9) 40%, rgba(255,255,255,0) 100%)"
+          pointerEvents="none"
+        />
       </Flex>
-    </Box>
+      <Box
+        bg="url(/images/bg-image-2.png)"
+        bgRepeat="no-repeat"
+        bgPosition={["center, center"]}
+        bgSize="cover"
+        height="100svh"
+        p={[4, 10]}
+      >
+        <Flex
+          flexDirection="column"
+          justifyContent="flex-end"
+          height="100%"
+          maxWidth="container.max"
+          mx="auto"
+        >
+          <Flex alignItems="center" justifyContent={["center", "space-between"]}>
+            <Link href="/services/order" width="max-content">
+              <Button
+                width="max-content"
+                height={["48px", "60px"]}
+                pl={["32px", "32px"]}
+                pr={["16px", "16px"]}
+                bg="white"
+                color="textPrimary"
+                fontSize={["20px", "24px"]}
+                borderRadius="full"
+                transition="0.2s"
+                fontWeight={600}
+                _hover={{
+                  color: "brand.blue",
+                }}
+              >
+                <Flex justifyContent="space-between" alignItems="center" width="100%" gap={10}>
+                  Zamówić remont
+                  <Flex bg="brand.blue" borderRadius="100%" p={1}>
+                    <Icon as={IoAdd} color="white" boxSize={[6, 8]} />
+                  </Flex>
+                </Flex>
+              </Button>
+            </Link>
+
+            <Link href="/contacts" width="max-content" display={["none", "block"]}>
+              <Button
+                width="max-content"
+                height={["48px", "60px"]}
+                px={["32px", "32px"]}
+                bg="white"
+                color="textPrimary"
+                fontSize={["20px", "24px"]}
+                borderRadius="full"
+                transition="0.2s"
+                fontWeight={600}
+                _hover={{
+                  color: "brand.blue",
+                }}
+              >
+                Zamów rozmowę telefoniczną
+              </Button>
+            </Link>
+          </Flex>
+        </Flex>
+      </Box>
+    </>
   );
 };
 
@@ -116,7 +129,7 @@ const AdvantageItem = ({
         {description}
       </Text>
       {notes && (
-        <Text fontSize={["sm", "md"]} color="#FF791B" textAlign="center" mt={3}>
+        <Text fontSize={["sm", "md"]} color="brand.blue" textAlign="center" mt={3}>
           {notes}
         </Text>
       )}
