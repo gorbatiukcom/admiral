@@ -80,7 +80,7 @@ const DesktopHeader = ({
           display="flex"
           alignItems="center"
         >
-          <Icon as={LogoSm} width="120px" height="27px" />
+          <Icon as={LogoSm} width="140px" height="31px" />
         </Link>
         <Flex>
           {NavigationLinks.map(({ url, segment, name }) => (
