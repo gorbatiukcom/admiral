@@ -1,15 +1,12 @@
 "use client";
 
 import { ChakraProvider } from "@chakra-ui/react";
+import { GoogleTagManager } from "@next/third-parties/google";
 import { usePathname, useSearchParams } from "next/navigation";
 import { useEffect, useRef } from "react";
 
 import { trackPageview } from "../constants/mixpanel";
 import { theme } from "./theme";
-
-export function Providers({ children }: { children: React.ReactNode }) {
-  return <ChakraProvider theme={theme}>{children}</ChakraProvider>;
-}
 
 export const NavigationEvents = () => {
   const pathname = usePathname();
@@ -28,3 +25,13 @@ export const NavigationEvents = () => {
 
   return null;
 };
+
+export function Providers({ children }: { children: React.ReactNode }) {
+  return (
+    <>
+      <ChakraProvider theme={theme}>{children}</ChakraProvider>
+      <GoogleTagManager gtmId="GTM-PFKBPV5K" />
+      <NavigationEvents />
+    </>
+  );
+}

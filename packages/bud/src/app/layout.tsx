@@ -6,7 +6,7 @@ import Script from "next/script";
 import { Footer } from "../components/footer/footer";
 import { Header } from "../components/header/header";
 import { fonts } from "./fonts";
-import { NavigationEvents, Providers } from "./providers";
+import { Providers } from "./providers";
 import { theme } from "./theme";
 
 export const viewport: Viewport = {
@@ -69,7 +69,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             {children}
             <Footer />
           </Box>
-          <NavigationEvents />
         </Providers>
       </body>
     </html>
