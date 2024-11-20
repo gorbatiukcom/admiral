@@ -62,7 +62,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         ) : null}
       </head>
       <body suppressHydrationWarning={true}>
-        <Providers>
+        <Providers isProd={isProd}>
           <ColorModeScript initialColorMode={theme.config.initialColorMode} />
           <Box>
             <Header />

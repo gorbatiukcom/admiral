@@ -5,8 +5,10 @@ import { GoogleTagManager } from "@next/third-parties/google";
 import { usePathname, useSearchParams } from "next/navigation";
 import { useEffect, useRef } from "react";
 
-import { trackPageview } from "../constants/mixpanel";
+import { mixpanelTrackPageview } from "../constants/mixpanel";
 import { theme } from "./theme";
+
+const GTM_ID = "GTM-PFKBPV5K";
 
 export const NavigationEvents = () => {
   const pathname = usePathname();
@@ -19,18 +21,18 @@ export const NavigationEvents = () => {
       currentUrl.current = url;
       // Mixpanel rounting events
       //Send track event when new pages is loaded
-      trackPageview();
+      mixpanelTrackPageview();
     }
   }, [pathname, searchParams]);
 
   return null;
 };
 
-export function Providers({ children }: { children: React.ReactNode }) {
+export function Providers({ children, isProd }: { children: React.ReactNode; isProd: boolean }) {
   return (
     <>
       <ChakraProvider theme={theme}>{children}</ChakraProvider>
-      <GoogleTagManager gtmId="GTM-PFKBPV5K" />
+      {isProd ? <GoogleTagManager gtmId={GTM_ID} /> : null}
       <NavigationEvents />
     </>
   );

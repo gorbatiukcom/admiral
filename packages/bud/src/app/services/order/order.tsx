@@ -6,23 +6,19 @@ import {
   FormControl,
   FormErrorMessage,
   FormLabel,
-  Icon,
-  IconButton,
-  Image,
   Input,
   Text,
   Textarea,
 } from "@chakra-ui/react";
 import axios from "axios";
+import debounce from "lodash.debounce";
 import { useRouter, useSearchParams } from "next/navigation";
-import { SubmitHandler, useForm } from "react-hook-form";
-import { IoArrowBackCircle, IoArrowForwardCircle } from "react-icons/io5";
+import { useCallback, useEffect } from "react";
+import { SubmitErrorHandler, SubmitHandler, useForm } from "react-hook-form";
 
-import { Image as NextImage } from "../../../components/image";
 import { InputStyle } from "../../../components/InputStyle";
-import { Link } from "../../../components/link";
-import { Project, Projects, ProjectsDetalis } from "../../../constants/projects";
-import { ProjectsLinks } from "../services-data";
+import { trackEvent } from "../../../constants/analytics";
+import { Project, ProjectsDetalis } from "../../../constants/projects";
 
 type Inputs = {
   name: string;
@@ -42,8 +38,59 @@ export default function Order() {
   const {
     handleSubmit,
     register,
+    watch,
     formState: { errors, isSubmitting, isSubmitSuccessful },
   } = useForm<Inputs>();
+
+  // Phone change tracking
+  const phoneValue = watch("phone");
+  const debouncedPhoneChange = useCallback(
+    debounce((value) => {
+      trackEvent({
+        name: "phoneChange",
+        sendTo: ["mixpanel"],
+        props: {
+          phone: value,
+        },
+      });
+    }, 1000),
+    [],
+  );
+  useEffect(() => {
+    if (phoneValue) {
+      debouncedPhoneChange(phoneValue);
+    }
+
+    // Cleanup debounce on component unmount
+    return () => {
+      debouncedPhoneChange.cancel();
+    };
+  }, [phoneValue, debouncedPhoneChange]);
+
+  // Email change tracking
+  const emailValue = watch("email");
+  const debouncedEmailChange = useCallback(
+    debounce((value) => {
+      trackEvent({
+        name: "emailChange",
+        sendTo: ["mixpanel"],
+        props: {
+          phone: value,
+        },
+      });
+    }, 1000),
+    [],
+  );
+  useEffect(() => {
+    if (emailValue) {
+      debouncedEmailChange(emailValue);
+    }
+
+    // Cleanup debounce on component unmount
+    return () => {
+      debouncedEmailChange.cancel();
+    };
+  }, [emailValue, debouncedEmailChange]);
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     axios.defaults.headers.post["Accept"] = "application/json";
@@ -53,9 +100,36 @@ export default function Order() {
         project: ProjectsDetalis[activeProject].name,
       })
       .catch((error) => {
+        trackEvent({
+          name: "error",
+          sendTo: ["mixpanel"],
+          props: {
+            errorName: "serviceContactFormError",
+            email: data.email,
+            phone: data.phone,
+            project: ProjectsDetalis[activeProject].name,
+            message: data.message,
+          },
+        });
         console.log("🚀 ~ sendForm ~ error:", error);
       });
+    trackEvent({
+      name: "serviceContactForm",
+      sendTo: ["mixpanel", "gtm"],
+      props: {
+        email: data.email,
+        phone: data.phone,
+        project: ProjectsDetalis[activeProject].name,
+      },
+    });
     router.push("/contacts/confirmation");
+  };
+
+  const onInvalidSubmit: SubmitErrorHandler<any> = async (data) => {
+    trackEvent({
+      name: "serviceContactFormInvalid",
+      sendTo: ["mixpanel"],
+    });
   };
 
   return (
@@ -116,7 +190,7 @@ export default function Order() {
             Cześć
           </Text>
 
-          <form onSubmit={handleSubmit(onSubmit)}>
+          <form onSubmit={handleSubmit(onSubmit, onInvalidSubmit)}>
             <FormControl isInvalid={!!errors.name?.message} zIndex={1}>
               <FormLabel htmlFor="name">Imię i nazwisko</FormLabel>
               <Input

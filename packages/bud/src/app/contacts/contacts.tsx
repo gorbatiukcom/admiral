@@ -12,11 +12,14 @@ import {
   Textarea,
 } from "@chakra-ui/react";
 import axios from "axios";
+import debounce from "lodash.debounce";
 import { useRouter } from "next/navigation";
-import { SubmitHandler, useForm } from "react-hook-form";
+import { useCallback, useEffect, useState } from "react";
+import { SubmitErrorHandler, SubmitHandler, useForm } from "react-hook-form";
 
 import { InputStyle } from "../../components/InputStyle";
 import { Link } from "../../components/link";
+import { trackEvent } from "../../constants/analytics";
 
 type Inputs = {
   email: string;
@@ -28,16 +31,92 @@ export default function Contacts() {
   const {
     handleSubmit,
     register,
+    watch,
     formState: { errors, isSubmitting, isSubmitSuccessful },
   } = useForm<Inputs>();
   const router = useRouter();
 
+  // Phone change tracking
+  const phoneValue = watch("phone");
+  const debouncedPhoneChange = useCallback(
+    debounce((value) => {
+      trackEvent({
+        name: "phoneChange",
+        sendTo: ["mixpanel"],
+        props: {
+          phone: value,
+        },
+      });
+    }, 1000),
+    [],
+  );
+  useEffect(() => {
+    if (phoneValue) {
+      debouncedPhoneChange(phoneValue);
+    }
+
+    // Cleanup debounce on component unmount
+    return () => {
+      debouncedPhoneChange.cancel();
+    };
+  }, [phoneValue, debouncedPhoneChange]);
+
+  // Email change tracking
+  const emailValue = watch("email");
+  const debouncedEmailChange = useCallback(
+    debounce((value) => {
+      trackEvent({
+        name: "emailChange",
+        sendTo: ["mixpanel"],
+        props: {
+          phone: value,
+        },
+      });
+    }, 1000),
+    [],
+  );
+  useEffect(() => {
+    if (emailValue) {
+      debouncedEmailChange(emailValue);
+    }
+
+    // Cleanup debounce on component unmount
+    return () => {
+      debouncedEmailChange.cancel();
+    };
+  }, [emailValue, debouncedEmailChange]);
+
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     axios.defaults.headers.post["Accept"] = "application/json";
     await axios.post("https://getform.io/f/ebpddnkb", data).catch((error) => {
+      trackEvent({
+        name: "error",
+        sendTo: ["mixpanel"],
+        props: {
+          errorName: "contactFormError",
+          email: data.email,
+          phone: data.phone,
+          message: data.message,
+        },
+      });
       console.log("🚀 ~ sendForm ~ error:", error);
     });
+    trackEvent({
+      name: "contactForm",
+      sendTo: ["mixpanel", "gtm"],
+      props: {
+        email: data.email,
+        phone: data.phone,
+      },
+    });
     router.push("/contacts/confirmation");
+  };
+
+  const onInvalidSubmit: SubmitErrorHandler<any> = async (data) => {
+    trackEvent({
+      name: "contactFormInvalid",
+      sendTo: ["mixpanel"],
+    });
   };
 
   return (
@@ -71,7 +150,7 @@ export default function Contacts() {
             Cześć
           </Text>
 
-          <form onSubmit={handleSubmit(onSubmit)}>
+          <form onSubmit={handleSubmit(onSubmit, onInvalidSubmit)}>
             <FormControl isInvalid={!!errors.email?.message}>
               <FormLabel htmlFor="email">E-mail</FormLabel>
               <Input

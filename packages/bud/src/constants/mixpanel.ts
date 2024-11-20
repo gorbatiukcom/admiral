@@ -1,14 +1,8 @@
-enum MIXPANEL_EVENTS {
-  "test" = "test",
-  "subscribe" = "subscribe",
-  "connectWallet" = "connectWallet",
-  "purchaseTokens" = "purchaseTokens",
-  "error" = "error",
-}
+import { ANALYTICS_EVENTS } from "./analytics";
 
-type MixpanelEventType = keyof typeof MIXPANEL_EVENTS;
+type MixpanelEventType = keyof typeof ANALYTICS_EVENTS;
 
-export const trackEvent = (event_name: MixpanelEventType, props?: any) => {
+export const mixpanelTrackEvent = (event_name: MixpanelEventType, props?: any) => {
   try {
     if ((window as any).mixpanel) {
       (window as any).mixpanel.track(event_name, props);
@@ -18,7 +12,7 @@ export const trackEvent = (event_name: MixpanelEventType, props?: any) => {
   }
 };
 
-export const trackPageview = (props?: any) => {
+export const mixpanelTrackPageview = (props?: any) => {
   try {
     if ((window as any).mixpanel) {
       (window as any).mixpanel.track_pageview(props);
