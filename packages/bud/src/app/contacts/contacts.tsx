@@ -69,7 +69,7 @@ export default function Contacts() {
         name: "emailChange",
         sendTo: ["mixpanel"],
         props: {
-          phone: value,
+          email: value,
         },
       });
     }, 1000),

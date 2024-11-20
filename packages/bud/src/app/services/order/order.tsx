@@ -75,7 +75,7 @@ export default function Order() {
         name: "emailChange",
         sendTo: ["mixpanel"],
         props: {
-          phone: value,
+          email: value,
         },
       });
     }, 1000),
