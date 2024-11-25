@@ -115,7 +115,7 @@ export default function Contacts() {
   const onInvalidSubmit: SubmitErrorHandler<any> = async (data) => {
     trackEvent({
       name: "contactFormInvalid",
-      sendTo: ["mixpanel"],
+      sendTo: ["mixpanel", "gtm"],
     });
   };
 

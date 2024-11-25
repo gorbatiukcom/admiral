@@ -128,7 +128,7 @@ export default function Order() {
   const onInvalidSubmit: SubmitErrorHandler<any> = async (data) => {
     trackEvent({
       name: "serviceContactFormInvalid",
-      sendTo: ["mixpanel"],
+      sendTo: ["mixpanel", "gtm"],
     });
   };
 
