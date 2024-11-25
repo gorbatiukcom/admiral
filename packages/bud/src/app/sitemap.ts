@@ -3,25 +3,19 @@ import { MetadataRoute } from "next";
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
-      url: "https://admiralbud.com/",
+      url: "https://budcor.com/",
       lastModified: new Date(),
       changeFrequency: "daily",
       priority: 1,
     },
     {
-      url: "https://admiralbud.com/services",
+      url: "https://budcor.com/services",
       lastModified: new Date(),
       changeFrequency: "daily",
       priority: 0.7,
     },
     {
-      url: "https://admiralbud.com/portfolio",
-      lastModified: new Date(),
-      changeFrequency: "daily",
-      priority: 0.7,
-    },
-    {
-      url: "https://admiralbud.com/contacts",
+      url: "https://budcor.com/contacts",
       lastModified: new Date(),
       changeFrequency: "daily",
       priority: 0.7,
