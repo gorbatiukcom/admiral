@@ -15,84 +15,111 @@ import {
 } from "react-icons/io5";
 import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 
+import { Image } from "../components/image";
 import { Link } from "../components/link";
 
+const IMAGES = [
+  "/images/bg-image-2.png",
+  "/images/bg-image-3.jpg",
+  "/images/bg-image-4.jpg",
+  "/images/bg-image-5.jpg",
+];
 const HeroBlock = () => {
+  const [imageIndex, setImageIndex] = useState(0);
+  const toggleImage = () => {
+    setImageIndex((prevValue) => {
+      if (prevValue + 1 >= IMAGES.length) {
+        return 0;
+      } else {
+        return prevValue + 1;
+      }
+    });
+  };
   return (
     <>
-      <Flex position="relative">
-        <Flex
-          position="absolute"
-          left={0}
-          right={0}
-          top={0}
-          h={["200px", "240px"]}
-          bg="linear-gradient(180deg, rgba(0,0,0,0.9) 0%, rgba(26,26,26,0.9) 40%, rgba(255,255,255,0) 100%)"
-          pointerEvents="none"
-        />
-      </Flex>
-      <Box
-        bg="url(/images/bg-image-2.png)"
-        bgRepeat="no-repeat"
-        bgPosition={["center, center"]}
-        bgSize="cover"
-        height="100svh"
-        p={[4, 10]}
+      <Flex
+        w="100%"
+        justifyContent="space-between"
+        alignItems="center"
+        mx="auto"
+        minHeight="calc(100svh - 96px)"
       >
-        <Flex
-          flexDirection="column"
-          justifyContent="flex-end"
-          height="100%"
-          maxWidth="container.max"
-          mx="auto"
-        >
-          <Flex alignItems="center" justifyContent={["center", "space-between"]}>
-            <Link href="/services/order" width="max-content">
-              <Button
-                width="max-content"
-                height={["48px", "60px"]}
-                pl={["32px", "32px"]}
-                pr={["16px", "16px"]}
-                bg="white"
-                color="textPrimary"
-                fontSize={["20px", "24px"]}
-                borderRadius="full"
-                transition="0.2s"
-                fontWeight={600}
-                _hover={{
-                  color: "brand.blue",
-                }}
-              >
-                <Flex justifyContent="space-between" alignItems="center" width="100%" gap={10}>
-                  Zamówić remont
-                  <Flex bg="brand.blue" borderRadius="100%" p={1}>
-                    <Icon as={IoAdd} color="white" boxSize={[6, 8]} />
+        <Flex w="100%" justifyContent="center" px={[5, 10]}>
+          <Flex flexDir="column" w="100%" maxW="600px" height="100%" gap="100px" pt={[5]}>
+            <Flex flexDir="column" gap={5}>
+              <Heading size="2xl" lineHeight={1.3}>
+                Kompleksowy remont <br />
+                Twojego mieszkania
+              </Heading>
+              <Text fontWeight={500} fontSize="2xl">
+                Zacznij remont – zadzwoń po bezpłatną wizję lokalną!
+              </Text>
+            </Flex>
+            <Flex alignItems="center" gap={[2, 4]} mt={5}>
+              <Link href="/contacts" width="max-content" display={["none", "block"]}>
+                <Button
+                  width="max-content"
+                  height={["48px", "54px"]}
+                  px={[5, 6]}
+                  bg="transparent"
+                  color="textPrimaryWhite"
+                  border="1px solid"
+                  fontSize={["20px", "20px"]}
+                  borderRadius="lg"
+                  transition="0.2s"
+                  fontWeight={600}
+                  _hover={{
+                    color: "brand.blue",
+                  }}
+                >
+                  Zamów rozmowę telefoniczną
+                </Button>
+              </Link>
+              <Link href="/services/order" width="max-content">
+                <Button
+                  width="max-content"
+                  height={["48px", "54px"]}
+                  px={[5, 6]}
+                  bg="brand.blue"
+                  color="textPrimaryWhite"
+                  fontSize={["20px", "20px"]}
+                  borderRadius="lg"
+                  transition="0.2s"
+                  fontWeight={600}
+                  _hover={{
+                    color: "black",
+                  }}
+                >
+                  <Flex justifyContent="space-between" alignItems="center" width="100%" gap={10}>
+                    Zamówić remont
                   </Flex>
-                </Flex>
-              </Button>
-            </Link>
-
-            <Link href="/contacts" width="max-content" display={["none", "block"]}>
-              <Button
-                width="max-content"
-                height={["48px", "60px"]}
-                px={["32px", "32px"]}
-                bg="white"
-                color="textPrimary"
-                fontSize={["20px", "24px"]}
-                borderRadius="full"
-                transition="0.2s"
-                fontWeight={600}
-                _hover={{
-                  color: "brand.blue",
-                }}
-              >
-                Zamów rozmowę telefoniczną
-              </Button>
-            </Link>
+                </Button>
+              </Link>
+            </Flex>
           </Flex>
         </Flex>
-      </Box>
+
+        <Flex
+          w="100%"
+          height="calc(100svh - 96px)"
+          position="relative"
+          overflow="hidden"
+          onClick={toggleImage}
+          cursor="pointer"
+        >
+          <img
+            src={IMAGES[imageIndex]}
+            alt="room"
+            style={{
+              width: "100%",
+              objectFit: "cover",
+              borderRadius: "8px",
+              borderTopRightRadius: 0,
+              borderBottomRightRadius: 0,
+            }}
+          />
+        </Flex>
+      </Flex>
     </>
   );
 };

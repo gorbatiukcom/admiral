@@ -110,7 +110,7 @@ const DesktopHeader = ({
                       left: 0,
                       background: "white",
                       pointerEvents: "none",
-                      borderRadius: "full",
+                      borderRadius: "lg",
                       zIndex: -1,
                     }
                   : undefined
@@ -133,7 +133,7 @@ const DesktopHeader = ({
             }}
             position="relative"
             zIndex={0}
-            borderRadius="100px"
+            borderRadius="lg"
           >
             <Flex alignItems="center" justifyContent="space-between" gap={4}>
               Admiral Interior
@@ -355,7 +355,8 @@ const MobileHeader = ({
 export const Header = () => {
   const segment = useSelectedLayoutSegment();
 
-  const isTransparent = segment === null;
+  // const isTransparent = segment === null;
+  const isTransparent = false;
 
   return (
     <>

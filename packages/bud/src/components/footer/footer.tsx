@@ -138,15 +138,17 @@ export const Footer = () => {
                 name: 'Remont mieszkania "pod klucz"',
               },
               {
-                url: "/services",
+                url: "https://admiralinterior.com/",
                 name: "Projektowanie wnętrz",
+                isExternal: true,
               },
-            ].map(({ url, name }) => (
+            ].map(({ url, name, isExternal }) => (
               <Link
                 key={name}
                 href={url}
                 fontSize="md"
                 cursor="pointer"
+                target={isExternal ? "_blank" : undefined}
                 _hover={{
                   color: "brand.blue",
                 }}
