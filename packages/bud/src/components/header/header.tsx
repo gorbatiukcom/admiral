@@ -119,37 +119,6 @@ const DesktopHeader = ({
               {name}
             </Link>
           ))}
-          {/* <Link
-            href="https://admiralinterior.com/"
-            pl={5}
-            pr={3}
-            bg="brand.orange"
-            fontSize="20px"
-            lineHeight="48px"
-            fontWeight={500}
-            cursor="pointer"
-            _hover={{
-              color: "black",
-            }}
-            position="relative"
-            zIndex={0}
-            borderRadius="lg"
-          >
-            <Flex alignItems="center" justifyContent="space-between" gap={4}>
-              Admiral Interior
-              <Flex
-                bg="white"
-                color="black"
-                p={1}
-                borderRadius="100%"
-                justifyContent="center"
-                alignItems="center"
-                transform="rotate(-45deg)"
-              >
-                <Icon as={IoArrowForward} />
-              </Flex>
-            </Flex>
-          </Link> */}
         </Flex>
         <Link
           href="tel:+48794510151"
@@ -255,39 +224,6 @@ const MobileHeader = ({
                 {name}
               </Link>
             ))}
-            {/* <Link
-              href="https://admiralinterior.com/"
-              py={1}
-              pl={5}
-              pr={2}
-              fontWeight={500}
-              fontSize="20px"
-              lineHeight="40px"
-              cursor="pointer"
-              _hover={{
-                color: "brand.blue",
-              }}
-              position="relative"
-              bg="brand.orange"
-              color="textPrimaryWhite"
-              borderRadius="8px"
-              onClick={onClose}
-            >
-              <Flex alignItems="center" justifyContent="space-between">
-                Admiral Interior
-                <Flex
-                  bg="white"
-                  color="black"
-                  p={1}
-                  borderRadius="100%"
-                  justifyContent="center"
-                  alignItems="center"
-                  transform="rotate(-45deg)"
-                >
-                  <Icon as={IoArrowForward} boxSize={6} />
-                </Flex>
-              </Flex>
-            </Link> */}
           </DrawerBody>
 
           <DrawerFooter justifyContent="flex-start" p={5}>

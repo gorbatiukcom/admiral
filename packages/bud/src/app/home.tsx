@@ -17,6 +17,7 @@ import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 
 import { Image } from "../components/image";
 import { Link } from "../components/link";
+import { SocialMediaLinks } from "../components/SocialMediaLinks";
 
 const IMAGES = [
   "/images/bg-image-2.png",
@@ -63,7 +64,7 @@ const HeroBlock = () => {
       <Flex
         w="100%"
         justifyContent="space-between"
-        alignItems={["flex-end", "center"]}
+        alignItems={["flex-end", "stretch"]}
         mx="auto"
         minHeight={["calc(100svh)", "calc(100svh - 96px)"]}
         bg={["url(/images/bg-image-2.png)", "none"]}
@@ -73,31 +74,29 @@ const HeroBlock = () => {
         pt={[0, 10]}
         pb={[5, 0]}
       >
-        <Flex w="100%" justifyContent="center" px={[5, 10]}>
+        <Flex flexDir="column" justifyContent="space-between" w="100%">
+          <Flex height="60px" display={["none", "flex"]} />
           <Flex
             flexDir="column"
+            justifyContent="center"
             w="100%"
-            maxW={["none", "600px"]}
+            maxW={["none", "800px"]}
+            mx="auto"
+            px={[5, 10]}
             height="100%"
-            gap={["100px", "100px"]}
+            gap={[5, 5]}
             pt={[5]}
-            zIndex={10}
+            zIndex={[0, 10]}
           >
-            <Flex flexDir="column" gap={5}>
-              <Heading size={["xl", "2xl"]} lineHeight={[1, 1.3]}>
-                Kompleksowy remont <br />
-                Twojego mieszkania
-              </Heading>
-              <Text fontWeight={500} fontSize={["lg", "2xl"]}>
-                Zacznij remont — zadzwoń po bezpłatną wizję lokalną!
-              </Text>
-            </Flex>
-            <Flex flexDir={["column-reverse", "row"]} alignItems="center" gap={[2, 4]} mt={5}>
-              <Link
-                href="/contacts"
-                width={["100%", "max-content"]}
-                // display={["none", "block"]}
-              >
+            <Heading size={["xl", "2xl"]} lineHeight={[1, 1.3]}>
+              Kompleksowy remont <br />
+              Twojego mieszkania
+            </Heading>
+            <Text fontWeight={500} fontSize={["lg", "2xl"]}>
+              Zacznij remont — zadzwoń po bezpłatną wizję lokalną!
+            </Text>
+            <Flex flexDir={["column-reverse", "row"]} alignItems="center" gap={[2, 4]} mt={"100px"}>
+              <Link href="/contacts" width={["100%", "max-content"]}>
                 <Button
                   width={["100%", "max-content"]}
                   height={["48px", "54px"]}
@@ -135,6 +134,33 @@ const HeroBlock = () => {
                 </Button>
               </Link>
             </Flex>
+          </Flex>
+          <Flex
+            width="100%"
+            justifyContent="flex-end"
+            gap={6}
+            display={["none", "flex"]}
+            pr={10}
+            pb={5}
+          >
+            {SocialMediaLinks.map(({ url, name }) => (
+              <Link
+                key={name}
+                href={url}
+                color="textPrimaryWhite"
+                fontSize={["14px", "18px"]}
+                lineHeight={["21px", "40px"]}
+                cursor="pointer"
+                fontWeight={600}
+                _hover={{
+                  color: "brand.blue",
+                }}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {name}
+              </Link>
+            ))}
           </Flex>
         </Flex>
 

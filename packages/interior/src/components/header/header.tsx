@@ -108,7 +108,7 @@ const DesktopHeader = ({
             </Link>
           ))}
           <Link
-            href="https://admiralbud.com/"
+            href="https://budcor.com/"
             pl={5}
             pr={3}
             bg="brand.blue"
@@ -124,7 +124,7 @@ const DesktopHeader = ({
             borderRadius="100px"
           >
             <Flex alignItems="center" justifyContent="space-between" gap={4}>
-              Admiral Bud
+              Budcor
               <Flex
                 bg="white"
                 color="black"
@@ -241,7 +241,7 @@ const MobileHeader = ({
               </Link>
             ))}
             <Link
-              href="https://admiralbud.com/"
+              href="https://budcor.com/"
               py={1}
               pl={5}
               pr={2}
@@ -259,7 +259,7 @@ const MobileHeader = ({
               onClick={onClose}
             >
               <Flex alignItems="center" justifyContent="space-between">
-                Admiral Bud
+                Budcor
                 <Flex
                   bg="white"
                   color="black"
