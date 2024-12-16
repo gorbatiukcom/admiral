@@ -43,6 +43,7 @@ const HeroBlock = () => {
         alignItems="center"
         mx="auto"
         minHeight="calc(100svh - 96px)"
+        pt={[0, 10]}
       >
         <Flex w="100%" justifyContent="center" px={[5, 10]}>
           <Flex flexDir="column" w="100%" maxW="600px" height="100%" gap="100px" pt={[5]}>
@@ -101,7 +102,7 @@ const HeroBlock = () => {
 
         <Flex
           w="100%"
-          height="calc(100svh - 96px)"
+          height="calc(100svh - 96px - 40px)"
           position="relative"
           overflow="hidden"
           onClick={toggleImage}
