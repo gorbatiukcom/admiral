@@ -35,11 +35,11 @@ const NavigationLinks = [
     segment: "services",
     name: "Usługi",
   },
-  // {
-  //   url: "/portfolio",
-  //   segment: "portfolio",
-  //   name: "Portfolio",
-  // },
+  {
+    url: "/realization",
+    segment: "realization",
+    name: "Realizacja",
+  },
   {
     url: "/contacts",
     segment: "contacts",
@@ -119,7 +119,7 @@ const DesktopHeader = ({
               {name}
             </Link>
           ))}
-          <Link
+          {/* <Link
             href="https://admiralinterior.com/"
             pl={5}
             pr={3}
@@ -149,7 +149,7 @@ const DesktopHeader = ({
                 <Icon as={IoArrowForward} />
               </Flex>
             </Flex>
-          </Link>
+          </Link> */}
         </Flex>
         <Link
           href="tel:+48794510151"
@@ -255,7 +255,7 @@ const MobileHeader = ({
                 {name}
               </Link>
             ))}
-            <Link
+            {/* <Link
               href="https://admiralinterior.com/"
               py={1}
               pl={5}
@@ -287,7 +287,7 @@ const MobileHeader = ({
                   <Icon as={IoArrowForward} boxSize={6} />
                 </Flex>
               </Flex>
-            </Link>
+            </Link> */}
           </DrawerBody>
 
           <DrawerFooter justifyContent="flex-start" p={5}>
