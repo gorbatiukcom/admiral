@@ -97,8 +97,16 @@ export const Footer = () => {
                 name: "budcor.info@gmail.com",
               },
               {
-                url: "tel:+48536089652",
-                name: "tel: +48 536 089 652",
+                url: "tel:+48794510151",
+                name: "tel: +48 794 510 151",
+              },
+              {
+                url: "https://www.facebook.com/profile.php?id=61566105481215",
+                name: "Facebook",
+              },
+              {
+                url: "https://www.instagram.com/budcor_",
+                name: "Instagram",
               },
             ].map(({ url, name }) => (
               <Link
@@ -106,6 +114,8 @@ export const Footer = () => {
                 href={url}
                 fontSize="md"
                 cursor="pointer"
+                target="_blank"
+                rel="noopener noreferrer"
                 _hover={{
                   color: "brand.blue",
                 }}

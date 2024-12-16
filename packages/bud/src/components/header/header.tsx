@@ -152,7 +152,7 @@ const DesktopHeader = ({
           </Link>
         </Flex>
         <Link
-          href="tel:+48536089652"
+          href="tel:+48794510151"
           py={2}
           px={5}
           mr={-5}
@@ -165,7 +165,7 @@ const DesktopHeader = ({
             color: "brand.blue",
           }}
         >
-          +48 536 089 652
+          +48 794 510 151
         </Link>
       </Flex>
     </Flex>
@@ -293,7 +293,7 @@ const MobileHeader = ({
           <DrawerFooter justifyContent="flex-start" p={5}>
             <Flex flexDirection="column" gap={2} width="100%">
               <Link
-                href="tel:+48536089652"
+                href="tel:+48794510151"
                 color="textPrimaryWhite"
                 fontSize={["14px", "18px"]}
                 lineHeight={["21px", "40px"]}
@@ -303,7 +303,7 @@ const MobileHeader = ({
                   color: "brand.blue",
                 }}
               >
-                +48 536 089 652
+                +48 794 510 151
               </Link>
 
               <Flex width="100%" justifyContent="flex-start" gap={[4, 6]}>

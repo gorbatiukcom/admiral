@@ -240,7 +240,7 @@ export default function Contacts() {
               Kontakty
             </Text>
             <Link
-              href="tel:+48536089652"
+              href="tel:+48794510151"
               fontSize={["14px", "16px"]}
               color="textSecondary"
               fontWeight={400}
@@ -249,7 +249,7 @@ export default function Contacts() {
                 color: "brand.blue",
               }}
             >
-              +48 536 089 652
+              +48 794 510 151
             </Link>
             <Link
               href="mailto:admiralbud.info@gmail.com"
