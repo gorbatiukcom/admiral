@@ -248,7 +248,7 @@ const MobileHeader = ({
                 bg={activeSegment === segment ? "white" : "black"}
                 // color="textPrimaryWhite"
                 color={activeSegment === segment ? "textPrimary" : "textPrimaryWhite"}
-                borderRadius={activeSegment === segment ? "100px" : undefined}
+                borderRadius={activeSegment === segment ? "8px" : undefined}
                 textAlign={activeSegment === segment ? "center" : undefined}
                 onClick={onClose}
               >
@@ -270,7 +270,7 @@ const MobileHeader = ({
               position="relative"
               bg="brand.orange"
               color="textPrimaryWhite"
-              borderRadius="100px"
+              borderRadius="8px"
               onClick={onClose}
             >
               <Flex alignItems="center" justifyContent="space-between">
@@ -334,7 +334,7 @@ const MobileHeader = ({
                   bg="white"
                   color="textPrimary"
                   fontSize={["md", "24px"]}
-                  borderRadius="full"
+                  borderRadius="8px"
                   transition="0.2s"
                   fontWeight={500}
                   _hover={{
@@ -355,13 +355,13 @@ const MobileHeader = ({
 export const Header = () => {
   const segment = useSelectedLayoutSegment();
 
-  // const isTransparent = segment === null;
-  const isTransparent = false;
+  const isTransparent = segment === null;
+  // const isTransparent = true;
 
   return (
     <>
       <MobileHeader isTransparent={isTransparent} segment={segment} />
-      <DesktopHeader isTransparent={isTransparent} segment={segment} />
+      <DesktopHeader isTransparent={false} segment={segment} />
     </>
   );
 };

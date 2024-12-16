@@ -37,35 +37,75 @@ const HeroBlock = () => {
   };
   return (
     <>
+      <Flex position="relative">
+        <Flex
+          display={["flex", "none"]}
+          position="absolute"
+          left={0}
+          right={0}
+          top={0}
+          h={["200px", "240px"]}
+          bg="linear-gradient(180deg, rgba(0,0,0,0.9) 0%, rgba(26,26,26,0.9) 40%, rgba(255,255,255,0) 100%)"
+          pointerEvents="none"
+        />
+        <Flex
+          display={["flex", "none"]}
+          position="absolute"
+          left={0}
+          right={0}
+          top={0}
+          h={["100dvh"]}
+          bg="linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(26,26,26,0.5) 40%, rgba(0,0,0,0) 100%)"
+          pointerEvents="none"
+        />
+      </Flex>
+
       <Flex
         w="100%"
         justifyContent="space-between"
-        alignItems="center"
+        alignItems={["flex-end", "center"]}
         mx="auto"
-        minHeight="calc(100svh - 96px)"
+        minHeight={["calc(100svh)", "calc(100svh - 96px)"]}
+        bg={["url(/images/bg-image-2.png)", "none"]}
+        bgRepeat="no-repeat"
+        bgPosition={["center, center"]}
+        bgSize="cover"
         pt={[0, 10]}
+        pb={[5, 0]}
       >
         <Flex w="100%" justifyContent="center" px={[5, 10]}>
-          <Flex flexDir="column" w="100%" maxW="600px" height="100%" gap="100px" pt={[5]}>
+          <Flex
+            flexDir="column"
+            w="100%"
+            maxW={["none", "600px"]}
+            height="100%"
+            gap={["100px", "100px"]}
+            pt={[5]}
+            zIndex={10}
+          >
             <Flex flexDir="column" gap={5}>
-              <Heading size="2xl" lineHeight={1.3}>
+              <Heading size={["xl", "2xl"]} lineHeight={[1, 1.3]}>
                 Kompleksowy remont <br />
                 Twojego mieszkania
               </Heading>
-              <Text fontWeight={500} fontSize="2xl">
-                Zacznij remont – zadzwoń po bezpłatną wizję lokalną!
+              <Text fontWeight={500} fontSize={["lg", "2xl"]}>
+                Zacznij remont — zadzwoń po bezpłatną wizję lokalną!
               </Text>
             </Flex>
-            <Flex alignItems="center" gap={[2, 4]} mt={5}>
-              <Link href="/contacts" width="max-content" display={["none", "block"]}>
+            <Flex flexDir={["column-reverse", "row"]} alignItems="center" gap={[2, 4]} mt={5}>
+              <Link
+                href="/contacts"
+                width={["100%", "max-content"]}
+                // display={["none", "block"]}
+              >
                 <Button
-                  width="max-content"
+                  width={["100%", "max-content"]}
                   height={["48px", "54px"]}
                   px={[5, 6]}
-                  bg="transparent"
+                  bg="bgBase"
                   color="textPrimaryWhite"
                   border="1px solid"
-                  fontSize={["20px", "20px"]}
+                  fontSize={["16px", "20px"]}
                   borderRadius="lg"
                   transition="0.2s"
                   fontWeight={600}
@@ -76,14 +116,14 @@ const HeroBlock = () => {
                   Zamów rozmowę telefoniczną
                 </Button>
               </Link>
-              <Link href="/services/order" width="max-content">
+              <Link href="/services/order" width={["100%", "max-content"]}>
                 <Button
-                  width="max-content"
+                  width={["100%", "max-content"]}
                   height={["48px", "54px"]}
                   px={[5, 6]}
                   bg="brand.blue"
                   color="textPrimaryWhite"
-                  fontSize={["20px", "20px"]}
+                  fontSize={["16px", "20px"]}
                   borderRadius="lg"
                   transition="0.2s"
                   fontWeight={600}
@@ -91,9 +131,7 @@ const HeroBlock = () => {
                     color: "black",
                   }}
                 >
-                  <Flex justifyContent="space-between" alignItems="center" width="100%" gap={10}>
-                    Zamówić remont
-                  </Flex>
+                  Zamówić remont
                 </Button>
               </Link>
             </Flex>
@@ -101,6 +139,7 @@ const HeroBlock = () => {
         </Flex>
 
         <Flex
+          display={["none", "flex"]}
           w="100%"
           height="calc(100svh - 96px - 40px)"
           position="relative"
