@@ -252,7 +252,7 @@ export default function Contacts() {
               +48 794 510 151
             </Link>
             <Link
-              href="mailto:admiralbud.info@gmail.com"
+              href="mailto:budcor.info@gmail.com"
               fontSize={["14px", "16px"]}
               color="textSecondary"
               fontWeight={400}
@@ -261,7 +261,7 @@ export default function Contacts() {
                 color: "brand.blue",
               }}
             >
-              admiralbud.info@gmail.com
+              budcor.info@gmail.com
             </Link>
           </Flex>
         </Flex>

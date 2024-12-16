@@ -18,7 +18,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   title: "Budcor",
   description: "Budcor — Tworzymy jakość i komfort dla naszych klientów",
-  metadataBase: new URL("https://admiralinterior.com"),
+  metadataBase: new URL("https://budcor.com"),
   openGraph: {
     description: "Budcor — Tworzymy jakość i komfort dla naszych klientów",
     images: ["https://admiralinterior.com/images/bg-image.png"],

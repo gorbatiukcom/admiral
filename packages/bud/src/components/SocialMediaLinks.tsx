@@ -6,11 +6,11 @@ export const SocialMediaLinks = [
   //   name: "behance",
   // },
   {
-    url: "https://www.instagram.com/admiral.interior",
+    url: "https://www.instagram.com/budcor_",
     name: "instagram",
   },
   {
-    url: "https://www.facebook.com/profile.php?id=61555292412313",
+    url: "https://www.facebook.com/profile.php?id=61566105481215",
     name: "facebook",
   },
 ];
