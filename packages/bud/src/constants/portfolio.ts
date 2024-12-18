@@ -38,6 +38,42 @@ export const PortfolioProjects: PortfolioProject[] = [
 Mieszkanie w kamienicy, całkowicie odnowione i przystosowane do komfortowego wynajmu krótkoterminowego. Idealny wybór dla turystów. Mieszkanie z nowoczesnym wnętrzem zapewnia wygodny pobyt. Projekt został zrealizowany dla klienta, który specjalizuje się w wynajmie mieszkań na doby.`,
   },
   {
+    projectId: "warszawa-marcina-kasprzaka-29A",
+    name: "Warszawa, Marcina Kasprzaka 29A",
+    image: "/images/warszawa-marcina-kasprzaka-29A/2.jpg",
+    images: [
+      "/images/warszawa-marcina-kasprzaka-29A/1.jpg",
+      "/images/warszawa-marcina-kasprzaka-29A/2.jpg",
+      "/images/warszawa-marcina-kasprzaka-29A/3.jpg",
+      "/images/warszawa-marcina-kasprzaka-29A/4.jpg",
+      "/images/warszawa-marcina-kasprzaka-29A/5.jpg",
+      "/images/warszawa-marcina-kasprzaka-29A/6.jpg",
+      "/images/warszawa-marcina-kasprzaka-29A/7.jpg",
+      "/images/warszawa-marcina-kasprzaka-29A/8.jpg",
+      "/images/warszawa-marcina-kasprzaka-29A/9.jpg",
+      "/images/warszawa-marcina-kasprzaka-29A/10.jpg",
+      "/images/warszawa-marcina-kasprzaka-29A/11.jpg",
+      "/images/warszawa-marcina-kasprzaka-29A/12.jpg",
+      "/images/warszawa-marcina-kasprzaka-29A/13.jpg",
+      "/images/warszawa-marcina-kasprzaka-29A/14.jpg",
+      "/images/warszawa-marcina-kasprzaka-29A/15.jpg",
+      "/images/warszawa-marcina-kasprzaka-29A/16.jpg",
+      "/images/warszawa-marcina-kasprzaka-29A/17.jpg",
+      "/images/warszawa-marcina-kasprzaka-29A/18.jpg",
+      "/images/warszawa-marcina-kasprzaka-29A/19.jpg",
+      "/images/warszawa-marcina-kasprzaka-29A/20.jpg",
+    ],
+    shortDescription: "Kompleksowy remont biura VIPOL Group — od A do Z!",
+    description: `Jako firma budowlano-remontowa mieliśmy przyjemność zrealizować ten projekt od podstaw. Zajęliśmy się wszystkim: od stanu surowego aż po finalne wykończenia, dbając o każdy szczegół.
+Co zrobiliśmy?
+Kompleksowe prace remontowe i budowlane
+Nowoczesne wykończenia ścian, sufitów i podłóg
+Montaż oświetlenia i detali, które podkreślają charakter przestrzeni
+Biuro, które łączy nowoczesność z funkcjonalnością i dbałością o detale.
+Solidne wykonanie sprawia, że przestrzeń jest nie tylko estetyczna, ale i praktyczna.
+Cieszymy się, że mogliśmy zrealizować ten projekt od początku do końca!`,
+  },
+  {
     projectId: "lodz-al-tadeusza-kosciuszki-32",
     name: "Łódź. Al. Tadeusza Kościuszki 32",
     image: "/images/lodz-al-tadeusza-kosciuszki-32/23.jpg",
