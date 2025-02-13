@@ -7,9 +7,11 @@ import { useState } from "react";
 import {
   IoAdd,
   IoCalendarNumberOutline,
+  IoCashOutline,
   IoChevronBack,
   IoChevronForward,
   IoEyeOffOutline,
+  IoEyeOutline,
   IoPersonOutline,
   IoPhonePortraitOutline,
 } from "react-icons/io5";
@@ -88,11 +90,11 @@ const HeroBlock = () => {
             pt={[5]}
             zIndex={[0, 10]}
           >
-            <Heading size={["xl", "2xl"]} lineHeight={[1, 1.3]}>
+            <Heading size={["xl", "2xl"]} lineHeight={[1, 1.3]} as="h1">
               Kompleksowy remont <br />
-              Twojego mieszkania
+              mieszkań i domów
             </Heading>
-            <Text fontWeight={500} fontSize={["lg", "2xl"]}>
+            <Text fontWeight={500} fontSize={["lg", "2xl"]} as="h2">
               Zacznij remont — zadzwoń po bezpłatną wizję lokalną!
             </Text>
             <Flex flexDir={["column-reverse", "row"]} alignItems="center" gap={[2, 4]} mt={"100px"}>
@@ -345,7 +347,7 @@ const AdvantagesBlock = () => {
           icon={IoCalendarNumberOutline}
           title="Dotrzymujemy terminów"
           description="Doceniamy czas naszych klientów i ściśle przestrzegamy terminów realizacji prac. Precyzyjne planowanie i efektywna organizacja procesów pozwalają nam dostarczać obiekty punktualnie."
-          notes="W przypadku nieterminowego wykonania, zwracamy 20% wartości remontu."
+          notes="W przypadku nieterminowego wykonania, zwracamy 10% wartości remontu."
         />
       </SwiperSlide>
       <SwiperSlide
@@ -355,21 +357,9 @@ const AdvantagesBlock = () => {
         }}
       >
         <AdvantageItem
-          icon={IoPhonePortraitOutline}
-          title="Całość w Twoim telefonie!"
-          description="Uwzględniamy wszystkie życzenia i wymagania naszych klientów, proponując indywidualne rozwiązania dla każdego projektu. Nasi architekci pracują w ścisłej współpracy z klientem, aby stworzyć unikalne i funkcjonalne obiekty."
-        />
-      </SwiperSlide>
-      <SwiperSlide
-        style={{
-          display: "flex",
-          justifyContent: "center",
-        }}
-      >
-        <AdvantageItem
-          icon={IoEyeOffOutline}
+          icon={IoCashOutline}
           title="Przejrzyste rozliczanie kosztów"
-          description="Każdy ruch środków na Twoim koncie przeznaczonym na remont będzie potwierdzony raportem! Tylko Ty potwierdzasz wszystkie wydatki, niezależnie od tego, czy chodzi o zakup materiałów, czy o opłatę za pracę fachowców."
+          description="Każdy wydatek związany z remontem będzie przejrzyście udokumentowany! Otrzymasz szczegółowe raporty dotyczące zakupów materiałów i kosztów pracy fachowców, a wszystkie decyzje finansowe będą zawsze po Twojej stronie."
         />
       </SwiperSlide>
       <SwiperSlide
@@ -379,9 +369,9 @@ const AdvantagesBlock = () => {
         }}
       >
         <AdvantageItem
-          icon={IoPersonOutline}
-          title="Fotograficzna i wideo rejestracja"
-          description="Nie muszą Państwo przyjeżdżać co dwa dni na miejsce, aby monitorować postęp prac. Robimy zdjęcia i filmy każdego etapu, a Państwo mogą śledzić wszystko na swoim telefonie."
+          icon={IoEyeOutline}
+          title="Rejestracja fotograficzna i wideo"
+          description="Nie musisz przyjeżdżać co dwa dni na inwestycję, żeby sprawdzać postęp prac. Robimy zdjęcia i nagrywamy filmy z każdego etapu, a Ty możesz śledzić wszystko na swoim telefonie."
         />
       </SwiperSlide>
       <Flex width="100%" justifyContent="center" gap={[5]} p={5}>
@@ -411,14 +401,19 @@ const AboutBlock = () => {
         color="textSecondary"
         textAlign="center"
       >
-        Jesteśmy firmą remontowo-budowlaną z Warszawy, specjalizującą się w kompleksowych remontach
-        mieszkań i domów. Nasz zespół tworzą doświadczeni specjaliści, którzy z pasją podchodzą do
-        każdego projektu. Stawiamy na profesjonalizm, jakość oraz indywidualne podejście do każdego
-        klienta. Nasze prace charakteryzują się dbałością o detale oraz terminowością, co sprawia,
-        że cieszymy się zaufaniem i uznaniem na rynku. Posiadamy wieloletnie doświadczenie, które
-        pozwala nam realizować nawet najbardziej wymagające projekty. Naszym celem jest
-        przekształcanie przestrzeni w miejsca, w których nasi klienci będą czuć się komfortowo i
-        szczęśliwie.
+        <Text display="inline" as="h2">
+          Jesteśmy firmą remontowo-budowlaną z Warszawy
+        </Text>
+        ,{" "}
+        <Text display="inline" as="h3">
+          specjalizującą się w kompleksowych remontach mieszkań i domów
+        </Text>
+        . Nasz zespół tworzą doświadczeni specjaliści, którzy z pasją podchodzą do każdego projektu.
+        Stawiamy na profesjonalizm, jakość oraz indywidualne podejście do każdego klienta. Nasze
+        prace charakteryzują się dbałością o detale oraz terminowością, co sprawia, że cieszymy się
+        zaufaniem i uznaniem na rynku. Posiadamy wieloletnie doświadczenie, które pozwala nam
+        realizować nawet najbardziej wymagające projekty. Naszym celem jest przekształcanie
+        przestrzeni w miejsca, w których nasi klienci będą czuć się komfortowo i szczęśliwie.
       </Text>
     </Flex>
   );

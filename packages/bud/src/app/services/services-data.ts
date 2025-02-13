@@ -7,162 +7,105 @@ export type ServiceBud = {
   title: string;
   description: string;
   description2?: string;
-  services: { id: string; title: string; points: string[] }[];
+  services: { id: string; title?: string; points: string[]; description?: string }[];
 };
 
-export const ServicesBud: ServiceBud[] = [
-  {
+export const ServicesBud: { [index in Project]: ServiceBud } = {
+  [Projects.remont]: {
     id: Projects.remont,
-    title: "Remont mieszkań",
+    title: `Remont mieszkań \nczęściowe i kosmetyczne prace remontowe`,
     description:
-      "Prace remontowe mieszkań mogą obejmować różne rodzaje prac, w zależności od zakresu i charakteru koniecznego remontu. Oto główne rodzaje prac remontowych:",
+      "Nie zawsze potrzebny jest pełny remont mieszkania „od A do Z”. Czasem wystarczy odświeżenie wnętrz, drobne naprawy lub wymiana pojedynczych elementów, aby przywrócić komfort i estetykę. W naszej ofercie znajdziesz różne formy remontu częściowego — od prostych prac kosmetycznych aż po bardziej zaawansowane naprawy inżynierskie.",
     services: [
       {
         id: "service0",
         title: "Remont kosmetyczny",
         points: [
-          "• Malowanie ścian i sufitów.",
-          "• Wymiana tapet.",
-          "• Układanie podłóg (linoleum, wykładzina, panele).",
-          "• Wymiana drzwi i okien.",
-          "• Odświeżenie listew przypodłogowych i ościeżnic.",
+          "• Malowanie i tapetowanie ścian oraz sufitów, aby szybko odświeżyć wygląd wnętrza.",
+          "• Wymiana podłóg (np. panele, wykładzina), jeśli stare pokrycia są zużyte.",
+          "• Odświeżenie stolarki — renowacja lub wymiana drzwi, okien, listew przypodłogowych.",
+          "• Drobne naprawy (usunięcie rys, pęknięć, niewielkie poprawki dekoratorskie).",
         ],
+        description:
+          "Idealny wybór, gdy chcesz w krótkim czasie poprawić estetykę mieszkania bez generalnego remontu.",
       },
       {
         id: "service1",
-        title: "Remont częściowy",
+        title: "Remont wybranych pomieszczeń",
         points: [
-          "• Wymiana lub odnowienie pojedynczych elementów (na przykład tylko kuchnia lub łazienka).",
-          "• Lokalne naprawy (na przykład usuwanie pęknięć w ścianach).",
+          "• Kuchnia: wymiana blatów, frontów szafek, płytek ściennych i podłogowych.",
+          "• Łazienka: montaż nowych sanitariatów, kafelkowanie, odświeżenie fug, wymiana armatury.",
+          "• Pokój dzienny lub sypialnia: zmiana podłogi, odświeżenie ścian, instalacja nowych punktów oświetleniowych.",
         ],
+        description:
+          "Dzięki remontowi częściowemu możesz skupić się tylko na tych pomieszczeniach, które najbardziej tego potrzebują.",
       },
       {
         id: "service2",
-        title: "Remont designerski",
+        title: "Drobne prace inżynierskie",
         points: [
-          "• Całkowita przebudowa i zmiana stylu wnętrza według indywidualnego projektu.",
-          "• Praca z projektantem nad stworzeniem unikalnej i funkcjonalnej przestrzeni.",
-          "• Włączenie niestandardowych rozwiązań i materiałów.",
+          "• Lokalna wymiana instalacji wodno-kanalizacyjnej (np. tylko w łazience lub kuchni).",
+          "• Modernizacja elektryki — dodanie gniazdek, wymiana bezpieczników czy montaż nowych punktów świetlnych.",
+          "• Montaż ogrzewania podłogowego w wybranym pomieszczeniu (np. kuchnia, łazienka).",
         ],
-      },
-      {
-        id: "service3",
-        title: "Remont kapitalny",
-        points: [
-          "• Wymiana instalacji elektrycznej.",
-          "• Odnowienie instalacji sanitarnych.",
-          "• Wyrównywanie ścian i sufitów (tynkowanie, szpachlowanie).",
-          "• Całkowita wymiana podłóg.",
-          "• Instalacja nowych okien i drzwi.",
-          "• Przebudowa pomieszczeń (wyburzanie lub stawianie ścian).",
-        ],
-      },
-      {
-        id: "service4",
-        title: "Euroremont",
-        points: [
-          "• Użycie materiałów wysokiej jakości.",
-          "• Nowoczesne technologie wykończeniowe i dekoracyjne.",
-          "• Designerskie podejście do aranżacji wnętrz.",
-          "• Montaż skomplikowanych konstrukcji sufitowych i oświetleniowych.",
-          '• Instalacja systemów "inteligentny dom".',
-        ],
-      },
-      {
-        id: "service5",
-        title: "Prace inżynierskie",
-        points: [
-          "• Instalacja i wymiana systemów grzewczych, wodociągowych i kanalizacyjnych.",
-          "• Montaż systemów klimatyzacyjnych i wentylacyjnych.",
-          "• Instalacja ogrzewania podłogowego.",
-        ],
+        description:
+          "Pozwala to poprawić funkcjonalność mieszkania bez przeprowadzania prac na całej powierzchni.",
       },
     ],
   },
-  {
+  [Projects.keyRemont]: {
     id: Projects.keyRemont,
-    title: 'Remont mieszkania "pod klucz"',
+    title: 'Remont mieszkania - "pod klucz"',
     description:
-      'Remont mieszkania "pod klucz" obejmuje pełen zakres prac, niezbędnych do doprowadzenia mieszkania do stanu całkowicie gotowego do zamieszkania. Może to obejmować następujące etapy i rodzaje prac:',
-    description2:
-      'W ten sposób, remont "pod klucz" obejmuje wszystkie etapy od planowania po pełną gotowość mieszkania do zamieszkania, zapewniając klientowi maksymalną wygodę i minimalizując jego udział w procesie remontu.',
+      "Remont mieszkania „pod klucz” to kompleksowe podejście do modernizacji domu lub mieszkania — od wstępnego projektu aż po ostateczne wykończenie i przekazanie w pełni gotowego wnętrza. W praktyce oznacza to przeprowadzenie wszystkich niezbędnych robót — od rozbiórki starych elementów i postawienia nowych ścian aż po montaż mebli i końcowe sprzątanie. Naszym celem jest przejęcie całego procesu na siebie, byś mógł zaoszczędzić czas i uniknąć stresu. Poniżej przedstawiamy kluczowe etapy prac w kolejności, w jakiej najczęściej przebiegają.",
     services: [
       {
         id: "service0",
-        title: "Projektowanie i przygotowanie",
         points: [
-          "• Tworzenie projektu wnętrza, uzgodnienie z klientem.",
-          "• Sporządzenie kosztorysu i harmonogramu prac.",
-          "• Zakup niezbędnych materiałów i sprzętu.",
+          "• Koncepcja wnętrza i ustalenie budżetu: omówienie z klientem zakresu, stylu i kosztów.",
+          "• Harmonogram i kosztorys: stworzenie planu działań oraz listy materiałów.",
+          "• Zakup materiałów i sprzętu: zabezpieczenie wszystkiego, co potrzebne na kolejnych etapach.",
         ],
       },
       {
         id: "service1",
-        title: "Prace hydrauliczne",
         points: [
-          "• Montaż nowej armatury sanitarnej (wanny, toalety, umywalki).",
-          "• Montaż systemów wodociągowych i kanalizacyjnych.",
-          "• Instalacja podgrzewaczy wody i systemów filtracji wody.",
+          "• Rozbiórka niepotrzebnych elementów: stare ściany działowe, okna, drzwi, podłogi.",
+          "• Usunięcie starej armatury i instalacji: jeśli wymaga tego projekt.",
+          "• Zabezpieczenie pomieszczeń: ochrona mebli (jeśli zostają), podłoża i innych powierzchni, które nie będą remontowane.",
         ],
       },
       {
         id: "service2",
-        title: "Prace demontażowe",
         points: [
-          "• Rozbiórka starych ścianek działowych, drzwi i okien.",
-          "• Demontaż starych pokryć podłogowych i ściennych.",
-          "• Usunięcie starej armatury i instalacji elektrycznych.",
+          "• Budowa nowych ścianek działowych i konstrukcji sufitowych (np. podwieszanych).",
+          "• Instalacje elektryczne: układanie kabli, montaż gniazdek, wyłączników i oświetlenia.",
+          "• Instalacje hydrauliczne: montaż rur, grzejników, przyłączy wodno-kanalizacyjnych.",
+          "• Inne systemy inżynierskie (ogrzewanie podłogowe, wentylacja mechaniczna itp.), jeśli przewidziano w projekcie.",
         ],
       },
       {
         id: "service3",
-        title: "Prace elektryczne",
         points: [
-          "• Układanie nowej instalacji elektrycznej.",
-          "• Montaż gniazdek, włączników, lamp i innych urządzeń elektrycznych.",
+          "• Wyrównywanie ścian i sufitów (tynkowanie, szpachlowanie).",
+          "• Układanie podłóg (panele, parkiet, płytki).",
+          "• Malowanie lub tapetowanie ścian i sufitów.",
+          "• Montaż okien i drzwi, listew przypodłogowych, opasek drzwiowych.",
+          "• Elementy dekoracyjne: sztukateria, listwy ozdobne, oświetlenie dekoracyjne.",
+          "• Montaż mebli kuchennych, zabudowanych urządzeń oraz innych konstrukcji meblowych (szafy, półki itp.).",
         ],
       },
       {
         id: "service4",
-        title: "Prace budowlane i montażowe",
         points: [
-          "• Wznoszenie nowych ścianek działowych i ścian.",
-          "• Montaż nowych okien i drzwi.",
-          "• Montaż nowych konstrukcji sufitowych (sufity podwieszane lub napinane).",
-          "• Wykonanie nowych instalacji inżynieryjnych (instalacja elektryczna, wodociągowa, kanalizacyjna grzewcza).",
-        ],
-      },
-      {
-        id: "service5",
-        title: "Wykończenie i dekoracja",
-        points: [
-          "• Montaż elementów dekoracyjnych (listwy, sztukateria itp.).",
-          "• Montaż mebli kuchennych i zabudowanych urządzeń.",
-          "• Montaż szaf przesuwnych, półek w zabudowie i innych konstrukcji meblowych.",
-        ],
-      },
-      {
-        id: "service6",
-        title: "Prace wykończeniowe",
-        points: [
-          "• Wyrównywanie ścian i sufitów (tynkowanie, szpachlowanie).",
-          "• Układanie pokryć podłogowych (panele, parkiet, płytki itp.).",
-          "• Malowanie ścian i sufitów lub tapetowanie.",
-          "• Montaż listew przypodłogowych i opasek drzwiowych.",
-        ],
-      },
-      {
-        id: "service7",
-        title: "Prace końcowe",
-        points: [
-          "• Sprzątanie pomieszczeń po remoncie.",
-          "• Przeprowadzenie ostatecznej kontroli wszystkich systemów i urządzeń.",
-          "• Przekazanie obiektu klientowi, w tym przekazanie wszystkich dokumentów i instrukcji obsługi.",
+          "• Sprzątanie: pozbycie się odpadów poremontowych, mycie podłóg i okien.",
+          "• Kontrola jakości: test działania instalacji, przegląd wykończenia pod kątem ewentualnych usterek.",
+          "• Przekazanie mieszkania: omówienie z klientem finalnego efektu i przekazanie dokumentacji (gwarancje, instrukcje).",
         ],
       },
     ],
   },
-];
+};
 
 export const ProjectsLinks: {
   [index in Project]: { prev: Project; next: Project };
