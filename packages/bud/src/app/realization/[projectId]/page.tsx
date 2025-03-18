@@ -7,7 +7,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const projectData = PortfolioProjects.find((project) => project.projectId === params.projectId);
 
   return {
-    title: `Admiral Interior | ${projectData?.name}`,
+    title: `Budcor | ${projectData?.name}`,
   };
 }
 

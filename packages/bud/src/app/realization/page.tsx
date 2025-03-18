@@ -3,7 +3,7 @@ import { Metadata } from "next";
 import { Portfolio } from "./portfolio";
 
 export const metadata: Metadata = {
-  title: "Admiral Interior | Portfolio",
+  title: "Budcor | Realizacja",
 };
 
 export default Portfolio;
