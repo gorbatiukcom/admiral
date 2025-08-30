@@ -153,7 +153,7 @@ export const Services = () => {
           <Text fontSize={["sm", "lg"]} textAlign="center" mt={[5]} mx="auto">
             {ServicesBud.keyRemont.description}
           </Text>
-          <Flex flexDirection={["column"]} flexWrap="wrap" my={[5, 10]} pl={[0, 10]}>
+          <Flex flexDirection={["column"]} flexWrap="wrap" my={[5, 10]} pl={[0, 10]} pt={10}>
             {ServicesBud.keyRemont.services.map(({ id, title, points }, index) => (
               <Flex key={id} flexDirection="row" gap={[1]} width={["100%"]}>
                 <Flex
@@ -177,10 +177,17 @@ export const Services = () => {
                 >
                   <Flex width="10px" height="10px" borderRadius="full" bgColor="white" mr={[3]} />
                 </Flex>
-                <Text fontSize="72px" fontWeight={500} mr={[8]} minWidth="48px">
+                <Text
+                  fontSize="72px"
+                  fontWeight={500}
+                  mr={[8]}
+                  minWidth="48px"
+                  lineHeight="100%"
+                  mt="-30px"
+                >
                   {index + 1}
                 </Text>
-                <Flex flexDirection="column">
+                <Flex flexDirection="column" pb={"70px"} mt="-26px">
                   {points.map((text) => {
                     return (
                       <Text key={text} color="textSecondary">
