@@ -18,6 +18,40 @@ type PortfolioProject = {
 
 export const PortfolioProjects: PortfolioProject[] = [
   {
+    projectId: "budynek-w-lublinie",
+    name: "Budynek w Lublinie",
+    image: "/images/budynek-w-lublinie/1.jpg",
+    images: [
+      "/images/budynek-w-lublinie/1.jpg",
+      "/images/budynek-w-lublinie/2.jpg",
+      "/images/budynek-w-lublinie/3.jpg",
+      "/images/budynek-w-lublinie/4.jpg",
+      "/images/budynek-w-lublinie/5.jpg",
+      "/images/budynek-w-lublinie/6.jpg",
+      "/images/budynek-w-lublinie/7.jpg",
+      "/images/budynek-w-lublinie/8.jpg",
+      "/images/budynek-w-lublinie/10.jpg",
+      "/images/budynek-w-lublinie/11.jpg",
+      "/images/budynek-w-lublinie/12.jpg",
+    ],
+    description: "Powierzchnia domu 140 m2",
+  },
+  {
+    projectId: "apartament-w-katalonii-hiszpania",
+    name: "Apartament w Katalonii, Hiszpania",
+    image: "/images/apartament-w-katalonii-hiszpania/1.jpg",
+    images: [
+      "/images/apartament-w-katalonii-hiszpania/1.jpg",
+      "/images/apartament-w-katalonii-hiszpania/2.jpg",
+      "/images/apartament-w-katalonii-hiszpania/3.jpg",
+      "/images/apartament-w-katalonii-hiszpania/4.jpg",
+      "/images/apartament-w-katalonii-hiszpania/5.jpg",
+      "/images/apartament-w-katalonii-hiszpania/6.jpg",
+      "/images/apartament-w-katalonii-hiszpania/7.jpg",
+    ],
+    description: "Powierzchnia apartamentu 80 m2",
+  },
+  {
     projectId: "budynek-w-warszawie",
     name: "Budynek w Warszawie",
     image: "/images/house/pc09-7.jpg",
