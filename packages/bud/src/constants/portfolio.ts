@@ -170,25 +170,25 @@ Mieszkanie w kamienicy, całkowicie odnowione i przystosowane do komfortowego wy
   // Solidne wykonanie sprawia, że przestrzeń jest nie tylko estetyczna, ale i praktyczna.
   // Cieszymy się, że mogliśmy zrealizować ten projekt od początku do końca!`,
   //   },
-  {
-    projectId: "warszawa-herbu-oksza-9",
-    name: "Warszawa. Herbu Oksza 9",
-    image: "/images/warszawa-herbu-oksza-9/1.jpg",
-    images: [
-      "/images/warszawa-herbu-oksza-9/1.jpg",
-      "/images/warszawa-herbu-oksza-9/2.jpg",
-      "/images/warszawa-herbu-oksza-9/3.jpg",
-      "/images/warszawa-herbu-oksza-9/4.jpg",
-    ],
-    shortDescription: "Dwie nowe łazienki",
-    description: `Dwie nowe łazienki — praca zakończona!
-Nasz zespół ukończył projekt remontu dwóch łazienek. Wszystko zgodnie z planem, na czas i z uwzględnieniem oczekiwań klienta.
-Co zrobiliśmy:
-Pełna wymiana instalacji.
-Układanie płytek i montaż armatury.
-Instalacja oświetlenia i akcesoriów.
-Czysto, starannie i solidnie. Jeśli potrzebujecie remontu, który spełni Wasze oczekiwania, skontaktujcie się z nami — wykonamy wszystko rzetelnie!`,
-  },
+  //   {
+  //     projectId: "warszawa-herbu-oksza-9",
+  //     name: "Warszawa. Herbu Oksza 9",
+  //     image: "/images/warszawa-herbu-oksza-9/1.jpg",
+  //     images: [
+  //       "/images/warszawa-herbu-oksza-9/1.jpg",
+  //       "/images/warszawa-herbu-oksza-9/2.jpg",
+  //       "/images/warszawa-herbu-oksza-9/3.jpg",
+  //       "/images/warszawa-herbu-oksza-9/4.jpg",
+  //     ],
+  //     shortDescription: "Dwie nowe łazienki",
+  //     description: `Dwie nowe łazienki — praca zakończona!
+  // Nasz zespół ukończył projekt remontu dwóch łazienek. Wszystko zgodnie z planem, na czas i z uwzględnieniem oczekiwań klienta.
+  // Co zrobiliśmy:
+  // Pełna wymiana instalacji.
+  // Układanie płytek i montaż armatury.
+  // Instalacja oświetlenia i akcesoriów.
+  // Czysto, starannie i solidnie. Jeśli potrzebujecie remontu, który spełni Wasze oczekiwania, skontaktujcie się z nami — wykonamy wszystko rzetelnie!`,
+  //   },
   {
     projectId: "silownia-w-katarze",
     name: "Siłownia w budynku",
@@ -214,6 +214,30 @@ Czysto, starannie i solidnie. Jeśli potrzebujecie remontu, który spełni Wasze
       "/images/qatar4/hallway v2.jpg",
     ],
     description: "Powierzchnia mieszkania 117 m2",
+  },
+  {
+    projectId: "budynek-w-katarze-1",
+    name: "Budynek w Katarze",
+    image: "/images/qatar1/A. Jufairi - master updated-17.jpg",
+    images: [
+      "/images/qatar1/A. Jufairi - master updated-17.jpg",
+      "/images/qatar1/A. Jufairi - master updated-3.jpg",
+      "/images/qatar1/A. Jufairi - master updated-4.jpg",
+      "/images/qatar1/A. Jufairi - master updated-5.jpg",
+      "/images/qatar1/A. Jufairi - master updated-6.jpg",
+      "/images/qatar1/A. Jufairi - master updated-7.jpg",
+      "/images/qatar1/A. Jufairi - master updated-8.jpg",
+      "/images/qatar1/A. Jufairi - master updated-13.jpg",
+      "/images/qatar1/A. Jufairi - master updated-15.jpg",
+      "/images/qatar1/A. Jufairi - master updated-16.jpg",
+      "/images/qatar1/A. Jufairi - master updated-18.jpg",
+      "/images/qatar1/A. Jufairi - master updated-19.jpg",
+      "/images/qatar1/A. Jufairi - master updated-21.jpg",
+      "/images/qatar1/A. Jufairi - master updated-22.jpg",
+      "/images/qatar1/A. Jufairi - master updated-23.jpg",
+      "/images/qatar1/A. Jufairi - master updated-24.jpg",
+    ],
+    description: "Powierzchnia domu 350 m2",
   },
   {
     projectId: "lodz-al-tadeusza-kosciuszki-32",
@@ -247,29 +271,5 @@ Czysto, starannie i solidnie. Jeśli potrzebujecie remontu, który spełni Wasze
     shortDescription: "Powierzchnia mieszkania 128 m2",
     description: `Kolejna realizacja w Łódzkiej kamienicy! Tym razem zaprojektowaliśmy i wykonaliśmy mieszkanie od A do Z dla firmy zajmującej się wynajmem krótkoterminowym i długoterminowym.
 Z jednego dużego mieszkania stworzyliśmy 5 nowoczesnych apartamentów, które łączą funkcjonalność z wyjątkowym stylem.`,
-  },
-  {
-    projectId: "budynek-w-katarze-1",
-    name: "Budynek w Katarze",
-    image: "/images/qatar1/A. Jufairi - master updated-17.jpg",
-    images: [
-      "/images/qatar1/A. Jufairi - master updated-17.jpg",
-      "/images/qatar1/A. Jufairi - master updated-3.jpg",
-      "/images/qatar1/A. Jufairi - master updated-4.jpg",
-      "/images/qatar1/A. Jufairi - master updated-5.jpg",
-      "/images/qatar1/A. Jufairi - master updated-6.jpg",
-      "/images/qatar1/A. Jufairi - master updated-7.jpg",
-      "/images/qatar1/A. Jufairi - master updated-8.jpg",
-      "/images/qatar1/A. Jufairi - master updated-13.jpg",
-      "/images/qatar1/A. Jufairi - master updated-15.jpg",
-      "/images/qatar1/A. Jufairi - master updated-16.jpg",
-      "/images/qatar1/A. Jufairi - master updated-18.jpg",
-      "/images/qatar1/A. Jufairi - master updated-19.jpg",
-      "/images/qatar1/A. Jufairi - master updated-21.jpg",
-      "/images/qatar1/A. Jufairi - master updated-22.jpg",
-      "/images/qatar1/A. Jufairi - master updated-23.jpg",
-      "/images/qatar1/A. Jufairi - master updated-24.jpg",
-    ],
-    description: "Powierzchnia domu 350 m2",
   },
 ];
