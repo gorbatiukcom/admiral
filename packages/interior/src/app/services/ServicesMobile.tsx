@@ -73,7 +73,7 @@ export default function ServicesMobile() {
         {ProjectsDetalis[activeProject].price}
       </Text>
 
-      <Link href={`/services/order?project=${activeProject}`} mt={4}>
+      <Link href={`/uslugi/order?project=${activeProject}`} mt={4}>
         <Button
           bg="white"
           color="black"

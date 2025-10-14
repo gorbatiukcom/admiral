@@ -13,7 +13,7 @@ const NavigationLinks = [
     name: "Strona Główna",
   },
   {
-    url: "/services",
+    url: "/uslugi",
     segment: "services",
     name: "Usługi",
   },
@@ -62,7 +62,7 @@ export const Footer = () => {
           </Link>
 
           <Box mt={[4, 10]}>
-            <Text color="textSecondary">©️ 2024 Budcor</Text>
+            <Text color="textSecondary">©️ {new Date().getFullYear()} Budcor</Text>
           </Box>
         </Flex>
         <Flex flexDirection="column" width={["100%", "20%"]}>
@@ -130,11 +130,11 @@ export const Footer = () => {
           <Flex flexDirection="column" gap={1}>
             {[
               {
-                url: "/services",
+                url: "/uslugi",
                 name: "Remont mieszkań",
               },
               {
-                url: "/services",
+                url: "/uslugi",
                 name: 'Remont mieszkania "pod klucz"',
               },
               {

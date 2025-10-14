@@ -1,9 +1,9 @@
 import { Metadata } from "next";
 
-import { Services } from "./services";
+import { Uslugi } from "./uslugi";
 
 export const metadata: Metadata = {
   title: "Budcor | Usługi",
 };
 
-export default Services;
+export default Uslugi;

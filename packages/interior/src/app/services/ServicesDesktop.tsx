@@ -110,7 +110,7 @@ export default function ServicesDesktop() {
               justifyContent="center"
               alignItems="flex-start"
             >
-              <Link href={`/services/order?project=${project}`}>
+              <Link href={`/uslugi/order?project=${project}`}>
                 <Button
                   bg="white"
                   color="black"

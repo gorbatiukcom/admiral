@@ -74,7 +74,7 @@ export default function Project({ params }: Props) {
         bottom={["16px", "40px"]}
         px={["16px", "40px"]}
       >
-        <Link href="/services/order" width="max-content">
+        <Link href="/uslugi/order" width="max-content">
           <Button
             width="max-content"
             height={["40px", "60px"]}

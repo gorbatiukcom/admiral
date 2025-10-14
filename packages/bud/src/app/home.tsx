@@ -2,25 +2,21 @@
 
 import "swiper/css";
 
-import { Box, Button, Flex, Heading, Icon, IconButton, Text } from "@chakra-ui/react";
+import { Box, Button, Flex, Heading, Icon, Text } from "@chakra-ui/react";
 import { useState } from "react";
 import {
-  IoAdd,
   IoCalendarNumberOutline,
   IoCashOutline,
   IoChevronBack,
   IoChevronForward,
-  IoEyeOffOutline,
   IoEyeOutline,
   IoPersonOutline,
   IoPhonePortraitOutline,
 } from "react-icons/io5";
 import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 
-import { Image } from "../components/image";
 import { Link } from "../components/link";
 import { SocialMediaLinks } from "../components/SocialMediaLinks";
-import { ServicesBud } from "./services/services-data";
 
 const IMAGES = [
   "/images/bg-image-2.png",
@@ -118,7 +114,7 @@ const HeroBlock = () => {
                   Zamów rozmowę telefoniczną
                 </Button>
               </Link>
-              <Link href="/services/order" width={["100%", "max-content"]}>
+              <Link href="/uslugi/order" width={["100%", "max-content"]}>
                 <Button
                   width={["100%", "max-content"]}
                   height={["48px", "54px"]}

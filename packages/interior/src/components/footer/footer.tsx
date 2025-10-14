@@ -13,7 +13,7 @@ const NavigationLinks = [
     name: "Strona Główna",
   },
   {
-    url: "/services",
+    url: "/uslugi",
     segment: "services",
     name: "Usługi",
   },
@@ -122,15 +122,15 @@ export const Footer = () => {
           <Flex flexDirection="column" gap={1}>
             {[
               {
-                url: "/services",
+                url: "/uslugi",
                 name: "Projektowanie wnętrz Warszawa",
               },
               {
-                url: "/services",
+                url: "/uslugi",
                 name: "Projektowanie wnętrz Łódż",
               },
               {
-                url: "/services",
+                url: "/uslugi",
                 name: "Projektowanie wnętrz Lublin",
               },
             ].map(({ url, name }) => (

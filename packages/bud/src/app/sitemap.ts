@@ -9,7 +9,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
-      url: "https://budcor.com/services",
+      url: "https://budcor.com/uslugi",
       lastModified: new Date(),
       changeFrequency: "daily",
       priority: 0.7,

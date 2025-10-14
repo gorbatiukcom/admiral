@@ -1,6 +1,6 @@
 "use client";
 
-import { Project, Projects } from "../../constants/projects";
+import { Project, Projects } from "../../../constants/projects";
 
 export type ServiceBud = {
   id: Project;

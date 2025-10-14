@@ -31,7 +31,7 @@ const NavigationLinks = [
     name: "Strona Główna",
   },
   {
-    url: "/services",
+    url: "/uslugi",
     segment: "services",
     name: "Usługi",
   },

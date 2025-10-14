@@ -4,10 +4,10 @@ import { Box, Button, Flex, Heading, Icon, Text } from "@chakra-ui/react";
 import React from "react";
 import { IoAdd } from "react-icons/io5";
 
-import { Link } from "../../components/link";
+import { Link } from "../../../components/link";
 import { ServicesBud } from "./services-data";
 
-export const Services = () => {
+export const UslugiBudowlane = () => {
   return (
     <>
       <Flex
@@ -82,7 +82,7 @@ export const Services = () => {
               {ServicesBud.remont.description2}
             </Text>
           )}
-          <Link href={`/services/order?project=${ServicesBud.remont.id}`} mx="auto">
+          <Link href={`/uslugi/order?project=${ServicesBud.remont.id}`} mx="auto">
             <Button
               size={["xl"]}
               width="max-content"
@@ -204,7 +204,7 @@ export const Services = () => {
               {ServicesBud.keyRemont.description2}
             </Text>
           )}
-          <Link href={`/services/order?project=${ServicesBud.keyRemont.id}`} mx="auto">
+          <Link href={`/uslugi/order?project=${ServicesBud.keyRemont.id}`} mx="auto">
             <Button
               size={["xl"]}
               width="max-content"

@@ -33,7 +33,7 @@ const HeroBlock = () => {
           >
             Tworzymy komfort dla naszych klientów
           </Heading>
-          <Link href="/services/order" mt="120px" width="max-content">
+          <Link href="/uslugi/order" mt="120px" width="max-content">
             <Button
               width="max-content"
               height={["48px", "60px"]}

@@ -113,7 +113,7 @@ export default function Order() {
                 );
               })}
               <Link
-                href={`/services/order?project=${ProjectsLinks[activeProject].prev}`}
+                href={`/uslugi/order?project=${ProjectsLinks[activeProject].prev}`}
                 scroll={false}
                 replace={true}
               >
@@ -131,7 +131,7 @@ export default function Order() {
                 </Text>
               </Flex>
               <Link
-                href={`/services/order?project=${ProjectsLinks[activeProject].next}`}
+                href={`/uslugi/order?project=${ProjectsLinks[activeProject].next}`}
                 scroll={false}
                 replace={true}
               >
@@ -264,14 +264,14 @@ export default function Order() {
             </Text>
             <Flex justifyContent="space-between" width="200px" mt="28px" zIndex={1}>
               <Link
-                href={`/services/order?project=${ProjectsLinks[activeProject].prev}`}
+                href={`/uslugi/order?project=${ProjectsLinks[activeProject].prev}`}
                 scroll={false}
                 replace={true}
               >
                 <Icon as={IoArrowBackCircle} boxSize="44px" />
               </Link>
               <Link
-                href={`/services/order?project=${ProjectsLinks[activeProject].next}`}
+                href={`/uslugi/order?project=${ProjectsLinks[activeProject].next}`}
                 scroll={false}
                 replace={true}
               >
