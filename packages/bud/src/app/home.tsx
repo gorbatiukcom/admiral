@@ -20,6 +20,7 @@ import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 import { Image } from "../components/image";
 import { Link } from "../components/link";
 import { SocialMediaLinks } from "../components/SocialMediaLinks";
+import { ServicesBud } from "./services/services-data";
 
 const IMAGES = [
   "/images/bg-image-2.png",
@@ -94,9 +95,9 @@ const HeroBlock = () => {
               Kompleksowy remont <br />
               mieszkań i domów
             </Heading>
-            <Text fontWeight={500} fontSize={["lg", "2xl"]} as="h2">
+            {/* <Text fontWeight={500} fontSize={["lg", "2xl"]} as="h2">
               Zacznij remont — zadzwoń po bezpłatną wizję lokalną!
-            </Text>
+            </Text> */}
             <Flex flexDir={["column-reverse", "row"]} alignItems="center" gap={[2, 4]} mt={"100px"}>
               <Link href="/contacts" width={["100%", "max-content"]}>
                 <Button
@@ -206,12 +207,12 @@ const AdvantageItem = ({
   <Flex
     flexDirection="column"
     justifyContent="space-between"
-    bg="bgPrimary"
+    bg="brand.blueDark"
     p={[5, 8]}
     borderRadius={["20px"]}
     width="100%"
     maxWidth="420px"
-    height={["320px", "368px"]}
+    minHeight={["368px", "368px"]}
   >
     <Box>
       <Icon as={icon} boxSize={[8, 10]}></Icon>
@@ -220,11 +221,11 @@ const AdvantageItem = ({
       </Text>
     </Box>
     <Box>
-      <Text fontSize={["sm", "md"]} color="textSecondary">
+      <Text fontSize={["sm", "md"]} color="textPrimaryWhite" whiteSpace="pre-wrap">
         {description}
       </Text>
       {notes && (
-        <Text fontSize={["sm", "md"]} color="brand.blue" textAlign="center" mt={3}>
+        <Text fontSize={["sm", "md"]} color="textPrimaryWhite" textAlign="center" mt={3}>
           {notes}
         </Text>
       )}
@@ -297,31 +298,31 @@ const AdvantagesBlock = () => {
         },
         640: {
           slidesPerView: 1.4,
-          spaceBetween: 20,
+          spaceBetween: 5,
         },
         800: {
           slidesPerView: 2,
-          spaceBetween: 20,
+          spaceBetween: 5,
         },
         1000: {
           slidesPerView: 2.5,
-          spaceBetween: 20,
+          spaceBetween: 5,
         },
         1200: {
           slidesPerView: 2.5,
-          spaceBetween: 20,
+          spaceBetween: 5,
         },
         1550: {
           slidesPerView: 4,
-          spaceBetween: 20,
+          spaceBetween: 5,
         },
         1900: {
           slidesPerView: 4.2,
-          spaceBetween: 20,
+          spaceBetween: 5,
         },
         2000: {
           slidesPerView: 5,
-          spaceBetween: 20,
+          spaceBetween: 5,
         },
       }}
     >
@@ -334,7 +335,9 @@ const AdvantagesBlock = () => {
         <AdvantageItem
           icon={IoPersonOutline}
           title="Indywidualne podejście"
-          description="Uwzględniamy wszystkie życzenia i wymagania naszych klientów, proponując indywidualne rozwiązania dla każdego projektu. Nasi architekci pracują w ścisłej współpracy z klientem, aby stworzyć unikalne i funkcjonalne obiekty."
+          description={`Uwzględniamy wszystkie życzenia i wymagania naszych klientów, 
+proponując indywidualne rozwiązania dla każdego projektu. 
+Nasi architekci pracują w ścisłej współpracy z klientem, aby stworzyć unikalne i funkcjonalne obiekty.`}
         />
       </SwiperSlide>
       <SwiperSlide
@@ -346,8 +349,22 @@ const AdvantagesBlock = () => {
         <AdvantageItem
           icon={IoCalendarNumberOutline}
           title="Dotrzymujemy terminów"
-          description="Doceniamy czas naszych klientów i ściśle przestrzegamy terminów realizacji prac. Precyzyjne planowanie i efektywna organizacja procesów pozwalają nam dostarczać obiekty punktualnie."
+          description={`Doceniamy czas naszych klientów i ściśle przestrzegamy terminów realizacji prac. Precyzyjne planowanie i efektywna organizacja procesów pozwalają nam dostarczać obiekty punktualnie.`}
           notes="W przypadku nieterminowego wykonania, zwracamy 10% wartości remontu."
+        />
+      </SwiperSlide>
+      <SwiperSlide
+        style={{
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
+        <AdvantageItem
+          icon={IoPhonePortraitOutline}
+          title="Całość w Twoim telefonie!"
+          description={`Uwzględniamy wszystkie życzenia i wymagania naszych klientów, 
+proponując indywidualne rozwiązania dla każdego projektu. 
+Nasi architekci pracują w ścisłej współpracy z klientem, aby stworzyć unikalne i funkcjonalne obiekty.`}
         />
       </SwiperSlide>
       <SwiperSlide
@@ -359,7 +376,7 @@ const AdvantagesBlock = () => {
         <AdvantageItem
           icon={IoCashOutline}
           title="Przejrzyste rozliczanie kosztów"
-          description="Każdy wydatek związany z remontem będzie przejrzyście udokumentowany! Otrzymasz szczegółowe raporty dotyczące zakupów materiałów i kosztów pracy fachowców, a wszystkie decyzje finansowe będą zawsze po Twojej stronie."
+          description={`Każdy ruch środków na Twoim koncie przeznaczonym na remont będzie potwierdzony raportem! Tylko Ty potwierdzasz wszystkie wydatki, niezależnie od tego, czy chodzi o zakup materiałów, czy o opłatę za pracę fachowców.`}
         />
       </SwiperSlide>
       <SwiperSlide
@@ -370,8 +387,8 @@ const AdvantagesBlock = () => {
       >
         <AdvantageItem
           icon={IoEyeOutline}
-          title="Rejestracja fotograficzna i wideo"
-          description="Nie musisz przyjeżdżać co dwa dni na inwestycję, żeby sprawdzać postęp prac. Robimy zdjęcia i nagrywamy filmy z każdego etapu, a Ty możesz śledzić wszystko na swoim telefonie."
+          title="Fotograficzna i wideo rejestracja"
+          description={`Nie muszą Państwo przyjeżdżać co dwa dni na miejsce, aby monitorować postęp prac. Robimy zdjęcia i filmy każdego etapu, a Państwo mogą śledzić wszystko na swoim telefonie.`}
         />
       </SwiperSlide>
       <Flex width="100%" justifyContent="center" gap={[5]} p={5}>
@@ -419,24 +436,164 @@ const AboutBlock = () => {
   );
 };
 
+const Steps = [
+  {
+    id: "step0",
+    points: [
+      "Koncepcja wnętrza i ustalenie budżetu: omówienie z klientem zakresu, stylu i kosztów.",
+      "Harmonogram i kosztorys: stworzenie planu działań oraz listy materiałów.",
+      "Zakup materiałów i sprzętu: zabezpieczenie wszystkiego, co potrzebne na kolejnych etapach.",
+    ],
+  },
+  {
+    id: "step1",
+    points: [
+      "Rozbiórka niepotrzebnych elementów: stare ściany działowe, okna, drzwi, podłogi.",
+      "Usunięcie starej armatury i instalacji: jeśli wymaga tego projekt.",
+      "Zabezpieczenie pomieszczeń: ochrona mebli (jeśli zostają), podłoża i innych powierzchni, które nie będą remontowane.",
+    ],
+  },
+  {
+    id: "step2",
+    points: [
+      "Budowa nowych ścianek działowych i konstrukcji sufitowych (np. podwieszanych).",
+      "Instalacje elektryczne: układanie kabli, montaż gniazdek, wyłączników i oświetlenia.",
+      "Instalacje hydrauliczne: montaż rur, grzejników, przyłączy wodno-kanalizacyjnych.",
+      "Inne systemy inżynierskie (ogrzewanie podłogowe, wentylacja mechaniczna itp.), jeśli przewidziano w projekcie.",
+    ],
+  },
+  {
+    id: "step3",
+    points: [
+      "Wyrównywanie ścian i sufitów (tynkowanie, szpachlowanie).",
+      "Układanie podłóg (panele, parkiet, płytki).",
+      "Malowanie lub tapetowanie ścian i sufitów.",
+      "Montaż okien i drzwi, listew przypodłogowych, opasek drzwiowych.",
+      "Elementy dekoracyjne: sztukateria, listwy ozdobne, oświetlenie dekoracyjne.",
+      "Montaż mebli kuchennych, zabudowanych urządzeń oraz innych konstrukcji meblowych (szafy, półki itp.).",
+    ],
+  },
+  {
+    id: "step4",
+    points: [
+      "Sprzątanie: pozbycie się odpadów poremontowych, mycie podłóg i okien.",
+      "Kontrola jakości: test działania instalacji, przegląd wykończenia pod kątem ewentualnych usterek.",
+      "Przekazanie mieszkania: omówienie z klientem finalnego efektu i przekazanie dokumentacji (gwarancje, instrukcje).",
+    ],
+  },
+];
+const StepsBlock = () => {
+  return (
+    <Flex
+      flexDirection="column"
+      alignItems="center"
+      p={[4, 10]}
+      maxWidth="container.max"
+      mx="auto"
+      mb={[4, 10]}
+      gap={[4, 10]}
+    >
+      <Heading textAlign="center" size={["lg", "xl"]} fontWeight={500} whiteSpace="pre-wrap">
+        Etapy współpracy z Budcor
+      </Heading>
+
+      <Flex
+        flexDirection="column"
+        mx="auto"
+        maxWidth="container.max"
+        bg="bgPrimary"
+        borderRadius={["20px"]}
+        px={[5, 10]}
+        py={[0, 0]}
+      >
+        <Flex
+          flexDirection={["column"]}
+          flexWrap="wrap"
+          pt={[10, "68px"]}
+          pb={[10, 0]}
+          gap={[10, 0]}
+        >
+          {Steps.map(({ id, points }, index) => (
+            <Flex key={id} flexDirection={["column", "row"]} gap={[1]} width={["100%"]}>
+              <Flex
+                position="relative"
+                display={["none", "flex"]}
+                sx={
+                  index + 1 !== Steps.length
+                    ? {
+                        "&::before": {
+                          content: '""',
+                          position: "absolute",
+                          left: "4px",
+                          top: "10px",
+                          bottom: "0",
+                          width: "2px",
+                          bg: "white",
+                          zIndex: 1,
+                        },
+                      }
+                    : undefined
+                }
+              >
+                <Flex width="10px" height="10px" borderRadius="full" bgColor="white" mr={[3]} />
+              </Flex>
+              <Text
+                fontSize={["40px", "72px"]}
+                fontWeight={500}
+                mr={[8]}
+                minWidth="48px"
+                lineHeight="100%"
+                mt={[0, "-30px"]}
+                mb={[5, 0]}
+                textAlign="center"
+              >
+                {index + 1}
+              </Text>
+              <Flex
+                flexDirection="column"
+                pb={[0, index + 1 !== Steps.length ? "64px" : 10]}
+                mt={[0, "-26px"]}
+              >
+                {points.map((text) => {
+                  return (
+                    <Text key={text} color="textPrimaryWhite">
+                      {`• ${text}`}
+                    </Text>
+                  );
+                })}
+              </Flex>
+            </Flex>
+          ))}
+        </Flex>
+      </Flex>
+    </Flex>
+  );
+};
+
 export const Home = () => {
   return (
     <Box width="100%">
       <HeroBlock />
-      <Text
-        textAlign="center"
-        fontSize={["sm", "2xl"]}
-        maxWidth="780px"
+      <Flex
+        maxWidth="1100px"
         mx="auto"
         py={[10, "80px"]}
         px={[4]}
+        flexDirection="column"
+        gap={[4, 6]}
       >
-        Oferujemy wysokiej jakości rozwiązania budowlane, oparte na przejrzystości,
-        odpowiedzialności i zaufaniu. Takie relacje z klientami pomagają poprawić reputację firmy i
-        przyciągaćnowych klientów, poszukujących niezawodnych wykonawców do swoich projektów.
-      </Text>
+        <Text textAlign="center" fontSize={["md", "3xl"]}>
+          Indywidualne podejście zamiast gotowych szablonów
+        </Text>
+        <Text textAlign="left" fontSize={["sm", "2xl"]} lineHeight={["28px", "40px"]}>
+          Nie pracujemy według szablonu — każde wnętrze tworzymy od podstaw, dopasowując je do
+          potrzeb i stylu klienta. <br />
+          Dobieramy materiały, które harmonijnie współgrają z Twoim charakterem i wizją wnętrza.
+        </Text>
+      </Flex>
       <AdvantagesBlock />
-      <AboutBlock />
+      {/* <AboutBlock /> */}
+      <StepsBlock />
     </Box>
   );
 };
