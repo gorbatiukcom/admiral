@@ -496,6 +496,7 @@ const StepsBlock = () => {
       <Flex
         flexDirection="column"
         mx="auto"
+        width="100%"
         maxWidth="container.max"
         bg="bgPrimary"
         borderRadius={["20px"]}
@@ -566,6 +567,35 @@ const StepsBlock = () => {
   );
 };
 
+const RabatBlock = () => {
+  return (
+    <Flex flexDirection="column" mx="auto" maxWidth="container.max" p={[4, 10]} my={[10, 10]}>
+      <Text color="brand.blue" fontSize={["md", "2xl"]} textAlign="center">
+        Rabat w zależności od metrażu projektu:
+      </Text>
+      <Flex
+        flexDirection={["column", "row"]}
+        justifyContent={["flex-start", "space-between"]}
+        color="brand.blue"
+        fontSize={["md", "2xl"]}
+        gap={[2, 4]}
+        // opacity={0.8}
+        mt={[2, 0]}
+      >
+        <Text width="100%" textAlign={["center", "left"]}>
+          od 50m2 do 100m2 - 4%
+        </Text>
+        <Text width="100%" textAlign="center">
+          od 100m2 do 300m2 - 6%
+        </Text>
+        <Text width="100%" textAlign={["center", "right"]}>
+          od 300m2 - 8%
+        </Text>
+      </Flex>
+    </Flex>
+  );
+};
+
 export const Home = () => {
   return (
     <Box width="100%">
@@ -590,6 +620,7 @@ export const Home = () => {
       <AdvantagesBlock />
       {/* <AboutBlock /> */}
       <StepsBlock />
+      <RabatBlock />
     </Box>
   );
 };

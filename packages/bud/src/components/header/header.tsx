@@ -32,7 +32,7 @@ const NavigationLinks = [
   },
   {
     url: "/uslugi",
-    segment: "services",
+    segment: "uslugi",
     name: "Usługi",
   },
   {

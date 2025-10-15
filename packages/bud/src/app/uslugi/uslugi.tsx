@@ -2,11 +2,9 @@
 
 import { Box, Button, Flex, Heading, Icon, Text } from "@chakra-ui/react";
 import React from "react";
-import { IoAdd } from "react-icons/io5";
 
 import { Image } from "../../components/image";
 import { Link } from "../../components/link";
-import { ServicesBud } from "./uslugi-budowlane/services-data";
 
 type ServiceCardProps = {
   title: string;
