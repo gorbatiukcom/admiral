@@ -15,6 +15,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     },
     {
+      url: "https://budcor.com/uslugi/uslugi-budowlane",
+      lastModified: new Date(),
+      changeFrequency: "daily",
+      priority: 0.7,
+    },
+    {
+      url: "https://budcor.com/uslugi/remont-pod-klucz",
+      lastModified: new Date(),
+      changeFrequency: "daily",
+      priority: 0.7,
+    },
+    {
+      url: "https://budcor.com/uslugi/projektowanie-wnetrz",
+      lastModified: new Date(),
+      changeFrequency: "daily",
+      priority: 0.7,
+    },
+    {
       url: "https://budcor.com/contacts",
       lastModified: new Date(),
       changeFrequency: "daily",
