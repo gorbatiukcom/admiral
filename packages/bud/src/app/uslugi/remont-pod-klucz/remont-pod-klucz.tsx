@@ -15,12 +15,14 @@ const RemontPodKluczCard = ({ title, description }: { title: string; description
       justifyContent="space-between"
       gap={4}
       bg="brand.blueDark"
-      p={5}
+      p={[4, 5]}
       borderRadius={24}
-      minHeight={["unset", "220px"]}
+      minHeight={["220px", "220px"]}
+      width={["100%", "unset"]}
+      minWidth={0}
     >
-      <Text fontSize={["lg", "3xl"]}>{title}</Text>
-      <Text fontSize={["sm", "md"]}>{description}</Text>
+      <Text fontSize={["md", "3xl"]}>{title}</Text>
+      <Text fontSize={["xs", "md"]}>{description}</Text>
     </Flex>
   );
 };
@@ -31,7 +33,6 @@ export const RemontPodKlucz = () => {
       <BackSection link="/uslugi" />
       <Box px={[4, 10]}>
         <Flex
-          // display={["none", "flex"]}
           flexDirection="column"
           mx="auto"
           maxWidth="container.max"
@@ -66,7 +67,7 @@ Ty po prostu opowiadasz, jak chcesz, aby wyglądał Twój dom lub mieszkanie —
           </Heading>
 
           <Grid
-            templateColumns={["1fr", null, "repeat(3, 1fr)"]}
+            templateColumns={["repeat(2, minmax(0, 1fr))", "repeat(3, 1fr)"]}
             gap={[3]}
             width="100%"
             maxWidth="container.max"
@@ -76,19 +77,22 @@ Ty po prostu opowiadasz, jak chcesz, aby wyglądał Twój dom lub mieszkanie —
               <RemontPodKluczCard key={title} title={title} description={description} />
             ))}
           </Grid>
-          <Flex gap={[4, 10]} mt={[10, 20]}>
+          <Flex flexDirection={["column", "row"]} gap={[4, 10]} mt={[10, 20]}>
             <Flex
               flexDirection="column"
               justifyContent="space-between"
               minWidth={["100%", "250px"]}
             >
               <Box>
-                <Text fontSize={["lg", "3xl"]}>{Points.title}</Text>
-                <Text fontSize={["lg", "3xl"]} fontWeight={500} mt={[10]}>
+                <Text fontSize={["xl", "3xl"]}>{Points.title}</Text>
+                <Text fontSize={["xl", "3xl"]} fontWeight={500} mt={[0, 10]}>
                   {Points.price}
                 </Text>
               </Box>
-              <Link href={`/uslugi/order?project=${Projects["remont-pod-klucz"]}`}>
+              <Link
+                href={`/uslugi/order?project=${Projects["remont-pod-klucz"]}`}
+                display={["none", "block"]}
+              >
                 <Button
                   bg="white"
                   color="black"
@@ -118,6 +122,23 @@ Ty po prostu opowiadasz, jak chcesz, aby wyglądał Twój dom lub mieszkanie —
                 <Text key={point}>{`• ${point}`}</Text>
               ))}
               <Text>{Points.description}</Text>
+              <Flex display={["flex", "none"]} width="100%" justifyContent="flex-end">
+                <Link href={`/uslugi/order?project=${Projects["remont-pod-klucz"]}`}>
+                  <Button
+                    bg="black"
+                    color="white"
+                    borderRadius="10px"
+                    fontSize="20px"
+                    px={7}
+                    height="44px"
+                    _hover={{
+                      color: "brand.blue",
+                    }}
+                  >
+                    Zamówić
+                  </Button>
+                </Link>
+              </Flex>
             </Flex>
           </Flex>
         </Flex>
