@@ -18,7 +18,7 @@ import { SubmitErrorHandler, SubmitHandler, useForm } from "react-hook-form";
 
 import { InputStyle } from "../../../components/InputStyle";
 import { trackEvent } from "../../../constants/analytics";
-import { Project, ProjectsDetalis } from "../../../constants/projects";
+import { Project, Projects, ProjectsDetalis } from "../../../constants/projects";
 
 type Inputs = {
   name: string;
@@ -257,7 +257,7 @@ export default function Order() {
                 {errors.projectSize && errors.projectSize.message}
               </FormErrorMessage>
             </FormControl>
-            {activeProject === "keyRemont" ? (
+            {activeProject === Projects["remont-pod-klucz"] ? (
               <FormControl isInvalid={!!errors.haveProject?.message} mt={4} zIndex={1}>
                 <FormLabel htmlFor="projectSize">Posiadanie projektu wnętrza</FormLabel>
                 <Input

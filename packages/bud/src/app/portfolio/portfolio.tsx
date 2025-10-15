@@ -10,7 +10,7 @@ export const Portfolio = () => {
     <Flex flexWrap="wrap" p={[4, 2]} gap={[4, 2]} mt={[4, "52px"]} pb="16px">
       {PortfolioProjects.map(({ name, image, projectId, shortDescription, description }) => {
         return (
-          <Link href={`/realization/${projectId}`} key={name} width={["100%", "calc(50% - 4px)"]}>
+          <Link href={`/portfolio/${projectId}`} key={name} width={["100%", "calc(50% - 4px)"]}>
             <Flex
               key={name}
               position="relative"

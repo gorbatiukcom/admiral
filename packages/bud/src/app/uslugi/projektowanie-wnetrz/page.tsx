@@ -1,9 +1,9 @@
 import { Metadata } from "next";
 
-import { UslugiBudowlane } from "../uslugi-budowlane/uslugi-budowlane";
+import { ProjektowanieWnetrz } from "./projektowanie-wnetrz";
 
 export const metadata: Metadata = {
   title: "Budcor | Projektowanie wnętrz",
 };
 
-export default UslugiBudowlane;
+export default ProjektowanieWnetrz;

@@ -19,6 +19,7 @@ const colors = {
   brand: {
     blue: "#0070F8",
     blueDark: "#000FA0",
+    blueLight: "#00A3FF",
     orange: "#FF791B",
   },
   bgBase: "#161617",

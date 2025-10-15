@@ -11,7 +11,7 @@ export type UslugiBudowlaneDataType = {
 };
 
 export const UslugiBudowlaneData: UslugiBudowlaneDataType = {
-  id: Projects.remont,
+  id: Projects["uslugi-budowlane"],
   title: `Remont mieszkań \nczęściowe i kosmetyczne prace remontowe`,
   description:
     "Nie zawsze potrzebny jest pełny remont mieszkania „od A do Z”. Czasem wystarczy odświeżenie wnętrz, drobne naprawy lub wymiana pojedynczych elementów, aby przywrócić komfort i estetykę. W naszej ofercie znajdziesz różne formy remontu częściowego — od prostych prac kosmetycznych aż po bardziej zaawansowane naprawy inżynierskie.",

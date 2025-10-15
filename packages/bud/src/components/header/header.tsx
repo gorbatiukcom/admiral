@@ -36,9 +36,9 @@ const NavigationLinks = [
     name: "Usługi",
   },
   {
-    url: "/realization",
-    segment: "realization",
-    name: "Projekty",
+    url: "/portfolio",
+    segment: "portfolio",
+    name: "Portfolio",
   },
   {
     url: "/contacts",

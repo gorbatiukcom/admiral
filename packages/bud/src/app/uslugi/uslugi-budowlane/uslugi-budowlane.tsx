@@ -5,6 +5,7 @@ import React from "react";
 import { IoAdd } from "react-icons/io5";
 
 import { Link } from "../../../components/link";
+import { Projects } from "../../../constants/projects";
 import { BackSection } from "../back-section";
 import { UslugiBudowlaneData } from "./uslugi-budowlane-data";
 
@@ -23,7 +24,7 @@ export const UslugiBudowlane = () => {
         mt={[5, 0]}
       >
         <Heading textAlign="center" fontWeight={500} as="p">
-          Prace budowlane
+          Usługi budowlane
         </Heading>
         <Text
           fontSize={["md", "2xl"]}
@@ -91,7 +92,7 @@ export const UslugiBudowlane = () => {
               {UslugiBudowlaneData.description2}
             </Text>
           )}
-          <Link href={`/uslugi/order?project=${UslugiBudowlaneData.id}`} mx="auto">
+          <Link href={`/uslugi/order?project=${Projects["uslugi-budowlane"]}`} mx="auto">
             <Button
               size={["xl"]}
               width="max-content"

@@ -17,11 +17,11 @@ const NavigationLinks = [
     segment: "services",
     name: "Usługi",
   },
-  // {
-  //   url: "/portfolio",
-  //   segment: "portfolio",
-  //   name: "Portfolio",
-  // },
+  {
+    url: "/portfolio",
+    segment: "portfolio",
+    name: "Portfolio",
+  },
   {
     url: "/contacts",
     segment: "contacts",
@@ -130,15 +130,15 @@ export const Footer = () => {
           <Flex flexDirection="column" gap={1}>
             {[
               {
-                url: "/uslugi",
+                url: "/uslugi/uslugi-budowlane",
                 name: "Remont mieszkań",
               },
               {
-                url: "/uslugi",
+                url: "/uslugi/remont-pod-klucz",
                 name: 'Remont mieszkania "pod klucz"',
               },
               {
-                url: "https://admiralinterior.com/",
+                url: "/uslugi/projektowanie-wnetrz",
                 name: "Projektowanie wnętrz",
                 isExternal: true,
               },
