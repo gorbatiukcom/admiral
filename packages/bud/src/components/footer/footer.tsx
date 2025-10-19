@@ -140,15 +140,14 @@ export const Footer = () => {
               {
                 url: "/uslugi/projektowanie-wnetrz",
                 name: "Projektowanie wnętrz",
-                isExternal: true,
               },
-            ].map(({ url, name, isExternal }) => (
+            ].map(({ url, name }) => (
               <Link
                 key={name}
                 href={url}
                 fontSize="md"
                 cursor="pointer"
-                target={isExternal ? "_blank" : undefined}
+                // target={isExternal ? "_blank" : undefined}
                 _hover={{
                   color: "brand.blue",
                 }}

@@ -5,6 +5,7 @@ import { GoogleTagManager } from "@next/third-parties/google";
 import { usePathname, useSearchParams } from "next/navigation";
 import { useEffect, useRef } from "react";
 
+import { fbPixelTrackPageview } from "../constants/fbpixel";
 import { mixpanelTrackPageview } from "../constants/mixpanel";
 import { theme } from "./theme";
 
@@ -22,6 +23,7 @@ export const NavigationEvents = () => {
       // Mixpanel rounting events
       //Send track event when new pages is loaded
       mixpanelTrackPageview();
+      fbPixelTrackPageview();
     }
   }, [pathname, searchParams]);
 
