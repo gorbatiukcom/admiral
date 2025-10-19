@@ -66,7 +66,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           id="facebook-pixel"
           dangerouslySetInnerHTML={{
             __html: `
-            const FB_PIXEL_ID = "829065529621649";
+            const FB_PIXEL_ID = "2645670519113160";
 
             !function(f,b,e,v,n,t,s) {
               if(f.fbq) return;
@@ -97,7 +97,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             height="1"
             width="1"
             style={{ display: "none" }}
-            src={`https://www.facebook.com/tr?id=829065529621649&ev=PageView&noscript=1`}
+            src={`https://www.facebook.com/tr?id=2645670519113160&ev=PageView&noscript=1`}
             alt=""
           />
         </noscript>
