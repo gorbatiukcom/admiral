@@ -3,9 +3,9 @@
 import { Projects } from "../../../constants/projects";
 
 export enum DesignProjects {
+  "projektowanie-wnetrz-koncepcja" = Projects["projektowanie-wnetrz-koncepcja"],
   "projektowanie-wnetrz-harmonia" = Projects["projektowanie-wnetrz-harmonia"],
   "projektowanie-wnetrz-perfekcja" = Projects["projektowanie-wnetrz-perfekcja"],
-  "projektowanie-wnetrz-koncepcja" = "projektowanie-wnetrz-koncepcja",
 }
 
 export type DesignProject = keyof typeof DesignProjects;
