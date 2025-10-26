@@ -7,7 +7,14 @@ import { PortfolioProjects } from "../../constants/portfolio";
 
 export const Portfolio = () => {
   return (
-    <Flex flexWrap="wrap" p={[4, 2]} gap={[4, 2]} mt={[4, "52px"]} pb="16px">
+    <Flex
+      flexWrap="wrap"
+      maxWidth={["calc(100% - 32px)", "calc(100% - 16px)"]}
+      mx="auto"
+      gap={[4, 2]}
+      mt={[4, "52px"]}
+      pb="16px"
+    >
       {PortfolioProjects.map(({ name, image, projectId, shortDescription, description }) => {
         return (
           <Link href={`/portfolio/${projectId}`} key={name} width={["100%", "calc(50% - 4px)"]}>
