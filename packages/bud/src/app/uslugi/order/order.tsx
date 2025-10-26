@@ -93,13 +93,15 @@ export default function Order() {
   }, [emailValue, debouncedEmailChange]);
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
+    const projectName = ProjectsDetalis?.[activeProject]?.name || "Order without project type";
     axios.defaults.headers.post["Accept"] = "application/json";
     await axios
       .post("https://getform.io/f/ebpddnkb", {
         ...data,
-        project: ProjectsDetalis[activeProject].name,
+        project: projectName,
       })
       .catch((error) => {
+        console.log("🚀 ~ onSubmit ~ error:", error);
         trackEvent({
           name: "error",
           sendTo: ["mixpanel"],
@@ -107,19 +109,19 @@ export default function Order() {
             errorName: "serviceContactFormError",
             email: data.email,
             phone: data.phone,
-            project: ProjectsDetalis[activeProject].name,
+            project: projectName,
             message: data.message,
           },
         });
-        console.log("🚀 ~ sendForm ~ error:", error);
       });
+
     trackEvent({
       name: "serviceContactForm",
       sendTo: ["mixpanel", "gtm"],
       props: {
         email: data.email,
         phone: data.phone,
-        project: ProjectsDetalis[activeProject].name,
+        project: projectName,
       },
     });
     router.push("/contacts/confirmation");
