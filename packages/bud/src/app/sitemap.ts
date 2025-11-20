@@ -1,6 +1,18 @@
 import { MetadataRoute } from "next";
 
+import { getBlogPosts } from "../utils/blog";
+
 export default function sitemap(): MetadataRoute.Sitemap {
+  const posts = getBlogPosts();
+  const blogUrl = "https://budcor.com/blog";
+
+  const blogPostsSitemap = posts.map((post) => ({
+    url: `${blogUrl}/${post.slug}`,
+    lastModified: new Date(post.date),
+    changeFrequency: "monthly" as const,
+    priority: 0.6,
+  }));
+
   return [
     {
       url: "https://budcor.com/",
@@ -38,6 +50,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "daily",
       priority: 0.7,
     },
+    {
+      url: blogUrl,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
+    ...blogPostsSitemap,
   ];
 }
 

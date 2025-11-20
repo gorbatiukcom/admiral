@@ -27,6 +27,11 @@ const NavigationLinks = [
     segment: "contacts",
     name: "Kontakty",
   },
+  {
+    url: "/blog",
+    segment: "blog",
+    name: "Blog",
+  },
 ];
 
 export const Footer = () => {
