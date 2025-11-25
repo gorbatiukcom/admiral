@@ -1,13 +1,9 @@
 import { Metadata } from "next";
-import dynamic from "next/dynamic";
 import { notFound } from "next/navigation";
 import { serialize } from "next-mdx-remote/serialize";
 
 import { getBlogPost, getBlogPosts } from "../../../utils/blog";
-
-const BlogClientPage = dynamic(() => import("./BlogClientPage"), {
-  ssr: false,
-});
+import { BlogClientPage } from "./BlogClientPage";
 
 type Props = {
   params: {
@@ -64,32 +60,6 @@ export default async function BlogPostPage({ params }: Props) {
   return (
     <>
       <BlogClientPage post={post} source={mdxSource} />
-
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BlogPosting",
-            headline: post.title,
-            image: post.image,
-            author: {
-              "@type": "Organization",
-              name: post.author,
-            },
-            publisher: {
-              "@type": "Organization",
-              name: "Budcor",
-              logo: {
-                "@type": "ImageObject",
-                url: "https://budcor.com/logo.png",
-              },
-            },
-            datePublished: post.date,
-            description: post.description,
-          }),
-        }}
-      />
     </>
   );
 }

@@ -12,7 +12,7 @@ type Props = {
   source: MDXRemoteSerializeResult;
 };
 
-export default function BlogClientPage({ post, source }: Props) {
+export function BlogClientPage({ post, source }: Props) {
   return (
     <Box pb={20}>
       {/* Hero Section for Article */}

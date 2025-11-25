@@ -3,7 +3,7 @@
 import { ChakraProvider } from "@chakra-ui/react";
 import { GoogleTagManager } from "@next/third-parties/google";
 import { usePathname, useSearchParams } from "next/navigation";
-import { useEffect, useRef } from "react";
+import { Suspense, useEffect, useRef } from "react";
 
 import { fbPixelTrackPageview } from "../constants/fbpixel";
 import { mixpanelTrackPageview } from "../constants/mixpanel";
@@ -35,7 +35,9 @@ export function Providers({ children, isProd }: { children: React.ReactNode; isP
     <>
       <ChakraProvider theme={theme}>{children}</ChakraProvider>
       {isProd ? <GoogleTagManager gtmId={GTM_ID} /> : null}
-      <NavigationEvents />
+      <Suspense fallback={null}>
+        <NavigationEvents />
+      </Suspense>
     </>
   );
 }
