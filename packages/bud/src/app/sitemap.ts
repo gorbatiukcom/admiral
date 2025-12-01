@@ -1,5 +1,6 @@
 import { MetadataRoute } from "next";
 
+import { PortfolioProjects } from "../constants/portfolio";
 import { getBlogPosts } from "../utils/blog";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -11,6 +12,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date(post.date),
     changeFrequency: "monthly" as const,
     priority: 0.6,
+  }));
+
+  const portfolioProjectsSitemap = PortfolioProjects.map((project) => ({
+    url: `https://budcor.com/portfolio/${project.projectId}`,
+    lastModified: new Date(),
+    changeFrequency: "daily" as const,
+    priority: 0.7,
   }));
 
   return [
@@ -57,6 +65,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     ...blogPostsSitemap,
+    ...portfolioProjectsSitemap,
   ];
 }
 
