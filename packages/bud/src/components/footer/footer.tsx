@@ -3,7 +3,7 @@
 import { Box, Flex, Icon, Text } from "@chakra-ui/react";
 import { useSelectedLayoutSegment } from "next/navigation";
 
-import { LogoSm } from "../icons/logo_sm";
+import { Logo } from "../icons/logo";
 import { Link } from "../link";
 
 const NavigationLinks = [
@@ -63,7 +63,7 @@ export const Footer = () => {
             _hover={{ color: "white" }}
             width="max-content"
           >
-            <Icon as={LogoSm} width="100px" height="22px" />
+            <Icon as={Logo} width="86px" height="48px" />
           </Link>
 
           <Box mt={[4, 10]}>

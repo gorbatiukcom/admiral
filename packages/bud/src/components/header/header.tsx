@@ -20,7 +20,7 @@ import { useSelectedLayoutSegment } from "next/navigation";
 import { useRef } from "react";
 import { IoArrowForward, IoMenu, IoMenuSharp } from "react-icons/io5";
 
-import { LogoSm } from "../icons/logo_sm";
+import { Logo } from "../icons/logo";
 import { Link } from "../link";
 import { SocialMediaLinks } from "../SocialMediaLinks";
 
@@ -80,7 +80,7 @@ const DesktopHeader = ({
           display="flex"
           alignItems="center"
         >
-          <Icon as={LogoSm} width="140px" height="31px" />
+          <Icon as={Logo} width="86px" height="48px" />
         </Link>
         <Flex>
           {NavigationLinks.map(({ url, segment, name }) => (
@@ -176,7 +176,7 @@ const MobileHeader = ({
         alignItems="center"
         // pt={3}
       >
-        <Icon as={LogoSm} width="100px" height="22px" />
+        <Icon as={Logo} width="72px" height="40px" />
       </Link>
 
       <IconButton
