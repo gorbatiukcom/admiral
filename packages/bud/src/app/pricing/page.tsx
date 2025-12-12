@@ -1,12 +1,8 @@
 import { Metadata } from "next";
-import dynamic from "next/dynamic";
+import Pricing from "./pricing";
 
 export const metadata: Metadata = {
   title: "Budcor | Pricing",
 };
 
-const PricingPage: any = dynamic(() => import("./pricing"), {
-  ssr: false,
-});
-
-export default PricingPage;
+export default Pricing;

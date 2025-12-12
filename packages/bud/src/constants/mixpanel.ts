@@ -1,6 +1,6 @@
-import { ANALYTICS_EVENTS } from "./analytics";
+import { ANALYTICS_EVENTS, AnalyticsEventType } from "./analytics-types";
 
-type MixpanelEventType = keyof typeof ANALYTICS_EVENTS;
+export type MixpanelEventType = AnalyticsEventType;
 
 export const mixpanelTrackEvent = (event_name: MixpanelEventType, props?: any) => {
   try {

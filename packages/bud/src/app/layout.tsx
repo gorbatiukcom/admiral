@@ -1,4 +1,3 @@
-import { Box, ColorModeScript } from "@chakra-ui/react";
 import type { Metadata } from "next";
 import { Viewport } from "next";
 import Script from "next/script";
@@ -7,7 +6,6 @@ import { Footer } from "../components/footer/footer";
 import { Header } from "../components/header/header";
 import { fonts } from "./fonts";
 import { Providers } from "./providers";
-import { theme } from "./theme";
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -102,12 +100,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           />
         </noscript>
         <Providers isProd={isProd}>
-          <ColorModeScript initialColorMode={theme.config.initialColorMode} />
-          <Box>
+          <div style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
             <Header />
             {children}
             <Footer />
-          </Box>
+          </div>
         </Providers>
       </body>
     </html>

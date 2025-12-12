@@ -2,17 +2,16 @@
 
 import { Box, Container, Flex, Heading, Text } from "@chakra-ui/react";
 import Image from "next/image";
-import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
+import { ReactNode } from "react"; // To type the content
 
 import { BlogPost } from "../../../utils/blog";
-import { MDXComponents } from "../components/MDXComponents";
 
 type Props = {
   post: BlogPost;
-  source: MDXRemoteSerializeResult;
+  content: ReactNode; 
 };
 
-export function BlogClientPage({ post, source }: Props) {
+export function BlogClientPage({ post, content }: Props) {
   return (
     <Box pb={20}>
       {/* Hero Section for Article */}
@@ -42,9 +41,8 @@ export function BlogClientPage({ post, source }: Props) {
           </Container>
         </Flex>
       </Box>
-
       <Container maxW="container.md" mt={10}>
-        <MDXRemote {...source} components={MDXComponents} />
+        {content} 
       </Container>
     </Box>
   );

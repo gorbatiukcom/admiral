@@ -1,6 +1,6 @@
 "use client";
 
-import { ChakraProvider } from "@chakra-ui/react";
+import { ChakraProvider, ColorModeScript } from "@chakra-ui/react";
 import { GoogleTagManager } from "@next/third-parties/google";
 import { usePathname, useSearchParams } from "next/navigation";
 import { Suspense, useEffect, useRef } from "react";
@@ -33,6 +33,7 @@ export const NavigationEvents = () => {
 export function Providers({ children, isProd }: { children: React.ReactNode; isProd: boolean }) {
   return (
     <>
+      <ColorModeScript initialColorMode={theme.config.initialColorMode} />
       <ChakraProvider theme={theme}>{children}</ChakraProvider>
       {isProd ? <GoogleTagManager gtmId={GTM_ID} /> : null}
       <Suspense fallback={null}>

@@ -5,11 +5,12 @@ import { Link } from "../../../components/link";
 import { PortfolioProjects } from "../../../constants/portfolio";
 
 export type Props = {
-  params: { projectId: string };
+  params: Promise<{ projectId: string }>;
 };
 
-export default function Project({ params }: Props) {
-  const projectData = PortfolioProjects.find((project) => project.projectId === params.projectId);
+export default async function Project({ params }: Props) {
+  const projectId = (await params).projectId;
+  const projectData = PortfolioProjects.find((project) => project.projectId === projectId);
 
   if (!projectData) {
     return (

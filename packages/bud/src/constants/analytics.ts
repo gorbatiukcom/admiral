@@ -1,18 +1,9 @@
 import { sendGTMEvent } from "@next/third-parties/google";
 
-import { mixpanelTrackEvent } from "./mixpanel";
+import { ANALYTICS_EVENTS, AnalyticsEventType } from "./analytics-types";
+import { MixpanelEventType, mixpanelTrackEvent } from "./mixpanel";
 
-export enum ANALYTICS_EVENTS {
-  "serviceContactForm" = "serviceContactForm",
-  "serviceContactFormInvalid" = "serviceContactFormInvalid",
-  "contactForm" = "contactForm",
-  "contactFormInvalid" = "contactFormInvalid",
-  "error" = "error",
-  "emailChange" = "emailChange",
-  "phoneChange" = "phoneChange",
-}
-
-type AnalyticsEventType = keyof typeof ANALYTICS_EVENTS;
+export { ANALYTICS_EVENTS };
 
 type SendTo = "mixpanel" | "gtm";
 

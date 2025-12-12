@@ -80,7 +80,7 @@ const DesktopHeader = ({
           display="flex"
           alignItems="center"
         >
-          <Icon as={Logo} width="86px" height="48px" />
+          <Icon as={Logo} width="108px" height="60px" />
         </Link>
         <Flex>
           {NavigationLinks.map(({ url, segment, name }) => (
@@ -176,7 +176,7 @@ const MobileHeader = ({
         alignItems="center"
         // pt={3}
       >
-        <Icon as={Logo} width="72px" height="40px" />
+        <Icon as={Logo} width="86px" height="48px" />
       </Link>
 
       <IconButton

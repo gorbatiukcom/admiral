@@ -4,7 +4,8 @@ import { PortfolioProjects } from "../../../constants/portfolio";
 import Project, { Props } from "./project";
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const projectData = PortfolioProjects.find((project) => project.projectId === params.projectId);
+  const projectId = (await params).projectId;
+  const projectData = PortfolioProjects.find((project) => project.projectId === projectId);
 
   return {
     title: `Budcor | ${projectData?.name}`,

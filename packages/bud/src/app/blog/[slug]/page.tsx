@@ -1,15 +1,10 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { serialize } from "next-mdx-remote/serialize";
+import { compileMDX } from "next-mdx-remote/rsc"; 
 
 import { getBlogPost, getBlogPosts } from "../../../utils/blog";
 import { BlogClientPage } from "./BlogClientPage";
-
-type Props = {
-  params: {
-    slug: string;
-  };
-};
+import MDXComponents from "../components/MDXComponents";
 
 export async function generateStaticParams() {
   const posts = getBlogPosts();
@@ -19,7 +14,7 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const post = getBlogPost(params.slug);
+  const post = getBlogPost((await params).slug);
 
   if (!post) {
     return {
@@ -48,18 +43,32 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default async function BlogPostPage({ params }: Props) {
-  const post = getBlogPost(params.slug);
+
+interface Props {
+  params: Promise<{ slug: string; }>;
+}
+
+export default async function BlogPostPage(props: Props) {
+  const post = getBlogPost((await props.params).slug);
 
   if (!post) {
     notFound();
   }
 
-  const mdxSource = await serialize(post.content);
+  const { content, frontmatter } = await compileMDX<{ title: string }>({
+    source: post.content,
+    // You should pass your MDX components here for server-side compilation
+    // components: (await import("../components/MDXComponents")).MDXComponents, // Adjust path/import as needed
+    components: MDXComponents,
+    options: {
+        parseFrontmatter: true,
+        // Add your plugins here
+    },
+  });
 
   return (
     <>
-      <BlogClientPage post={post} source={mdxSource} />
+      <BlogClientPage post={post} content={content} />
     </>
   );
 }
