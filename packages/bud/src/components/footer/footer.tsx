@@ -98,8 +98,8 @@ export const Footer = () => {
           <Flex flexDirection="column" gap={1}>
             {[
               {
-                url: "mailto:budcor.info@gmail.com",
-                name: "budcor.info@gmail.com",
+                url: "mailto:budcordesign@gmail.com",
+                name: "budcordesign@gmail.com",
               },
               {
                 url: "tel:+48794510151",
