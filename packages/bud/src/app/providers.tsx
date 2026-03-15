@@ -9,7 +9,7 @@ import { fbPixelTrackPageview } from "../constants/fbpixel";
 import { mixpanelTrackPageview } from "../constants/mixpanel";
 import { theme } from "./theme";
 
-const GTM_ID = "GTM-PFKBPV5K";
+const GTM_ID = "GTM-T7JZQWW7";
 
 export const NavigationEvents = () => {
   const pathname = usePathname();
