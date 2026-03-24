@@ -15,6 +15,7 @@
     "@emotion/styled": "^11.11.0",
     "@next/third-parties": "^15.0.3",
     "axios": "^1.6.2",
+    "forminit": "^0.2.4",
     "framer-motion": "^10.16.14",
     "gray-matter": "^4.0.3",
     "lodash.debounce": "^4.0.8",
@@ -43,6 +44,5 @@
     "tsx": "^4.19.3",
     "typescript": "^5",
     "typescript-eslint": "^8.31.1"
-
   }
 }

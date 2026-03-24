@@ -11,7 +11,7 @@ import {
   Text,
   Textarea,
 } from "@chakra-ui/react";
-import axios from "axios";
+import { Forminit } from "forminit";
 import debounce from "lodash.debounce";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
@@ -27,12 +27,15 @@ type Inputs = {
   message: string;
 };
 
+const FORMINIT_FORM_ID = "ozd5cgbno8n";
+const forminit = new Forminit({ proxyUrl: "/api/forminit" });
+
 export default function Contacts() {
   const {
     handleSubmit,
     register,
     watch,
-    formState: { errors, isSubmitting, isSubmitSuccessful },
+    formState: { errors, isSubmitting },
   } = useForm<Inputs>();
   const router = useRouter();
 
@@ -87,8 +90,14 @@ export default function Contacts() {
   }, [emailValue, debouncedEmailChange]);
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
-    axios.defaults.headers.post["Accept"] = "application/json";
-    await axios.post("https://forminit.com/f/ozd5cgbno8n", data).catch((error) => {
+    const formData = new FormData();
+    formData.append("email", data.email);
+    formData.append("phone", data.phone);
+    formData.append("message", data.message);
+
+    const { error } = await forminit.submit(FORMINIT_FORM_ID, formData);
+
+    if (error) {
       trackEvent({
         name: "error",
         sendTo: ["mixpanel"],
@@ -100,7 +109,9 @@ export default function Contacts() {
         },
       });
       console.log("🚀 ~ sendForm ~ error:", error);
-    });
+      return;
+    }
+
     trackEvent({
       name: "contactForm",
       sendTo: ["mixpanel", "gtm"],
@@ -112,7 +123,7 @@ export default function Contacts() {
     router.push("/contacts/confirmation");
   };
 
-  const onInvalidSubmit: SubmitErrorHandler<any> = async (data) => {
+  const onInvalidSubmit: SubmitErrorHandler<Inputs> = async () => {
     trackEvent({
       name: "contactFormInvalid",
       sendTo: ["mixpanel", "gtm"],

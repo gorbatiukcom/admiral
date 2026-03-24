@@ -10,7 +10,7 @@ import {
   Text,
   Textarea,
 } from "@chakra-ui/react";
-import axios from "axios";
+import { Forminit } from "forminit";
 import debounce from "lodash.debounce";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useEffect } from "react";
@@ -30,6 +30,9 @@ type Inputs = {
   message: string;
 };
 
+const FORMINIT_FORM_ID = "ozd5cgbno8n";
+const forminit = new Forminit({ proxyUrl: "/api/forminit" });
+
 export default function Order() {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -39,7 +42,7 @@ export default function Order() {
     handleSubmit,
     register,
     watch,
-    formState: { errors, isSubmitting, isSubmitSuccessful },
+    formState: { errors, isSubmitting },
   } = useForm<Inputs>();
 
   // Phone change tracking
@@ -94,26 +97,36 @@ export default function Order() {
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     const projectName = ProjectsDetalis?.[activeProject]?.name || "Order without project type";
-    axios.defaults.headers.post["Accept"] = "application/json";
-    await axios
-      .post("https://forminit.com/f/ozd5cgbno8n", {
-        ...data,
-        project: projectName,
-      })
-      .catch((error) => {
-        console.log("🚀 ~ onSubmit ~ error:", error);
-        trackEvent({
-          name: "error",
-          sendTo: ["mixpanel"],
-          props: {
-            errorName: "serviceContactFormError",
-            email: data.email,
-            phone: data.phone,
-            project: projectName,
-            message: data.message,
-          },
-        });
+    const formData = new FormData();
+    formData.append("name", data.name);
+    formData.append("email", data.email);
+    formData.append("phone", data.phone);
+    formData.append("city", data.city);
+    formData.append("projectSize", data.projectSize);
+    formData.append("message", data.message);
+    formData.append("project", projectName);
+
+    if (data.haveProject) {
+      formData.append("haveProject", data.haveProject);
+    }
+
+    const { error } = await forminit.submit(FORMINIT_FORM_ID, formData);
+
+    if (error) {
+      console.log("🚀 ~ onSubmit ~ error:", error);
+      trackEvent({
+        name: "error",
+        sendTo: ["mixpanel"],
+        props: {
+          errorName: "serviceContactFormError",
+          email: data.email,
+          phone: data.phone,
+          project: projectName,
+          message: data.message,
+        },
       });
+      return;
+    }
 
     trackEvent({
       name: "serviceContactForm",
@@ -127,7 +140,7 @@ export default function Order() {
     router.push("/contacts/confirmation");
   };
 
-  const onInvalidSubmit: SubmitErrorHandler<any> = async (data) => {
+  const onInvalidSubmit: SubmitErrorHandler<Inputs> = async () => {
     trackEvent({
       name: "serviceContactFormInvalid",
       sendTo: ["mixpanel", "gtm"],
