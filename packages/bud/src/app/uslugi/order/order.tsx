@@ -97,20 +97,42 @@ export default function Order() {
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     const projectName = ProjectsDetalis?.[activeProject]?.name || "Order without project type";
-    const formData = new FormData();
-    formData.append("name", data.name);
-    formData.append("email", data.email);
-    formData.append("phone", data.phone);
-    formData.append("city", data.city);
-    formData.append("projectSize", data.projectSize);
-    formData.append("message", data.message);
-    formData.append("project", projectName);
+    const blocks = [
+      {
+        type: "sender" as const,
+        properties: {
+          fullName: data.name,
+          email: data.email,
+          phone: data.phone,
+          city: data.city,
+        },
+      },
+      {
+        type: "text" as const,
+        name: "project",
+        value: projectName,
+      },
+      {
+        type: "text" as const,
+        name: "projectSize",
+        value: data.projectSize,
+      },
+      {
+        type: "text" as const,
+        name: "message",
+        value: data.message,
+      },
+    ];
 
     if (data.haveProject) {
-      formData.append("haveProject", data.haveProject);
+      blocks.push({
+        type: "text" as const,
+        name: "haveProject",
+        value: data.haveProject,
+      });
     }
 
-    const { error } = await forminit.submit(FORMINIT_FORM_ID, formData);
+    const { error } = await forminit.submit(FORMINIT_FORM_ID, { blocks });
 
     if (error) {
       console.log("🚀 ~ onSubmit ~ error:", error);

@@ -90,12 +90,22 @@ export default function Contacts() {
   }, [emailValue, debouncedEmailChange]);
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
-    const formData = new FormData();
-    formData.append("email", data.email);
-    formData.append("phone", data.phone);
-    formData.append("message", data.message);
-
-    const { error } = await forminit.submit(FORMINIT_FORM_ID, formData);
+    const { error } = await forminit.submit(FORMINIT_FORM_ID, {
+      blocks: [
+        {
+          type: "sender",
+          properties: {
+            email: data.email,
+            phone: data.phone,
+          },
+        },
+        {
+          type: "text",
+          name: "message",
+          value: data.message,
+        },
+      ],
+    });
 
     if (error) {
       trackEvent({
