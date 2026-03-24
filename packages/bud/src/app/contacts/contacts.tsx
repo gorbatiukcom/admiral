@@ -96,8 +96,12 @@ export default function Contacts() {
           type: "sender",
           properties: {
             email: data.email,
-            phone: data.phone,
           },
+        },
+        {
+          type: "text",
+          name: "phone",
+          value: data.phone,
         },
         {
           type: "text",

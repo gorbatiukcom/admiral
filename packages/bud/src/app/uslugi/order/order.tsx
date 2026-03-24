@@ -103,9 +103,13 @@ export default function Order() {
         properties: {
           fullName: data.name,
           email: data.email,
-          phone: data.phone,
           city: data.city,
         },
+      },
+      {
+        type: "text" as const,
+        name: "phone",
+        value: data.phone,
       },
       {
         type: "text" as const,
