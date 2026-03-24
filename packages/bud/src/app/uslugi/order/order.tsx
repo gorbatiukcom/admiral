@@ -96,7 +96,7 @@ export default function Order() {
     const projectName = ProjectsDetalis?.[activeProject]?.name || "Order without project type";
     axios.defaults.headers.post["Accept"] = "application/json";
     await axios
-      .post("https://getform.io/f/ebpddnkb", {
+      .post("https://forminit.com/f/ozd5cgbno8n", {
         ...data,
         project: projectName,
       })

@@ -88,7 +88,7 @@ export default function Contacts() {
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     axios.defaults.headers.post["Accept"] = "application/json";
-    await axios.post("https://getform.io/f/ebpddnkb", data).catch((error) => {
+    await axios.post("https://forminit.com/f/ozd5cgbno8n", data).catch((error) => {
       trackEvent({
         name: "error",
         sendTo: ["mixpanel"],
