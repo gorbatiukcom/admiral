@@ -76,9 +76,11 @@ export function ProjektowanieWnetrzMobile() {
         })}
       </Flex>
 
+      {/*
       <Text fontSize="20px" fontWeight={300} mx="auto" mt={8}>
         {ProjectsDetalis[activeProject].price}
       </Text>
+      */}
 
       <Link href={`/uslugi/order?project=${activeProject}`} mt={4}>
         <Button

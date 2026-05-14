@@ -81,6 +81,7 @@ export function ProjektowanieWnetrzDesktop() {
           );
         })}
 
+        {/*
         <GridItem borderRight="1px dashed" borderTop="1px dashed" pt={4}>
           <Text fontSize="20px" fontWeight={600} textAlign="center">
             Cena
@@ -98,6 +99,7 @@ export function ProjektowanieWnetrzDesktop() {
             </GridItem>
           );
         })}
+        */}
         <GridItem></GridItem>
         {Object.values(DesignProjects).map((project) => {
           return (
