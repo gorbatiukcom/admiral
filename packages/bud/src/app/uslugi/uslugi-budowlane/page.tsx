@@ -1,9 +1,7 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
 
-import { UslugiBudowlane } from "./uslugi-budowlane";
+import { RenovationsServicePage } from "../../../components/redesign/service-pages";
 
-export const metadata: Metadata = {
-  title: "Budcor | Usługi budowlane",
-};
+export const metadata: Metadata = { title: "Budcor | Kompleksowe remonty" };
 
-export default UslugiBudowlane;
+export default RenovationsServicePage;

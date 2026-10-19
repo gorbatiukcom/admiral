@@ -11,6 +11,8 @@
 
 # next.js
 /.next/
+/.next-redesign-check/
+/.next-redesign-dev/
 /out/
 
 # production

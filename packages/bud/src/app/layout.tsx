@@ -2,39 +2,35 @@ import type { Metadata } from "next";
 import { Viewport } from "next";
 import Script from "next/script";
 
-import { Footer } from "../components/footer/footer";
-import { Header } from "../components/header/header";
+import { SiteShell } from "../components/redesign/site-shell";
 import { fonts } from "./fonts";
 import { Providers } from "./providers";
 
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  maximumScale: 1,
 };
 
 export const metadata: Metadata = {
   title: "Budcor",
-  description: "Budcor — Tworzymy jakość i komfort dla naszych klientów",
+  description: "Budcor Design — projektowanie wnętrz, kompleksowe remonty i realizacja pod klucz",
   metadataBase: new URL("https://budcor.com"),
   openGraph: {
-    description: "Budcor — Tworzymy jakość i komfort dla naszych klientów",
-    images: ["https://admiralinterior.com/images/bg-image.png"],
+    description: "Budcor Design — projektowanie wnętrz, kompleksowe remonty i realizacja pod klucz",
+    images: ["https://budcor.com/images/redesign/lublin.webp"],
   },
   twitter: {
-    images: ["https://admiralinterior.com/images/bg-image.png"],
+    images: ["https://budcor.com/images/redesign/lublin.webp"],
   },
   robots: "all",
 };
-
-export { fonts };
 
 const isProd = process.env.NODE_ENV === "production";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html
-      lang="en"
+      lang="pl"
       suppressHydrationWarning={true}
       className={`${fonts.inter.className} ${fonts.inter.variable} ${fonts.oswald.variable}`}
     >
@@ -100,11 +96,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           />
         </noscript>
         <Providers isProd={isProd}>
-          <div style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
-            <Header />
-            {children}
-            <Footer />
-          </div>
+          <SiteShell>{children}</SiteShell>
         </Providers>
       </body>
     </html>

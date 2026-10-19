@@ -7,7 +7,9 @@ import { useEffect, useRef, useState } from "react";
 
 const StyledContainer = styled(Flex)`
   canvas {
-    max-width: 400px;
+    display: block;
+    max-width: min(400px, 100%);
+    height: auto;
     margin: 0 auto;
   }
 `;

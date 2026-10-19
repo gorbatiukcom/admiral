@@ -1,0 +1,33 @@
+.approach {
+  padding-bottom: 75px;
+}
+.image {
+  height: 900px;
+}
+.valuesTitle {
+  margin-top: 28px !important;
+}
+.company {
+  display: grid;
+  gap: 35px;
+}
+.companyName {
+  font-size: 25px;
+  font-weight: 500;
+  letter-spacing: -0.045em;
+  line-height: 1.12;
+  margin-bottom: 26px !important;
+}
+.company address {
+  font-style: normal;
+  margin-bottom: 24px;
+}
+@media (min-width: 1024px) {
+  .company {
+    grid-template-columns: 41fr 53fr;
+    gap: 70px;
+  }
+  .companyName {
+    font-size: 28px;
+  }
+}

@@ -1,9 +1,7 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
 
-import { Uslugi } from "./uslugi";
+import { ServicesPage } from "../../components/redesign/service-pages";
 
-export const metadata: Metadata = {
-  title: "Budcor | Usługi",
-};
+export const metadata: Metadata = { title: "Budcor | Usługi" };
 
-export default Uslugi;
+export default ServicesPage;

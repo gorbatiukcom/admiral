@@ -1,0 +1,37 @@
+.projects {
+  padding-block: 24px 64px;
+}
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.filters button {
+  padding: 12px 18px;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--ink);
+  font-size: 14px;
+  line-height: 1.6;
+  cursor: pointer;
+  min-height: 46px;
+}
+.filters button[aria-pressed="true"] {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: white;
+}
+.filters button:hover {
+  border-color: var(--ink);
+}
+.resultCount {
+  margin-top: 32px !important;
+  margin-bottom: 15px !important;
+  color: var(--muted);
+  font-size: 14px;
+}
+@media (min-width: 1024px) {
+  .projects {
+    padding-block: 25px 100px;
+  }
+}

@@ -1,9 +1,7 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
 
-import { ProjektowanieWnetrz } from "./projektowanie-wnetrz";
+import { InteriorServicePage } from "../../../components/redesign/service-pages";
 
-export const metadata: Metadata = {
-  title: "Budcor | Projektowanie wnętrz",
-};
+export const metadata: Metadata = { title: "Budcor | Projektowanie wnętrz" };
 
-export default ProjektowanieWnetrz;
+export default InteriorServicePage;

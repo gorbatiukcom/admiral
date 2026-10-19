@@ -1,9 +1,7 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
 
-import { RemontPodKlucz } from "./remont-pod-klucz";
+import { TurnkeyServicePage } from "../../../components/redesign/service-pages";
 
-export const metadata: Metadata = {
-  title: "Budcor | Remont pod klucz",
-};
+export const metadata: Metadata = { title: "Budcor | Realizacja pod klucz" };
 
-export default RemontPodKlucz;
+export default TurnkeyServicePage;

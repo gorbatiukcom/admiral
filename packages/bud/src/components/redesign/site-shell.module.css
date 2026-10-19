@@ -1,0 +1,245 @@
+.header {
+  height: 83px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-inline: var(--gutter);
+  position: relative;
+  z-index: 20;
+}
+.logo {
+  display: inline-flex;
+  flex-direction: column;
+  color: var(--ink);
+  width: fit-content;
+  flex-shrink: 0;
+}
+.wordmark {
+  font:
+    800 32px/0.85 Arial,
+    Helvetica,
+    sans-serif;
+  letter-spacing: -0.065em;
+}
+.design {
+  font:
+    800 10px/0.85 Arial,
+    Helvetica,
+    sans-serif;
+  letter-spacing: 0.42em;
+  margin-top: 9px;
+}
+.navigation,
+.desktopCta {
+  display: none;
+}
+.menuButton {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  width: 44px;
+  height: 44px;
+  margin-right: -9px;
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+}
+.menuButton span {
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: currentColor;
+}
+.dialog {
+  position: fixed;
+  inset: 0;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  max-width: none;
+  height: 100svh;
+  max-height: none;
+  border: 0;
+  background: var(--surface);
+  color: var(--ink);
+  overflow-y: auto;
+}
+.dialog::backdrop {
+  background: rgba(23, 40, 45, 0.35);
+}
+.closeButton {
+  font-size: 34px;
+  line-height: 1;
+  font-weight: 300;
+}
+.mobileNav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 32px var(--gutter);
+}
+.mobileNav a {
+  padding-block: 12px;
+  font-size: 34px;
+  line-height: 1.15;
+  letter-spacing: -0.045em;
+  border-bottom: 1px solid var(--line);
+}
+.mobileNav a[aria-current="page"] {
+  color: var(--blue);
+}
+.menuContact {
+  padding: 10px var(--gutter) 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+.menuContact > a:not(:last-child) {
+  font-size: 16px;
+  overflow-wrap: anywhere;
+}
+.footer {
+  background: var(--dark);
+  color: #bdc6c7;
+  padding: 42px var(--gutter) 34px;
+}
+.footerTop {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 36px 22px;
+  align-items: start;
+  padding-bottom: 55px;
+}
+.footer .logo {
+  color: white;
+}
+.footerTagline {
+  font-size: 16px;
+  line-height: 1.4;
+}
+.footerLink {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #819398;
+  padding-bottom: 10px;
+  color: white;
+  font-size: 16px;
+}
+.footerBottom {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-top: 1px solid #3c4d51;
+  padding-top: 25px;
+  font-size: 12px;
+}
+.footerBottom a {
+  width: fit-content;
+}
+.footerBottom a:hover {
+  color: white;
+}
+.mobileCta {
+  position: fixed;
+  z-index: 30;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 10px var(--gutter) max(10px, env(safe-area-inset-bottom));
+  background: var(--surface);
+  box-shadow: 0 -1px 0 var(--line);
+}
+.mobileCta a {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  min-height: 48px;
+  padding-block: 12px;
+}
+.hasMobileCta {
+  padding-bottom: calc(68px + env(safe-area-inset-bottom));
+}
+@media (min-width: 1024px) {
+  .header {
+    height: 108px;
+  }
+  .wordmark {
+    font-size: 37px;
+  }
+  .navigation {
+    display: flex;
+    gap: 34px;
+    align-items: center;
+    font-size: 14px;
+  }
+  .navigation a {
+    padding-block: 10px;
+    border-bottom: 1px solid transparent;
+  }
+  .navigation a:hover,
+  .navigation a[aria-current="page"] {
+    color: var(--blue);
+    border-color: var(--blue);
+  }
+  .desktopCta {
+    display: block;
+  }
+  .desktopCta a {
+    min-height: 49px;
+    padding: 12px 25px;
+  }
+  .menuButton {
+    display: none;
+  }
+  .footer {
+    padding-block: 64px 25px;
+  }
+  .footerTop {
+    display: grid;
+    grid-template-columns: 1fr 1fr auto;
+    align-items: center;
+  }
+  .footerTagline {
+    font-size: 18px;
+  }
+  .footerLink {
+    grid-column: auto;
+    width: 250px;
+  }
+  .footerBottom {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .mobileCta {
+    display: none;
+  }
+  .hasMobileCta {
+    padding-bottom: 0;
+  }
+}
+.home > .header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  color: white;
+}
+.home > .header .logo,
+.home > .header .menuButton {
+  color: white;
+}
+.home > .header .navigation a:hover,
+.home > .header .navigation a[aria-current="page"] {
+  color: white;
+  border-color: white;
+}
+.home > .header .desktopCta a {
+  padding: 12px 0;
+}

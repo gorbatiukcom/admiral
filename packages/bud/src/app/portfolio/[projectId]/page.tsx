@@ -1,19 +1,14 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
 
-import { PortfolioProjects } from "../../../constants/portfolio";
-import Project, { Props } from "./project";
+import { redesignProjects } from "../../../constants/redesign-projects";
+import Project, { type Props } from "./project";
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const projectId = (await params).projectId;
-  const projectData = PortfolioProjects.find((project) => project.projectId === projectId);
-
-  return {
-    title: `Budcor | ${projectData?.name}`,
-  };
+  const { projectId } = await params;
+  const project = redesignProjects.find((item) => item.projectId === projectId);
+  return { title: project ? `Budcor | ${project.title}` : "Budcor | Nie znaleziono projektu" };
 }
-
 export async function generateStaticParams() {
-  return PortfolioProjects.map((project) => ({ projectId: project.projectId }));
+  return redesignProjects.map((project) => ({ projectId: project.projectId }));
 }
-
 export default Project;

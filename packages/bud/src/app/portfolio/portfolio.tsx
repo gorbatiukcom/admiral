@@ -1,97 +1,57 @@
 "use client";
 
-import { Flex, Image, Text } from "@chakra-ui/react";
+import { useState } from "react";
 
-import { Link } from "../../components/link";
-import { PortfolioProjects } from "../../constants/portfolio";
+import design from "../../components/redesign/design.module.css";
+import { ProjectCard, type ProjectPreview } from "../../components/redesign/ui";
+import type { ProjectCategory } from "../../constants/redesign-projects";
+import styles from "./portfolio.module.css";
 
-export const Portfolio = () => {
+const filters: { value: ProjectCategory | "all"; label: string }[] = [
+  { value: "all", label: "Wszystkie" },
+  { value: "wnetrza", label: "Wnętrza" },
+  { value: "realizacje", label: "Realizacje" },
+  { value: "architektura", label: "Architektura" },
+];
+
+export function Portfolio({
+  projects,
+}: {
+  projects: (ProjectPreview & { category: ProjectCategory })[];
+}) {
+  const [category, setCategory] = useState<ProjectCategory | "all">("all");
+  const visible = projects.filter((project) => category === "all" || category === project.category);
+  const countLabel =
+    visible.length === 1
+      ? "projekt"
+      : visible.length >= 2 && visible.length <= 4
+        ? "projekty"
+        : "projektów";
   return (
-    <Flex
-      flexWrap="wrap"
-      maxWidth={["calc(100% - 32px)", "calc(100% - 16px)"]}
-      mx="auto"
-      gap={[4, 2]}
-      mt={[4, "52px"]}
-      pb="16px"
+    <section
+      className={`${design.container} ${styles.projects}`}
+      aria-label="Projekty Budcor Design"
     >
-      {PortfolioProjects.map(({ name, image, projectId, shortDescription, description }) => {
-        return (
-          <Link href={`/portfolio/${projectId}`} key={projectId} width={["100%", "calc(50% - 5px)"]}>
-            <Flex
-              key={name}
-              position="relative"
-              role="group"
-              cursor="pointer"
-              flexDirection="column"
-              borderRadius={["8px", null]}
-              boxShadow={["0px 4px 6px 0px rgba(0, 0, 0, 0.25)", null]}
-              pb={[4, 0]}
-              bg="bgPrimary"
-              height="100%"
-            >
-              <Image
-                src={image}
-                alt={name}
-                width="100%"
-                borderRadius={["8px 8px 0px 0px", "8px"]}
-                maxHeight="720px"
-                height="100%"
-                objectFit="cover"
-                _groupHover={{
-                  lg: {
-                    filter: "auto",
-                    brightness: "50%",
-                    transitionDuration: "0.2s",
-                  },
-                }}
-              />
-              <Text display={["block", "none"]} fontSize="18px" px={4} pt={2}>
-                {name}
-              </Text>
-              {shortDescription ? (
-                <Text display={["block", "none"]} fontSize="14px" fontWeight={300} px={4}>
-                  {shortDescription}
-                </Text>
-              ) : null}
-
-              <Flex
-                flexDirection="column"
-                position="absolute"
-                bottom="48px"
-                left="48px"
-                pr={[0, "48px"]}
-              >
-                <Text
-                  display={["none", "block"]}
-                  color="transparent"
-                  fontSize="40px"
-                  _groupHover={{
-                    color: "white",
-                    transitionDuration: "0.2s",
-                  }}
-                >
-                  {name}
-                </Text>
-                {shortDescription ? (
-                  <Text
-                    display={["none", "block"]}
-                    color="transparent"
-                    fontSize="20px"
-                    _groupHover={{
-                      color: "white",
-                      transitionDuration: "0.2s",
-                    }}
-                    fontWeight={400}
-                  >
-                    {shortDescription}
-                  </Text>
-                ) : null}
-              </Flex>
-            </Flex>
-          </Link>
-        );
-      })}
-    </Flex>
+      <div className={styles.filters} role="group" aria-label="Kategorie projektów">
+        {filters.map((filter) => (
+          <button
+            key={filter.value}
+            type="button"
+            aria-pressed={filter.value === category}
+            onClick={() => setCategory(filter.value)}
+          >
+            {filter.label}
+          </button>
+        ))}
+      </div>
+      <p className={styles.resultCount} role="status">
+        {visible.length} {countLabel}
+      </p>
+      <div className={design.projectGrid}>
+        {visible.map((project) => (
+          <ProjectCard key={project.projectId} project={project} />
+        ))}
+      </div>
+    </section>
   );
-};
+}
