@@ -8,7 +8,7 @@ import { BlogPost } from "../../../utils/blog";
 
 type Props = {
   post: BlogPost;
-  content: ReactNode; 
+  content: ReactNode;
 };
 
 export function BlogClientPage({ post, content }: Props) {
@@ -42,7 +42,7 @@ export function BlogClientPage({ post, content }: Props) {
         </Flex>
       </Box>
       <Container maxW="container.md" mt={10}>
-        {content} 
+        {content}
       </Container>
     </Box>
   );

@@ -1,10 +1,10 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { compileMDX } from "next-mdx-remote/rsc"; 
+import { compileMDX } from "next-mdx-remote/rsc";
 
 import { getBlogPost, getBlogPosts } from "../../../utils/blog";
-import { BlogClientPage } from "./BlogClientPage";
 import MDXComponents from "../components/MDXComponents";
+import { BlogClientPage } from "./BlogClientPage";
 
 export async function generateStaticParams() {
   const posts = getBlogPosts();
@@ -43,9 +43,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-
 interface Props {
-  params: Promise<{ slug: string; }>;
+  params: Promise<{ slug: string }>;
 }
 
 export default async function BlogPostPage(props: Props) {
@@ -61,8 +60,8 @@ export default async function BlogPostPage(props: Props) {
     // components: (await import("../components/MDXComponents")).MDXComponents, // Adjust path/import as needed
     components: MDXComponents,
     options: {
-        parseFrontmatter: true,
-        // Add your plugins here
+      parseFrontmatter: true,
+      // Add your plugins here
     },
   });
 

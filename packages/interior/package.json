@@ -2,6 +2,9 @@
   "name": "@admiral/interior",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "24.x"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -29,6 +32,7 @@
     "eslint": "^8",
     "eslint-config-next": "15.3.1",
     "eslint-config-prettier": "^10.1.2",
+    "eslint-plugin-prettier": "^5",
     "eslint-plugin-simple-import-sort": "^10.0.0",
     "prettier": "^3.1.0",
     "typescript": "^5"

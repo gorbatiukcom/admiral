@@ -99,17 +99,11 @@ export const Services: Service[] = [
   },
   {
     name: "Plan podłogi z określeniem rodzaju pokrycia, listwy przypodłogowej i ogrzewania podłogowego",
-    projects: [
-      "projektowanie-wnetrz-harmonia",
-      "projektowanie-wnetrz-perfekcja"
-    ],
+    projects: ["projektowanie-wnetrz-harmonia", "projektowanie-wnetrz-perfekcja"],
   },
   {
     name: "Plan sufitu",
-    projects: [
-      "projektowanie-wnetrz-harmonia",
-      "projektowanie-wnetrz-perfekcja"
-    ],
+    projects: ["projektowanie-wnetrz-harmonia", "projektowanie-wnetrz-perfekcja"],
   },
   {
     name: "Plan rozmieszczenia gniazdek i przełączników",
@@ -121,10 +115,7 @@ export const Services: Service[] = [
   },
   {
     name: "Plan przyłączenia oświetlenia z schematem włączania",
-    projects: [
-      "projektowanie-wnetrz-harmonia",
-      "projektowanie-wnetrz-perfekcja"
-    ],
+    projects: ["projektowanie-wnetrz-harmonia", "projektowanie-wnetrz-perfekcja"],
   },
   {
     name: "Plan wykończenia ścian",
@@ -148,10 +139,7 @@ export const Services: Service[] = [
   },
   {
     name: "Specyfikacja gniazdek i przełączników",
-    projects: [
-      "projektowanie-wnetrz-harmonia",
-      "projektowanie-wnetrz-perfekcja"
-    ],
+    projects: ["projektowanie-wnetrz-harmonia", "projektowanie-wnetrz-perfekcja"],
   },
   {
     name: "Specyfikacja oświetlenia",
@@ -167,10 +155,7 @@ export const Services: Service[] = [
   },
   {
     name: "Rozwijane ściany wszystkich pomieszczeń",
-    projects: [
-      "projektowanie-wnetrz-harmonia",
-      "projektowanie-wnetrz-perfekcja"
-    ],
+    projects: ["projektowanie-wnetrz-harmonia", "projektowanie-wnetrz-perfekcja"],
   },
   {
     name: "Rysunki mebli",
@@ -178,10 +163,7 @@ export const Services: Service[] = [
   },
   {
     name: "Specyfikacja mebli",
-    projects: [
-      "projektowanie-wnetrz-harmonia",
-      "projektowanie-wnetrz-perfekcja"
-    ],
+    projects: ["projektowanie-wnetrz-harmonia", "projektowanie-wnetrz-perfekcja"],
   },
   {
     name: "Nadzór autorski",

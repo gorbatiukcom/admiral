@@ -2,6 +2,25 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
+Use Node.js 24 (matching the Vercel runtime) and install the locked dependencies:
+
+```bash
+nvm install
+nvm use
+yarn install --frozen-lockfile
+```
+
+Build both applications from the repository root:
+
+```bash
+yarn bud:build
+yarn int:build
+```
+
+The root and application `package.json` files specify `engines.node: "24.x"`,
+which overrides Vercel's Node.js Version setting. Set that setting to **24.x**
+for each Vercel project as well to keep the dashboard consistent.
+
 First, run the development server:
 
 ```bash

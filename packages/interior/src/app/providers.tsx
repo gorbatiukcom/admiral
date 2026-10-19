@@ -1,6 +1,6 @@
 "use client";
 
-import { ChakraProvider } from "@chakra-ui/react";
+import { ChakraProvider, ColorModeScript } from "@chakra-ui/react";
 import { usePathname, useSearchParams } from "next/navigation";
 import { useEffect, useRef } from "react";
 
@@ -8,7 +8,12 @@ import { trackPageview } from "../constants/mixpanel";
 import { theme } from "./theme";
 
 export function Providers({ children }: { children: React.ReactNode }) {
-  return <ChakraProvider theme={theme}>{children}</ChakraProvider>;
+  return (
+    <ChakraProvider theme={theme}>
+      <ColorModeScript initialColorMode={theme.config.initialColorMode} />
+      {children}
+    </ChakraProvider>
+  );
 }
 
 export const NavigationEvents = () => {

@@ -1,4 +1,4 @@
-import { createForminitProxy } from 'forminit/next';
+import { createForminitProxy } from "forminit/next";
 
 const forminit = createForminitProxy({
   apiKey: process.env.FORMINIT_API_KEY || "",
