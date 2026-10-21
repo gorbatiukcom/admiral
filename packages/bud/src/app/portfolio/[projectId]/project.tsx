@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 
 import design from "../../../components/redesign/design.module.css";
 import { BulletList } from "../../../components/redesign/service-pages";
-import { Consultation } from "../../../components/redesign/ui";
+import { ActionLink, Consultation } from "../../../components/redesign/ui";
 import { redesignProjects } from "../../../constants/redesign-projects";
 import { ProjectGallery } from "./gallery";
 import styles from "./project.module.css";
@@ -52,6 +52,9 @@ export default async function Project({ params }: Props) {
           </div>
         ))}
       </dl>
+      <div className={`${design.container} ${styles.mobileInquiry}`}>
+        <ActionLink />
+      </div>
       <section
         className={`${design.container} ${styles.description}`}
         aria-labelledby="project-about"

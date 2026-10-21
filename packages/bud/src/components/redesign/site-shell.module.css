@@ -105,7 +105,7 @@
 .footer {
   background: var(--dark);
   color: #bdc6c7;
-  padding: 42px var(--gutter) 34px;
+  padding: 42px var(--gutter) 92px;
 }
 .footerTop {
   display: grid;
@@ -167,19 +167,20 @@
 }
 @media (min-width: 1024px) {
   .header {
-    height: 108px;
+    height: 128px;
   }
   .wordmark {
     font-size: 37px;
   }
   .navigation {
     display: flex;
-    gap: 34px;
+    gap: 36px;
     align-items: center;
-    font-size: 14px;
+    font-size: 20px;
   }
   .navigation a {
-    padding-block: 10px;
+    padding-block: 0;
+    line-height: 40px;
     border-bottom: 1px solid transparent;
   }
   .navigation a:hover,
@@ -242,4 +243,96 @@
 }
 .home > .header .desktopCta a {
   padding: 12px 0;
+}
+
+.logoGraphic {
+  display: block;
+  width: 100px;
+  height: 58px;
+  background: currentColor;
+  mask: url("/images/redesign/budcor-logo.svg") center / contain no-repeat;
+}
+.header > .logo {
+  align-self: flex-start;
+  margin-top: 22px;
+  color: #000;
+}
+.home > .header > .logo {
+  color: white;
+}
+.header > .menuButton {
+  align-self: flex-start;
+  margin-top: 22px;
+}
+@media (max-width: 1023px) {
+  .home .footerTop {
+    padding-bottom: 146px;
+  }
+  .home .footerLink {
+    display: none;
+  }
+  .home .footerBottom {
+    border-top: 0;
+  }
+}
+@media (min-width: 1024px) {
+  .header {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: start;
+  }
+  .header > .logo {
+    margin-top: 53px;
+  }
+  .navigation {
+    margin-top: 53px;
+  }
+  .desktopCta {
+    justify-self: end;
+    margin-top: 53px;
+    font-size: 20px;
+  }
+  .desktopCta a,
+  .home > .header .desktopCta a {
+    padding: 0;
+    line-height: 40px;
+  }
+}
+.wordmark {
+  font-family: var(--font-inter), Arial, sans-serif;
+}
+.footerTagline {
+  font-family: Arial, sans-serif;
+  font-size: 17px;
+  line-height: 23.8px;
+}
+.contactRoot .footerTagline {
+  font-family: var(--font-inter), Arial, sans-serif;
+}
+@media (max-width: 1023px) {
+  .footerTop {
+    grid-template-columns: minmax(0, 1fr) 160px;
+  }
+  .home .footerTop {
+    padding-bottom: 121px;
+  }
+  .home .footer {
+    padding-bottom: 99px;
+  }
+}
+@media (min-width: 1024px) {
+  .footerTagline {
+    font-size: 17px;
+    line-height: 28px;
+  }
+}
+.menuButton {
+  gap: 8px;
+}
+.menuButton span {
+  height: 2px;
+}
+.header > .menuButton {
+  margin-top: 31px;
+  color: #000;
 }

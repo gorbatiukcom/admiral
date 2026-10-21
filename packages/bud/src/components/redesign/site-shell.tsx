@@ -10,16 +10,22 @@ import { ActionLink, Arrow } from "./ui";
 
 const navigation = [
   { href: "/", label: "Strona Główna" },
-  { href: "/portfolio", label: "Portfolio" },
   { href: "/uslugi", label: "Usługi" },
+  { href: "/portfolio", label: "Portfolio" },
   { href: "/contacts", label: "Kontakty" },
 ];
 
-function Logo() {
+function Logo({ legacy = false }: { legacy?: boolean }) {
   return (
     <Link href="/" className={styles.logo} aria-label="Budcor Design — strona główna">
-      <span className={styles.wordmark}>budcor</span>
-      <span className={styles.design}>DESIGN</span>
+      {legacy ? (
+        <>
+          <span className={styles.wordmark}>budcor</span>
+          <span className={styles.design}>DESIGN</span>
+        </>
+      ) : (
+        <span className={styles.logoGraphic} aria-hidden="true" />
+      )}
     </Link>
   );
 }
@@ -80,7 +86,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
 
   return (
     <div
-      className={`${design.site} ${showMobileCta ? styles.hasMobileCta : ""} ${pathname === "/" ? styles.home : ""}`}
+      className={`${design.site} ${showMobileCta ? styles.hasMobileCta : ""} ${pathname === "/" ? styles.home : ""} ${pathname.startsWith("/contacts") ? styles.contactRoot : ""}`}
     >
       <a href="#main-content" className={design.skipLink}>
         Przejdź do treści
@@ -155,7 +161,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
       </main>
       <footer className={styles.footer}>
         <div className={styles.footerTop}>
-          <Logo />
+          <Logo legacy={pathname !== "/"} />
           <p className={styles.footerTagline}>
             Od pierwszej rozmowy
             <br />

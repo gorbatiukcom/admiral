@@ -4,7 +4,7 @@
   --ink: #172025;
   --muted: #60676b;
   --blue: #2448e8;
-  --dark: #17282d;
+  --dark: #1a203b;
   --line: #dcdedb;
   --gutter: 22px;
   background: var(--surface);
@@ -64,7 +64,7 @@
   font-size: clamp(46px, 5.5vw, 70.4px);
   line-height: 1.12;
   letter-spacing: -0.045em;
-  font-weight: 500;
+  font-weight: 400;
   white-space: pre-line;
 }
 .copy {
@@ -86,8 +86,8 @@
     color 0.18s;
 }
 .button {
-  min-height: 54px;
-  padding: 15px 20px;
+  min-height: 59px;
+  padding: 17px 25px;
   background: var(--blue);
   color: white;
   border: 1px solid var(--blue);
@@ -112,11 +112,15 @@
   color: var(--blue);
 }
 .arrow {
-  font-family: Arial, sans-serif;
-  font-size: 20px;
-  line-height: 1;
-  font-weight: 400;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
   flex-shrink: 0;
+}
+.arrow > svg {
+  display: block;
 }
 .actions {
   display: flex;
@@ -140,7 +144,7 @@
 .projectGrid {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  gap: 30px;
+  gap: 36px;
 }
 .projectCard {
   display: block;
@@ -185,7 +189,7 @@
 }
 .projectMeta {
   color: var(--muted);
-  font-size: 12px;
+  font-size: 13px;
   margin-top: 7px !important;
 }
 .steps {
@@ -197,7 +201,7 @@
 }
 .step {
   display: grid;
-  grid-template-columns: 36px minmax(0, 1fr);
+  grid-template-columns: 16px minmax(0, 1fr);
   gap: 0 14px;
   border-top: 1px solid var(--line);
   padding-block: 26px;
@@ -215,12 +219,12 @@
   letter-spacing: -0.03em;
 }
 .step .copy {
+  font-family: var(--step-copy-font, Arial, sans-serif);
   font-size: 14px;
   margin-top: 10px;
 }
 .consultation {
   padding-block: 44px;
-  border-top: 1px solid var(--line);
   display: flex;
   flex-direction: column;
   gap: 28px;
@@ -228,10 +232,11 @@
 }
 .consultation .heading {
   font-size: 30px;
+  font-weight: 400;
 }
 .consultation .copy {
   margin-top: 12px;
-  font-size: 14px;
+  font-size: 16px;
 }
 .dark {
   background: var(--dark);
@@ -284,10 +289,10 @@
   padding-block: 28px 35px;
 }
 .pageIntro .pageTitle {
-  margin-top: 28px;
+  margin-top: 26px;
 }
 .pageIntro .copy {
-  margin-top: 28px;
+  margin-top: 24px;
   max-width: 680px;
 }
 .skipLink {
@@ -338,7 +343,7 @@
     padding-block: 100px;
   }
   .heading {
-    font-size: clamp(40px, 3.5vw, 50.4px);
+    font-size: clamp(40px, 3.11vw, 44.8px);
   }
   .button {
     padding: 17px 25px;
@@ -374,7 +379,7 @@
     gap: 40px;
   }
   .consultation .heading {
-    font-size: clamp(30px, 3.1vw, 44.8px);
+    font-size: clamp(30px, 2.85vw, 40.96px);
   }
   .consultation .button {
     flex-shrink: 0;
@@ -384,7 +389,7 @@
     gap: 7vw;
   }
   .pageIntro {
-    padding-block: 50px 55px;
+    padding-block: 30px 55px;
   }
 }
 @media (min-width: 1440px) {
@@ -402,8 +407,19 @@
   }
 }
 
-@media (max-width: 767px) {
-  .consultation > a {
-    width: 100%;
+@media (max-width: 1023px) {
+  .pageTitle {
+    font-weight: 500;
+  }
+}
+
+@media (min-width: 1024px) {
+  .pageIntro .copy {
+    font-size: 18px;
+  }
+}
+@media (max-width: 1023px) {
+  .stepNumber {
+    font-size: 14px;
   }
 }

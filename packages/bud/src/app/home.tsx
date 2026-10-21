@@ -6,7 +6,11 @@ import { ActionLink, Consultation, Process, ProjectCard, Values } from "../compo
 import { projectPreviews } from "../constants/redesign-projects";
 import styles from "./home.module.css";
 
-const featuredProjects = projectPreviews.slice(0, 4);
+const featuredProjects = projectPreviews
+  .slice(0, 4)
+  .map((project) =>
+    project.projectId === "lodz-gdanska-24" ? { ...project, title: "Mieszkanie w Łodzi" } : project,
+  );
 
 const approachValues = [
   { title: "Zakres od początku", copy: "Wybierasz projekt, wykonanie lub kompleksową współpracę." },
@@ -80,7 +84,9 @@ export function Home() {
           <ActionLink className={styles.heroAction}>Omówmy projekt</ActionLink>
         </div>
         <a className={styles.scrollCue} href="#home-services" aria-label="Poznaj naszą ofertę">
-          ↓
+          {Array.from({ length: 5 }, (_, index) => (
+            <span key={index} />
+          ))}
         </a>
       </section>
       <div className={styles.mobileIntroCta}>

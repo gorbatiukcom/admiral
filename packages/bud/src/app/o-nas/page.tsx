@@ -31,7 +31,7 @@ const values = [
 export default function AboutPage() {
   return (
     <>
-      <section className={`${design.container} ${design.pageIntro}`}>
+      <section className={`${design.container} ${design.pageIntro} ${styles.intro}`}>
         <p className={design.eyebrow}>Budcor Design</p>
         <h1 className={design.pageTitle}>
           Myślimy o całości.
@@ -78,7 +78,10 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-      <section className={`${design.dark} ${design.section}`} aria-labelledby="about-values">
+      <section
+        className={`${design.dark} ${design.section} ${styles.valuesSection}`}
+        aria-labelledby="about-values"
+      >
         <div className={design.container}>
           <p className={design.eyebrow}>Podstawy współpracy</p>
           <h2 className={`${design.heading} ${styles.valuesTitle}`} id="about-values">

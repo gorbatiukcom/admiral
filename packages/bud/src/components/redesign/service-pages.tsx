@@ -18,7 +18,16 @@ export function BulletList({ items }: { items: string[] }) {
         <li key={item} className={serviceScopes[item] ? styles.disclosureItem : undefined}>
           {serviceScopes[item] ? (
             <details>
-              <summary>{item}</summary>
+              <summary>
+                {item === "Rozszerzone plany podłóg, sufitów i instalacji" ? (
+                  <>
+                    <span className={styles.mobileScopeLabel}>Rozszerzone plany i instalacje</span>
+                    <span className={styles.desktopScopeLabel}>{item}</span>
+                  </>
+                ) : (
+                  item
+                )}
+              </summary>
               <p>{serviceScopes[item]}</p>
             </details>
           ) : (
@@ -83,10 +92,20 @@ function ServiceIntro({
   );
 }
 
-function HeroImage({ src, alt }: { src: string; alt: string }) {
+function HeroImage({ src, alt, mobileSrc }: { src: string; alt: string; mobileSrc?: string }) {
   return (
     <div className={`${design.container} ${styles.heroImage}`}>
-      <Image src={src} alt={alt} fill priority sizes="90vw" />
+      <picture>
+        {mobileSrc && <source media="(max-width: 767px)" srcSet={mobileSrc} />}
+        <Image
+          src={src}
+          alt={alt}
+          fill
+          priority={!mobileSrc}
+          loading={mobileSrc ? "eager" : undefined}
+          sizes="90vw"
+        />
+      </picture>
     </div>
   );
 }
@@ -99,8 +118,11 @@ export function FAQ({
   items: { question: string; answer: string }[];
 }) {
   return (
-    <section className={`${design.container} ${design.section}`} aria-label="Najczęstsze pytania">
-      <div className={styles.faq}>
+    <section
+      className={`${design.container} ${design.section} ${!title ? styles.compactFaqSection : ""}`}
+      aria-label="Najczęstsze pytania"
+    >
+      <div className={`${styles.faq} ${!title ? styles.compactFaq : ""}`}>
         {title && <h2 className={design.heading}>{title}</h2>}
         {items.map((item) => (
           <details key={item.question}>
@@ -142,7 +164,7 @@ export function ServicesPage() {
   ];
   return (
     <>
-      <section className={`${design.container} ${design.pageIntro}`}>
+      <section className={`${design.container} ${design.pageIntro} ${styles.overviewIntro}`}>
         <p className={design.eyebrow}>Usługi</p>
         <h1 className={design.pageTitle}>{"Wnętrze.\nOd koncepcji po realizację."}</h1>
         <p className={design.copy}>
@@ -221,7 +243,11 @@ export function InteriorServicePage() {
           </ActionLink>
         </div>
       </ServiceIntro>
-      <HeroImage src="/images/redesign/lublin.webp" alt="Projekt strefy dziennej domu w Lublinie" />
+      <HeroImage
+        src="/images/redesign/interior-hero-desktop.webp"
+        mobileSrc="/images/redesign/interior-hero-mobile.webp"
+        alt="Projekt strefy dziennej domu w Lublinie"
+      />
       <section
         className={`${design.container} ${styles.packagesSection}`}
         aria-labelledby="packages-heading"
@@ -409,7 +435,7 @@ export function TurnkeyServicePage() {
   return (
     <>
       <ServiceIntro
-        eyebrow="03 / Realizacja pod klucz"
+        eyebrow="02 / Realizacja pod klucz"
         title={"Od pomysłu\ndo gotowego wnętrza."}
         description="Projekt, przygotowanie prac i wykonanie w jednym procesie. Dopasowujemy zakres do obiektu, budżetu i tego, ile chcesz powierzyć naszej opiece."
       >

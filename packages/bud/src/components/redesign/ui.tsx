@@ -7,7 +7,9 @@ import styles from "./design.module.css";
 export function Arrow() {
   return (
     <span className={styles.arrow} aria-hidden="true">
-      ↗
+      <svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor" focusable="false">
+        <path d="M1.04896 7.76066L-4.43459e-05 6.71165L5.26487 1.44177H1.26771L1.27765 5.24521e-06H7.75564V6.48296H6.30393L6.31388 2.49077L1.04896 7.76066Z" />
+      </svg>
     </span>
   );
 }

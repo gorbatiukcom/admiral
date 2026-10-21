@@ -31,3 +31,55 @@
     font-size: 28px;
   }
 }
+
+.approach p:not(:first-child),
+.company p,
+.company address {
+  font-family: Arial, sans-serif;
+}
+
+.intro > p:last-child {
+  font-family: Arial, sans-serif;
+}
+.valuesSection p {
+  font-family: Arial, sans-serif;
+}
+.valuesSection h3 {
+  font-size: 18px;
+  line-height: 20.16px;
+}
+@media (max-width: 1023px) {
+  .intro {
+    padding-bottom: 54px;
+  }
+  .approach {
+    padding-bottom: 54px;
+  }
+  .approach h2 {
+    margin-top: 26px;
+  }
+  .valuesSection {
+    padding-top: 72px;
+    padding-bottom: 59px;
+  }
+  .company {
+    padding-bottom: 78px;
+  }
+  .company p:not(:first-child) {
+    font-size: 17px;
+  }
+}
+@media (min-width: 1024px) {
+  .approach {
+    max-width: 1152px;
+    margin-left: var(--gutter);
+    margin-right: auto;
+    gap: 76px;
+  }
+  .company {
+    max-width: 1152px;
+  }
+  .valuesSection h2 + div {
+    margin-inline: 72px;
+  }
+}
