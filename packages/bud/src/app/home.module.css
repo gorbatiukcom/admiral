@@ -4,11 +4,6 @@
   color: white;
   isolation: isolate;
 }
-.hero > img {
-  object-fit: cover;
-  object-position: 32% center;
-  z-index: -2;
-}
 .hero::before {
   content: "";
   position: absolute;
@@ -31,17 +26,8 @@
 .heroTitle span {
   display: block;
 }
-.heroAction {
+.heroAction.heroAction {
   display: none;
-}
-.scrollCue {
-  position: absolute;
-  bottom: 20px;
-  left: calc(50% - 22px);
-  width: 44px;
-  height: 30px;
-  text-align: center;
-  font-size: 24px;
 }
 .mobileIntroCta {
   margin: 14px var(--gutter) 0;
@@ -100,22 +86,22 @@
   margin-top: 18px;
   max-width: 360px;
 }
-.outline {
+.outline.outline {
   margin-top: 28px;
   background: transparent;
   color: var(--ink);
-  border: 0.5px solid #7b8182;
+  border: 1px solid #7b8182;
   min-width: 220px;
   min-height: 44px;
   padding: 10px 22px;
   font-weight: 400;
 }
-.outline:hover {
+.outline.outline:hover {
   background: var(--ink);
   color: white;
   border-color: var(--ink);
 }
-.outline > span {
+.outline.outline > span {
   display: none;
 }
 .introImage {
@@ -152,9 +138,6 @@
     height: min(56.25vw, 900px);
     min-height: 680px;
   }
-  .hero > img {
-    object-position: center;
-  }
   .heroContent {
     bottom: 144px;
   }
@@ -165,7 +148,7 @@
   .heroTitle span:first-child {
     color: var(--blue);
   }
-  .heroAction {
+  .heroAction.heroAction {
     display: inline-flex;
     position: absolute;
     right: 0;
@@ -177,14 +160,11 @@
     min-width: 220px;
     padding-block: 10px;
   }
-  .heroAction:hover {
+  .heroAction.heroAction:hover {
     background: var(--surface);
   }
-  .heroAction span {
+  .heroAction.heroAction span {
     display: none;
-  }
-  .scrollCue {
-    bottom: 42px;
   }
   .mobileIntroCta {
     display: none;
@@ -231,7 +211,7 @@
     grid-column: 2;
     grid-row: 2;
   }
-  .outline {
+  .outline.outline {
     margin-top: 60px;
   }
   .desktopProject {
@@ -319,22 +299,6 @@
   .homeProcess + section {
     padding-block: 32px;
   }
-}
-
-.scrollCue {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  width: 64px;
-  height: 30px;
-  left: calc(50% - 32px);
-}
-.scrollCue span {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: white;
 }
 .mobileIntroCta a {
   min-height: 55px;
@@ -446,7 +410,7 @@
     color: var(--ink);
     font-size: 16px;
     font-weight: 400;
-    border: 0.5px solid #7b8182;
+    border: 1px solid #7b8182;
     min-height: 44px;
     padding: 10px 22px;
   }
@@ -509,7 +473,7 @@
     padding-bottom: 41px;
   }
 }
-.outline {
+.outline.outline {
   font-size: 16px;
   line-height: 24px;
   font-weight: 300;
@@ -530,7 +494,7 @@
   }
 }
 @media (min-width: 1024px) {
-  .heroAction {
+  .heroAction.heroAction {
     font-size: 18px;
     line-height: 24px;
     font-weight: 400;
@@ -539,4 +503,85 @@
 }
 .homeProcess {
   --step-copy-font: var(--font-inter);
+}
+
+.heroSlides {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  touch-action: pan-y;
+}
+.heroSlide {
+  position: absolute;
+  inset: 0;
+  opacity: 1;
+  transition: opacity 600ms ease;
+}
+.heroSlide[aria-hidden="true"] {
+  opacity: 0;
+  pointer-events: none;
+}
+.heroSlide img {
+  object-fit: cover;
+  object-position: center;
+}
+.hero::before {
+  pointer-events: none;
+  background: linear-gradient(0deg, rgb(0 0 0 / 60%), rgb(0 0 0 / 10%) 70%);
+}
+.heroTitle span:first-child {
+  color: var(--blue);
+}
+.sliderControls {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+}
+.sliderControls button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 44px;
+  border: 0;
+  color: white;
+  background: transparent;
+  cursor: pointer;
+  font-size: 24px;
+}
+.sliderDots {
+  display: flex;
+}
+.sliderDots button {
+  width: 26px;
+}
+.sliderDots span {
+  width: 8px;
+  height: 8px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.45;
+}
+.sliderDots [aria-pressed="true"] span {
+  opacity: 1;
+  outline: 1px solid white;
+  outline-offset: 3px;
+}
+@media (max-width: 1023px) {
+  .homeProcess li {
+    grid-template-columns: 28px minmax(0, 1fr);
+  }
+  .homeProcess li > span {
+    grid-row: 1;
+    align-self: center;
+    padding: 0;
+    white-space: nowrap;
+    text-align: center;
+  }
+  .homeProcess li > p {
+    grid-column: 2;
+  }
 }

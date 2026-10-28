@@ -15,17 +15,10 @@ const navigation = [
   { href: "/contacts", label: "Kontakty" },
 ];
 
-function Logo({ legacy = false }: { legacy?: boolean }) {
+function Logo() {
   return (
     <Link href="/" className={styles.logo} aria-label="Budcor Design — strona główna">
-      {legacy ? (
-        <>
-          <span className={styles.wordmark}>budcor</span>
-          <span className={styles.design}>DESIGN</span>
-        </>
-      ) : (
-        <span className={styles.logoGraphic} aria-hidden="true" />
-      )}
+      <span className={styles.logoGraphic} aria-hidden="true" />
     </Link>
   );
 }
@@ -139,12 +132,6 @@ export function SiteShell({ children }: { children: ReactNode }) {
         </div>
         <nav className={styles.mobileNav} aria-label="Menu mobilne">
           {links}
-          <Link href="/o-nas" onClick={closeMenu}>
-            O nas
-          </Link>
-          <Link href="/blog" onClick={closeMenu}>
-            Blog
-          </Link>
         </nav>
         <div className={styles.menuContact}>
           <a href="tel:+48794510151">+48 794 510 151</a>
@@ -161,7 +148,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
       </main>
       <footer className={styles.footer}>
         <div className={styles.footerTop}>
-          <Logo legacy={pathname !== "/"} />
+          <Logo />
           <p className={styles.footerTagline}>
             Od pierwszej rozmowy
             <br />
@@ -172,6 +159,23 @@ export function SiteShell({ children }: { children: ReactNode }) {
             <Arrow />
           </Link>
         </div>
+        <nav className={styles.footerNav} aria-label="Nawigacja w stopce">
+          <div>
+            <h2>Budcor Design</h2>
+            <Link href="/">Strona główna</Link>
+            <Link href="/o-nas">O nas</Link>
+            <Link href="/portfolio">Portfolio</Link>
+            <Link href="/contacts">Kontakt</Link>
+            <Link href="/blog">Porady i inspiracje</Link>
+          </div>
+          <div>
+            <h2>Nasze usługi</h2>
+            <Link href="/uslugi">Wszystkie usługi</Link>
+            <Link href="/uslugi/projektowanie-wnetrz">Projektowanie wnętrz</Link>
+            <Link href="/uslugi/uslugi-budowlane">Remonty i wykończenia</Link>
+            <Link href="/uslugi/remont-pod-klucz">Realizacja pod klucz</Link>
+          </div>
+        </nav>
         <div className={styles.footerBottom}>
           <p>© {new Date().getFullYear()} Budcor Design</p>
           <p>Volantes Sp. z o.o. · NIP 7252306713</p>

@@ -199,10 +199,10 @@ export function ContactForm({
       ...(review.message ? [["Kilka słów o planach", review.message]] : []),
     ];
     return (
-      <section className={styles.panel} aria-labelledby="review-heading">
-        <h2 className={styles.panelTitle} id="review-heading" tabIndex={-1} ref={reviewHeading}>
+      <section className={styles.panel} aria-labelledby="review-heading" data-contact-review>
+        <h1 className={styles.panelTitle} id="review-heading" tabIndex={-1} ref={reviewHeading}>
           Sprawdź swoje zgłoszenie.
-        </h2>
+        </h1>
         <p className={styles.panelNote}>
           Sprawdź dane i wyślij wiadomość. Skontaktujemy się z Tobą, aby omówić szczegóły.
         </p>

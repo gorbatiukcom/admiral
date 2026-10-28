@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import design from "../../../components/redesign/design.module.css";
 import { BulletList } from "../../../components/redesign/service-pages";
 import { ActionLink, Consultation } from "../../../components/redesign/ui";
+import imageSizes from "../../../constants/portfolio-image-sizes.json";
 import { redesignProjects } from "../../../constants/redesign-projects";
 import { ProjectGallery } from "./gallery";
 import styles from "./project.module.css";
@@ -16,9 +17,6 @@ export default async function Project({ params }: Props) {
   if (!project) notFound();
   const isGdanska = projectId === "lodz-gdanska-24";
   const images = project.images?.length ? project.images : [project.image];
-  const featured = isGdanska
-    ? ["/images/redesign/gdanska-detail.webp", "/images/redesign/gdanska-detail-2.webp"]
-    : images.slice(0, 2);
   return (
     <>
       <section className={`${design.container} ${styles.intro}`}>
@@ -39,19 +37,6 @@ export default async function Project({ params }: Props) {
           sizes="90vw"
         />
       </div>
-      <dl className={`${design.container} ${styles.facts}`}>
-        {[
-          { label: "Lokalizacja", value: project.location },
-          { label: "Powierzchnia / zakres", value: project.area },
-          { label: "Prezentacja", value: project.tag },
-          { label: "Portfolio", value: "Budcor Design" },
-        ].map((fact) => (
-          <div key={fact.label}>
-            <dt>{fact.label}</dt>
-            <dd>{fact.value}</dd>
-          </div>
-        ))}
-      </dl>
       <div className={`${design.container} ${styles.mobileInquiry}`}>
         <ActionLink />
       </div>
@@ -84,7 +69,13 @@ export default async function Project({ params }: Props) {
           )}
         </div>
       </section>
-      <ProjectGallery title={project.title} featured={featured} images={images} />
+      <ProjectGallery
+        title={project.title}
+        images={Array.from(new Set(images)).map((src) => ({
+          src,
+          ...imageSizes[src as keyof typeof imageSizes],
+        }))}
+      />
       <Consultation
         title="Myślisz o podobnym wnętrzu?"
         description="Porozmawiajmy o Twojej przestrzeni i zakresie współpracy."

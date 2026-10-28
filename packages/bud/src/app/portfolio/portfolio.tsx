@@ -20,7 +20,12 @@ export function Portfolio({
   projects: (ProjectPreview & { category: ProjectCategory })[];
 }) {
   const [category, setCategory] = useState<ProjectCategory | "all">("all");
-  const visible = projects.filter((project) => category === "all" || category === project.category);
+  const visible = projects
+    .filter((project) => category === "all" || category === project.category)
+    .sort(
+      (a, b) =>
+        Number(a.projectId === "lodz-gdanska-24") - Number(b.projectId === "lodz-gdanska-24"),
+    );
   const countLabel =
     visible.length === 1
       ? "projekt"

@@ -6,138 +6,186 @@ import { useEffect, useRef, useState } from "react";
 import design from "../../../components/redesign/design.module.css";
 import styles from "./project.module.css";
 
-export function ProjectGallery({
-  title,
-  featured,
-  images,
-}: {
-  title: string;
-  featured: string[];
-  images: string[];
-}) {
-  const allImages = Array.from(new Set([...featured, ...images]));
+type Photo = { src: string; width: number; height: number };
+
+function Chevron({ next = false }: { next?: boolean }) {
+  return (
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      aria-hidden="true"
+    >
+      <path d={next ? "m9 5 7 7-7 7" : "m15 5-7 7 7 7"} />
+    </svg>
+  );
+}
+
+export function ProjectGallery({ title, images }: { title: string; images: Photo[] }) {
   const dialog = useRef<HTMLDialogElement>(null);
+  const slider = useRef<HTMLDivElement>(null);
+  const trigger = useRef<HTMLButtonElement | null>(null);
   const [active, setActive] = useState<number | null>(null);
-  const [expanded, setExpanded] = useState(false);
-  function open(src: string) {
-    setActive(allImages.indexOf(src));
+  const isOpen = active !== null;
+  function open(index: number, button: HTMLButtonElement) {
+    trigger.current = button;
+    setActive(index);
     dialog.current?.showModal();
+    requestAnimationFrame(() => {
+      if (slider.current)
+        slider.current.scrollTo({ left: index * slider.current.clientWidth, behavior: "instant" });
+    });
+  }
+  function finishClose() {
+    setActive(null);
+    trigger.current?.focus({ preventScroll: true });
   }
   function close() {
     dialog.current?.close();
-    setActive(null);
+    finishClose();
   }
   function move(direction: number) {
-    setActive((index) => ((index ?? 0) + direction + allImages.length) % allImages.length);
+    const index = ((active ?? 0) + direction + images.length) % images.length;
+    slider.current?.scrollTo({
+      left: index * slider.current.clientWidth,
+      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+        ? "instant"
+        : "smooth",
+    });
   }
   useEffect(() => {
-    if (active === null) return;
+    if (!isOpen) return;
     const previous = document.body.style.overflow;
     document.body.style.overflow = "hidden";
+    const resize = () => {
+      const current = slider.current;
+      if (current)
+        current.scrollTo({
+          left: Number(current.dataset.active || 0) * current.clientWidth,
+          behavior: "instant",
+        });
+    };
+    window.addEventListener("resize", resize);
     return () => {
       document.body.style.overflow = previous;
+      window.removeEventListener("resize", resize);
     };
-  }, [active]);
+  }, [isOpen]);
 
   return (
-    <div className={design.container}>
-      <div className={styles.featuredGallery}>
-        {featured.map((src, index) => (
+    <section className={design.container} aria-label={`Zdjęcia projektu: ${title}`}>
+      <div className={styles.photoGrid}>
+        {images.map((photo, index) => (
           <button
             type="button"
-            key={src}
-            className={styles.galleryImage}
-            onClick={() => open(src)}
+            key={photo.src}
+            className={styles.photoTile}
+            onClick={(event) => open(index, event.currentTarget)}
             aria-label={`Powiększ zdjęcie ${index + 1}: ${title}`}
           >
             <Image
-              src={src}
-              alt={`${title} — detal ${index + 1}`}
-              fill
-              sizes="(min-width: 768px) 44vw, 100vw"
+              src={photo.src}
+              alt={`${title} — zdjęcie ${index + 1}`}
+              width={photo.width}
+              height={photo.height}
+              sizes="(min-width: 1440px) 22vw, (min-width: 1024px) 30vw, 45vw"
             />
           </button>
         ))}
       </div>
-      <p className={styles.caption}>Projekt z portfolio Budcor Design.</p>
-      <button
-        type="button"
-        className={`${design.textLink} ${styles.expandGallery}`}
-        aria-expanded={expanded}
-        aria-controls="project-all-images"
-        onClick={() => setExpanded(!expanded)}
-      >
-        {expanded ? "Zwiń galerię" : `Zobacz wszystkie zdjęcia (${images.length})`}
-        <span aria-hidden="true">{expanded ? "−" : "+"}</span>
-      </button>
-      {expanded && (
-        <div id="project-all-images" className={styles.thumbnails}>
-          {images.map((src, index) => (
-            <button
-              type="button"
-              key={src}
-              onClick={() => open(src)}
-              aria-label={`Powiększ zdjęcie z galerii ${index + 1}`}
-            >
-              <Image
-                src={src}
-                alt={`${title} — zdjęcie ${index + 1}`}
-                fill
-                sizes="(min-width: 768px) 22vw, 44vw"
-              />
-            </button>
-          ))}
-        </div>
-      )}
       <dialog
         ref={dialog}
         className={styles.lightbox}
         aria-label={`Galeria: ${title}`}
-        onClose={() => setActive(null)}
+        onClose={() => {
+          if (!dialog.current?.open) finishClose();
+        }}
+        onCancel={(event) => {
+          event.preventDefault();
+          close();
+        }}
         onKeyDown={(event) => {
-          if (event.key === "ArrowRight") {
+          if (event.key === "ArrowRight" || event.key === "ArrowLeft") {
             event.preventDefault();
-            move(1);
-          }
-          if (event.key === "ArrowLeft") {
-            event.preventDefault();
-            move(-1);
+            move(event.key === "ArrowRight" ? 1 : -1);
           }
         }}
       >
-        <button
-          type="button"
-          autoFocus
-          className={styles.lightboxClose}
-          onClick={close}
-          aria-label="Zamknij zdjęcie"
-        >
-          ×
-        </button>
-        {active !== null && (
+        <div className={styles.viewerHeader}>
+          <p>{title}</p>
+          <button
+            type="button"
+            autoFocus
+            className={styles.viewerButton}
+            onClick={close}
+            aria-label="Zamknij zdjęcie"
+          >
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              aria-hidden="true"
+            >
+              <path d="m6 6 12 12M6 18 18 6" />
+            </svg>
+          </button>
+        </div>
+        {isOpen && (
           <>
-            <div className={styles.lightboxImage}>
-              <Image
-                src={allImages[active]}
-                alt={`${title} — zdjęcie ${active + 1}`}
-                fill
-                sizes="100vw"
-              />
+            <div
+              ref={slider}
+              className={styles.viewerSlides}
+              data-active={active}
+              onScroll={(event) => {
+                const element = event.currentTarget;
+                setActive(Math.round(element.scrollLeft / element.clientWidth));
+              }}
+            >
+              {images.map((photo, index) => (
+                <div className={styles.viewerSlide} key={photo.src} aria-hidden={active !== index}>
+                  <Image
+                    src={photo.src}
+                    alt={`${title} — zdjęcie ${index + 1}`}
+                    fill
+                    sizes="100vw"
+                    loading={Math.abs(index - (active ?? 0)) <= 1 ? "eager" : "lazy"}
+                  />
+                </div>
+              ))}
             </div>
-            <div className={styles.lightboxControls}>
-              <button type="button" onClick={() => move(-1)} aria-label="Poprzednie zdjęcie">
-                ←
+            <div className={styles.viewerControls}>
+              <button
+                type="button"
+                className={styles.viewerButton}
+                onClick={() => move(-1)}
+                aria-label="Poprzednie zdjęcie"
+              >
+                <Chevron />
               </button>
-              <p role="status">
-                {active + 1} / {allImages.length}
-              </p>
-              <button type="button" onClick={() => move(1)} aria-label="Następne zdjęcie">
-                →
+              <div>
+                <p role="status" aria-live="polite">
+                  {(active ?? 0) + 1} / {images.length}
+                </p>
+                <span>Przesuń, aby zobaczyć więcej</span>
+              </div>
+              <button
+                type="button"
+                className={styles.viewerButton}
+                onClick={() => move(1)}
+                aria-label="Następne zdjęcie"
+              >
+                <Chevron next />
               </button>
             </div>
           </>
         )}
       </dialog>
-    </div>
+    </section>
   );
 }

@@ -77,7 +77,7 @@
   margin: 32px 0;
   width: 100%;
 }
-.list li {
+.list > li {
   display: flex;
   gap: 15px;
   border-bottom: 1px solid var(--line);
@@ -85,7 +85,7 @@
   font-size: 14px;
   line-height: 1.6;
 }
-.list li::before {
+.list > li::before {
   content: "+";
   color: var(--blue);
   flex-shrink: 0;
@@ -317,7 +317,7 @@
 .overviewIntro h1 {
   letter-spacing: -0.0689em;
 }
-.list li {
+.list > li {
   font-size: 16px;
   line-height: 22.4px;
 }
@@ -537,4 +537,202 @@
   .compactFaqSection {
     padding-bottom: 0;
   }
+}
+
+/* Shared content edges for service cards, descriptions and disclosure rows. */
+.list > li:not(.disclosureItem)::before {
+  content: none;
+}
+.list > li:not(.disclosureItem)::after {
+  content: "+";
+  color: var(--blue);
+  margin-left: auto;
+  flex-shrink: 0;
+}
+.disclosureItem summary,
+.card .disclosureItem summary,
+.quoteCard .disclosureItem summary {
+  padding: 14px 32px 14px 0;
+}
+.disclosureItem summary::before,
+.card .disclosureItem summary::before,
+.quoteCard .disclosureItem summary::before {
+  left: auto;
+  right: 0;
+  top: 12px;
+}
+.disclosureItem details p,
+.card .disclosureItem details > p {
+  padding: 0 32px 18px 0;
+}
+.scopeTrigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  width: 100%;
+  min-height: 50px;
+  padding: 14px 0;
+  border: 0;
+  background: transparent;
+  text-align: left;
+  color: var(--ink);
+  cursor: pointer;
+}
+.scopeTrigger > span {
+  color: var(--blue);
+  font-size: 24px;
+  line-height: 1;
+}
+.packageDrawer {
+  position: fixed;
+  inset: auto 0 0;
+  width: 100%;
+  max-width: 720px;
+  max-height: 90dvh;
+  margin: 0 auto;
+  padding: 0;
+  border: 0;
+  border-radius: 14px 14px 0 0;
+  background: var(--surface);
+  color: var(--ink);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+.packageDrawer::backdrop {
+  background: rgb(23 32 37 / 45%);
+  backdrop-filter: blur(3px);
+}
+.drawerHeader {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 22px;
+  border-bottom: 1px solid var(--line);
+  background: var(--surface);
+}
+.drawerHeader p {
+  color: var(--blue);
+  font-size: 10px;
+}
+.drawerHeader h2 {
+  font-size: 30px;
+  line-height: 1.2;
+  font-weight: 500;
+  margin-top: 10px;
+}
+.drawerClose {
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+  font-size: 28px;
+  line-height: 1;
+}
+.drawerContent {
+  padding: 28px 22px 0;
+}
+.drawerContent section + section {
+  margin-top: 32px;
+}
+.drawerContent h3 {
+  font-size: 17px;
+  font-weight: 500;
+  margin-bottom: 18px;
+}
+.drawerContent ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.drawerContent li {
+  position: relative;
+  padding: 12px 0 12px 22px;
+  border-bottom: 1px solid var(--line);
+  font-size: 14px;
+  line-height: 1.6;
+}
+.drawerContent li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--blue);
+}
+.drawerFooter {
+  position: sticky;
+  bottom: 0;
+  background: var(--surface);
+  padding: 24px 22px max(24px, env(safe-area-inset-bottom));
+}
+.drawerFooter button {
+  width: 100%;
+}
+.turnkeyProject > div:first-child > div:last-child {
+  margin-top: 0;
+}
+.turnkeyProject > div:first-child > div:last-child a {
+  border-bottom: 0;
+}
+@media (max-width: 1023px) {
+  .card {
+    padding: 28px 0;
+  }
+  .card .list,
+  .packagesSection .cardDescription {
+    margin-left: 0;
+    width: 100%;
+  }
+  .quoteCard h3,
+  .quoteCard > p {
+    margin-inline: 0;
+  }
+  .twoCards .card {
+    align-items: flex-start;
+  }
+}
+@media (min-width: 1024px) {
+  .twoCards {
+    gap: 32px;
+  }
+  .twoCards .card {
+    padding: 40px;
+    align-items: flex-start;
+  }
+  .twoCards .cardTitle,
+  .twoCards .cardDescription {
+    text-align: left;
+  }
+  .turnkeyProject {
+    grid-template-columns: minmax(0, 531fr) minmax(0, 731fr);
+    gap: 36px;
+  }
+  .turnkeyProject > div:first-child {
+    padding-block: 0;
+  }
+  .turnkeyProject .projectFeatureImage {
+    height: auto;
+    aspect-ratio: 731 / 550;
+  }
+  .turnkeyProject h2 {
+    font-weight: 400;
+    font-size: clamp(32px, 3.11vw, 44.8px);
+  }
+  .turnkeyProject > div:first-child > p:last-of-type {
+    font-size: 16px;
+  }
+}
+
+.content.content {
+  max-width: 1152px;
+}
+.heroImage.content,
+.turnkeyProject.content {
+  max-width: 1296px;
 }

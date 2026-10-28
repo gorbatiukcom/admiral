@@ -263,3 +263,25 @@
     font-family: Arial, sans-serif;
   }
 }
+
+.layout:has([data-contact-review]) {
+  display: block;
+  max-width: 680px;
+  margin-inline: auto;
+}
+.layout:has([data-contact-review]) > .intro {
+  display: none;
+}
+@media (min-width: 1024px) {
+  .layout {
+    width: calc(100% - var(--gutter) * 2);
+    max-width: 1152px;
+    margin-inline: auto;
+    gap: clamp(40px, 5vw, 85px);
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  }
+  .title {
+    white-space: normal;
+    font-size: clamp(38px, 4.1vw, 61px);
+  }
+}

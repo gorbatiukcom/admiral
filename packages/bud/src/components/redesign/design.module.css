@@ -419,7 +419,18 @@
   }
 }
 @media (max-width: 1023px) {
+  .step {
+    grid-template-columns: 28px minmax(0, 1fr);
+  }
   .stepNumber {
     font-size: 14px;
+    grid-row: 1;
+    align-self: center;
+    padding-top: 0;
+    white-space: nowrap;
+    text-align: center;
+  }
+  .step .copy {
+    grid-column: 2;
   }
 }

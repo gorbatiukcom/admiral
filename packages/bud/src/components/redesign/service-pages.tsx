@@ -3,6 +3,7 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 
 import design from "./design.module.css";
+import { PackageDrawer } from "./package-drawer";
 import { serviceScopes } from "./service-scopes";
 import styles from "./services.module.css";
 import { ActionLink, Consultation, Process, Values } from "./ui";
@@ -16,7 +17,11 @@ export function BulletList({ items }: { items: string[] }) {
     <ul className={styles.list}>
       {items.map((item) => (
         <li key={item} className={serviceScopes[item] ? styles.disclosureItem : undefined}>
-          {serviceScopes[item] ? (
+          {item.startsWith("Zakres pakietu ") ? (
+            <PackageDrawer
+              name={item.replace("Zakres pakietu ", "") as "Smart" | "Comfort" | "Prestige"}
+            />
+          ) : serviceScopes[item] ? (
             <details>
               <summary>
                 {item === "Rozszerzone plany podłóg, sufitów i instalacji" ? (
@@ -80,7 +85,7 @@ function ServiceIntro({
   children?: ReactNode;
 }) {
   return (
-    <section className={`${design.container} ${styles.serviceIntro}`}>
+    <section className={`${design.container} ${styles.content} ${styles.serviceIntro}`}>
       <Link href="/uslugi" className={styles.back}>
         ← Wszystkie usługi
       </Link>
@@ -94,7 +99,7 @@ function ServiceIntro({
 
 function HeroImage({ src, alt, mobileSrc }: { src: string; alt: string; mobileSrc?: string }) {
   return (
-    <div className={`${design.container} ${styles.heroImage}`}>
+    <div className={`${design.container} ${styles.content} ${styles.heroImage}`}>
       <picture>
         {mobileSrc && <source media="(max-width: 767px)" srcSet={mobileSrc} />}
         <Image
@@ -119,7 +124,7 @@ export function FAQ({
 }) {
   return (
     <section
-      className={`${design.container} ${design.section} ${!title ? styles.compactFaqSection : ""}`}
+      className={`${design.container} ${styles.content} ${design.section} ${!title ? styles.compactFaqSection : ""}`}
       aria-label="Najczęstsze pytania"
     >
       <div className={`${styles.faq} ${!title ? styles.compactFaq : ""}`}>
@@ -164,7 +169,9 @@ export function ServicesPage() {
   ];
   return (
     <>
-      <section className={`${design.container} ${design.pageIntro} ${styles.overviewIntro}`}>
+      <section
+        className={`${design.container} ${styles.content} ${design.pageIntro} ${styles.overviewIntro}`}
+      >
         <p className={design.eyebrow}>Usługi</p>
         <h1 className={design.pageTitle}>{"Wnętrze.\nOd koncepcji po realizację."}</h1>
         <p className={design.copy}>
@@ -249,7 +256,7 @@ export function InteriorServicePage() {
         alt="Projekt strefy dziennej domu w Lublinie"
       />
       <section
-        className={`${design.container} ${styles.packagesSection}`}
+        className={`${design.container} ${styles.content} ${styles.packagesSection}`}
         aria-labelledby="packages-heading"
       >
         <div className={design.sectionHead}>
@@ -274,7 +281,7 @@ export function InteriorServicePage() {
         className={`${design.dark} ${design.section}`}
         aria-labelledby="before-start-heading"
       >
-        <div className={`${design.container} ${styles.twoColumn}`}>
+        <div className={`${design.container} ${styles.content} ${styles.twoColumn}`}>
           <div>
             <p className={design.eyebrow}>Przed rozpoczęciem</p>
             <h2 className={design.heading} id="before-start-heading">
@@ -375,7 +382,7 @@ export function RenovationsServicePage() {
         <Cards cards={cards} />
       </section>
       <section className={`${design.dark} ${design.section}`} aria-labelledby="renovation-approach">
-        <div className={`${design.container} ${styles.twoColumn}`}>
+        <div className={`${design.container} ${styles.content} ${styles.twoColumn}`}>
           <div>
             <p className={design.eyebrow}>Od ustaleń do realizacji</p>
             <h2 className={design.heading} id="renovation-approach">
@@ -399,7 +406,10 @@ export function RenovationsServicePage() {
           </div>
         </div>
       </section>
-      <section className={`${design.container} ${design.section}`} aria-labelledby="quote-heading">
+      <section
+        className={`${design.container} ${styles.content} ${design.section}`}
+        aria-labelledby="quote-heading"
+      >
         <div className={design.sectionHead}>
           <h2 className={design.heading} id="quote-heading">
             Co wpływa na wycenę?
@@ -447,7 +457,10 @@ export function TurnkeyServicePage() {
         src="/images/redesign/gdanska.webp"
         alt="Zrealizowane mieszkanie przy Gdańskiej w Łodzi"
       />
-      <section className={`${design.container} ${design.section}`} aria-labelledby="scope-heading">
+      <section
+        className={`${design.container} ${styles.content} ${design.section}`}
+        aria-labelledby="scope-heading"
+      >
         <div className={design.sectionHead}>
           <div>
             <p className={design.eyebrow}>Zakres i budżet</p>
@@ -499,7 +512,9 @@ export function TurnkeyServicePage() {
         </aside>
       </section>
       <section className={`${design.dark} ${design.section}`} aria-labelledby="turnkey-project">
-        <div className={`${design.container} ${design.split}`}>
+        <div
+          className={`${design.container} ${styles.content} ${design.split} ${styles.turnkeyProject}`}
+        >
           <div className={design.splitContent}>
             <p className={design.eyebrow}>Realizacja / Łódź / 102 m²</p>
             <h2 className={design.heading} id="turnkey-project">
@@ -518,12 +533,18 @@ export function TurnkeyServicePage() {
             </div>
           </div>
           <div className={`${design.splitImage} ${styles.projectFeatureImage}`}>
-            <Image
-              src="/images/redesign/gdanska-detail.webp"
-              alt="Detal zrealizowanego mieszkania w Łodzi"
-              fill
-              sizes="(min-width: 1024px) 42vw, 100vw"
-            />
+            <picture>
+              <source
+                media="(max-width: 1023px)"
+                srcSet="/images/redesign/turnkey-project-mobile.webp"
+              />
+              <Image
+                src="/images/redesign/turnkey-project-desktop.webp"
+                alt="Odnowiony korytarz mieszkania przy Gdańskiej w Łodzi"
+                fill
+                sizes="(min-width: 1024px) 51vw, 90vw"
+              />
+            </picture>
           </div>
         </div>
       </section>

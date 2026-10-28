@@ -4,6 +4,7 @@ import Link from "next/link";
 import design from "../components/redesign/design.module.css";
 import { ActionLink, Consultation, Process, ProjectCard, Values } from "../components/redesign/ui";
 import { projectPreviews } from "../constants/redesign-projects";
+import { HeroSlider } from "./hero-slider";
 import styles from "./home.module.css";
 
 const featuredProjects = projectPreviews
@@ -61,13 +62,7 @@ export function Home() {
   return (
     <>
       <section className={styles.hero} aria-labelledby="home-heading">
-        <Image
-          src="/images/redesign/home-background.webp"
-          alt="Elegancki salon z marmurową ścianą i drewnianą zabudową"
-          fill
-          priority
-          sizes="100vw"
-        />
+        <HeroSlider />
         <div className={styles.heroContent}>
           <h1 className={styles.heroTitle} id="home-heading">
             <span>
@@ -83,11 +78,6 @@ export function Home() {
           </h1>
           <ActionLink className={styles.heroAction}>Omówmy projekt</ActionLink>
         </div>
-        <a className={styles.scrollCue} href="#home-services" aria-label="Poznaj naszą ofertę">
-          {Array.from({ length: 5 }, (_, index) => (
-            <span key={index} />
-          ))}
-        </a>
       </section>
       <div className={styles.mobileIntroCta}>
         <ActionLink />
