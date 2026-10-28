@@ -2,6 +2,7 @@
 
 import { useEffect, useId, useRef, useState } from "react";
 
+import { CloseIcon } from "./close-icon";
 import design from "./design.module.css";
 import { packageScopes } from "./package-scopes";
 import styles from "./services.module.css";
@@ -82,7 +83,7 @@ export function PackageDrawer({ name }: { name: keyof typeof packageScopes }) {
             onClick={close}
             className={styles.drawerClose}
           >
-            ×
+            <CloseIcon />
           </button>
         </div>
         <div className={styles.drawerContent}>

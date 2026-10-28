@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { type ReactNode, useEffect, useRef, useState } from "react";
 
+import { CloseIcon } from "./close-icon";
 import design from "./design.module.css";
 import styles from "./site-shell.module.css";
 import { ActionLink, Arrow } from "./ui";
@@ -127,7 +128,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
             aria-label="Zamknij menu"
             onClick={closeMenu}
           >
-            ×
+            <CloseIcon />
           </button>
         </div>
         <nav className={styles.mobileNav} aria-label="Menu mobilne">

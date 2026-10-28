@@ -534,41 +534,40 @@
 }
 .sliderControls {
   position: absolute;
-  bottom: 12px;
+  bottom: 16px;
   left: 50%;
   transform: translateX(-50%);
-  display: flex;
-  align-items: center;
-}
-.sliderControls button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 44px;
-  border: 0;
-  color: white;
-  background: transparent;
-  cursor: pointer;
-  font-size: 24px;
 }
 .sliderDots {
   display: flex;
 }
 .sliderDots button {
-  width: 26px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+}
+.sliderDots button:focus-visible {
+  outline: 2px solid white;
+  outline-offset: -4px;
 }
 .sliderDots span {
+  display: block;
   width: 8px;
   height: 8px;
-  background: white;
   border-radius: 50%;
-  opacity: 0.45;
+  background: white;
+  opacity: 0.4;
+  transition: opacity 180ms ease;
 }
 .sliderDots [aria-pressed="true"] span {
   opacity: 1;
-  outline: 1px solid white;
-  outline-offset: 3px;
 }
 @media (max-width: 1023px) {
   .homeProcess li {

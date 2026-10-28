@@ -124,7 +124,7 @@
 }
 .actions {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   flex-wrap: wrap;
   gap: 20px 25px;
   margin-top: 26px;

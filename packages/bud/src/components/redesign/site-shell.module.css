@@ -386,3 +386,55 @@
     font-size: 14px;
   }
 }
+
+.dialog[open] {
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+}
+.dialog .header {
+  flex: 0 0 100px;
+  height: 100px;
+}
+.dialog .header > .closeButton {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  width: 48px;
+  height: 48px;
+  margin: 0;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--ink);
+}
+.dialog .header > .closeButton:hover {
+  background: #e8ebe7;
+  border-color: var(--ink);
+}
+.closeButton svg {
+  display: block;
+}
+.mobileNav {
+  flex: 1 0 auto;
+  justify-content: center;
+  gap: 2px;
+  padding-block: 24px;
+}
+.mobileNav a {
+  font-size: clamp(28px, 7vw, 34px);
+  padding-block: 10px;
+}
+.menuContact {
+  flex-shrink: 0;
+  margin-top: auto;
+  gap: 12px;
+  padding: 20px var(--gutter) max(24px, env(safe-area-inset-bottom));
+}
+.menuContact > a:last-child {
+  width: 100%;
+  margin-top: 4px;
+}

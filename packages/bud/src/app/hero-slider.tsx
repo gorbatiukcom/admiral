@@ -15,20 +15,18 @@ const slides = [
 
 export function HeroSlider() {
   const [active, setActive] = useState(0);
-  const [paused, setPaused] = useState(false);
   const touch = useRef<{ x: number; y: number } | null>(null);
   useEffect(() => {
     const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
-    if (paused || motion.matches) return;
+    if (motion.matches) return;
     const timer = window.setInterval(() => {
       if (!document.hidden && !motion.matches) setActive((index) => (index + 1) % slides.length);
     }, 6000);
     return () => window.clearInterval(timer);
-  }, [paused, active]);
+  }, [active]);
 
   function select(index: number) {
     setActive((index + slides.length) % slides.length);
-    setPaused(true);
   }
   return (
     <>
@@ -65,10 +63,24 @@ export function HeroSlider() {
         ))}
       </div>
       <div className={styles.sliderControls}>
-        <button type="button" onClick={() => select(active - 1)} aria-label="Poprzedni slajd">
-          ‹
-        </button>
-        <div className={styles.sliderDots} role="group" aria-label="Wybierz slajd">
+        <div
+          className={styles.sliderDots}
+          role="group"
+          aria-label="Wybierz slajd"
+          onKeyDown={(event) => {
+            if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) return;
+            event.preventDefault();
+            const next =
+              event.key === "Home"
+                ? 0
+                : event.key === "End"
+                  ? slides.length - 1
+                  : (active + (event.key === "ArrowRight" ? 1 : -1) + slides.length) %
+                    slides.length;
+            select(next);
+            event.currentTarget.querySelectorAll("button")[next]?.focus();
+          }}
+        >
           {slides.map((slide, index) => (
             <button
               key={slide.src}
@@ -81,16 +93,6 @@ export function HeroSlider() {
             </button>
           ))}
         </div>
-        <button type="button" onClick={() => select(active + 1)} aria-label="Następny slajd">
-          ›
-        </button>
-        <button
-          type="button"
-          onClick={() => setPaused(!paused)}
-          aria-label={paused ? "Wznów pokaz slajdów" : "Wstrzymaj pokaz slajdów"}
-        >
-          {paused ? "▷" : "Ⅱ"}
-        </button>
       </div>
     </>
   );

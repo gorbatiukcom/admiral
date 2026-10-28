@@ -243,7 +243,7 @@ export function InteriorServicePage() {
         title={"Najpierw Twoje życie.\nPotem układ wnętrza."}
         description="Dobry projekt zaczyna się od tego, jak mieszkasz. Porządkujemy potrzeby, funkcje, materiały i detale, aby stworzyć spójną przestrzeń."
       >
-        <div className={design.actions}>
+        <div className={`${design.actions} ${styles.introActions}`}>
           <ActionLink href={inquiry("projektowanie")}>Porozmawiaj o projekcie</ActionLink>
           <ActionLink href="/portfolio" variant="text">
             Zobacz portfolio
@@ -374,7 +374,7 @@ export function RenovationsServicePage() {
         title={"Pełny remont.\nDopracowany efekt."}
         description="Kompleksowo remontujemy mieszkania i domy. Łączymy uzgodnione rozwiązania, sprawną organizację i precyzyjne wykonanie."
       >
-        <div className={design.actions}>
+        <div className={`${design.actions} ${styles.introActions}`}>
           <ActionLink href={inquiry("remont")}>Omów zakres remontu</ActionLink>
         </div>
       </ServiceIntro>
@@ -449,7 +449,7 @@ export function TurnkeyServicePage() {
         title={"Od pomysłu\ndo gotowego wnętrza."}
         description="Projekt, przygotowanie prac i wykonanie w jednym procesie. Dopasowujemy zakres do obiektu, budżetu i tego, ile chcesz powierzyć naszej opiece."
       >
-        <div className={design.actions}>
+        <div className={`${design.actions} ${styles.introActions}`}>
           <ActionLink href={inquiry("pod-klucz")}>Omów realizację</ActionLink>
         </div>
       </ServiceIntro>
